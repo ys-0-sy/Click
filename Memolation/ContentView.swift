@@ -7,30 +7,52 @@
 //
 
 import SwiftUI
-
 struct ContentView: View {
-    @State private var selection = 0
+    @State var selection = 0
  
     var body: some View {
         TabView(selection: $selection){
             Text("First View")
                 .font(.title)
                 .tabItem {
-                    VStack {
-                        Image("first")
-                        Text("First")
-                    }
+                  Image("translate")
+                    .padding(.top)
                 }
                 .tag(0)
             Text("Second View")
                 .font(.title)
                 .tabItem {
                     VStack {
-                        Image("second")
-                        Text("Second")
+                        Image("cards")
                     }
                 }
                 .tag(1)
+            Text("3 View")
+                .font(.title)
+                .tabItem {
+                    VStack {
+                        Image("add")
+                    }
+                }
+                .tag(2)
+            
+            Text("4 View")
+              .font(.title)
+              .tabItem {
+                  VStack {
+                      Image("list")
+                  }
+              }
+              .tag(3)
+          
+            Text("5 View")
+              .font(.title)
+              .tabItem {
+                  VStack {
+                      Image("settings")
+                  }
+              }
+              .tag(4)
         }
     }
 }
