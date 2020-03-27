@@ -12,8 +12,7 @@ struct ContentView: View {
  
     var body: some View {
         TabView(selection: $selection){
-            Text("First View")
-                .font(.title)
+            TranslateView()
                 .tabItem {
                   Image("translate")
                     .padding(.top)

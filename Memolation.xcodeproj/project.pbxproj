@@ -17,6 +17,10 @@
 		5B17169C242CF8110081D603 /* MemolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B17169B242CF8110081D603 /* MemolationTests.swift */; };
 		5B1716A7242CF8110081D603 /* MemolationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716A6242CF8110081D603 /* MemolationUITests.swift */; };
 		5B1716B9242CFE910081D603 /* NavTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716B8242CFE910081D603 /* NavTabView.swift */; };
+		5BE2EE63242DBA19007BC85F /* CommonTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE62242DBA19007BC85F /* CommonTabView.swift */; };
+		5BE2EE65242DBAA6007BC85F /* TranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE64242DBAA6007BC85F /* TranslateView.swift */; };
+		5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE67242DC0AA007BC85F /* CardView.swift */; };
+		5BE2EE6B242DC1FE007BC85F /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE6A242DC1FE007BC85F /* MultilineTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		5B1716A6242CF8110081D603 /* MemolationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemolationUITests.swift; sourceTree = "<group>"; };
 		5B1716A8242CF8110081D603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B1716B8242CFE910081D603 /* NavTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavTabView.swift; sourceTree = "<group>"; };
+		5BE2EE62242DBA19007BC85F /* CommonTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTabView.swift; sourceTree = "<group>"; };
+		5BE2EE64242DBAA6007BC85F /* TranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateView.swift; sourceTree = "<group>"; };
+		5BE2EE67242DC0AA007BC85F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		5BE2EE6A242DC1FE007BC85F /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +111,10 @@
 		5B171680242CF80E0081D603 /* Memolation */ = {
 			isa = PBXGroup;
 			children = (
+				5BE2EE69242DC103007BC85F /* Pages */,
+				5BE2EE66242DC069007BC85F /* Components */,
 				5B171681242CF80E0081D603 /* AppDelegate.swift */,
+				5BE2EE62242DBA19007BC85F /* CommonTabView.swift */,
 				5B171683242CF80E0081D603 /* SceneDelegate.swift */,
 				5B171688242CF80E0081D603 /* ContentView.swift */,
 				5B1716B8242CFE910081D603 /* NavTabView.swift */,
@@ -140,6 +151,23 @@
 				5B1716A8242CF8110081D603 /* Info.plist */,
 			);
 			path = MemolationUITests;
+			sourceTree = "<group>";
+		};
+		5BE2EE66242DC069007BC85F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5BE2EE67242DC0AA007BC85F /* CardView.swift */,
+				5BE2EE6A242DC1FE007BC85F /* MultilineTextField.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		5BE2EE69242DC103007BC85F /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				5BE2EE64242DBAA6007BC85F /* TranslateView.swift */,
+			);
+			path = Pages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,11 +301,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */,
 				5B171682242CF80E0081D603 /* AppDelegate.swift in Sources */,
+				5BE2EE65242DBAA6007BC85F /* TranslateView.swift in Sources */,
+				5BE2EE63242DBA19007BC85F /* CommonTabView.swift in Sources */,
 				5B171687242CF80E0081D603 /* Memolation.xcdatamodeld in Sources */,
 				5B171689242CF80E0081D603 /* ContentView.swift in Sources */,
 				5B1716B9242CFE910081D603 /* NavTabView.swift in Sources */,
 				5B171684242CF80E0081D603 /* SceneDelegate.swift in Sources */,
+				5BE2EE6B242DC1FE007BC85F /* MultilineTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
