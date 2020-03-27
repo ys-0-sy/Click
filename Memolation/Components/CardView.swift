@@ -7,24 +7,37 @@
 //
 
 import SwiftUI
+import Combine
 
 struct CardView: View {
+  @State var current:String = "t"
+  var body: some View {
+    Card(text: $current)
+  }
+}
+
+struct Card: View {
+    @Binding var text: String
   
-    @State var text: String
     var body: some View {
-        Text(text)
+      Text(self.text)
             .lineLimit(nil)
             .frame(width: UIScreen.main.bounds.width * 0.8, height: 200, alignment: .topLeading)
             .overlay(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.purple, lineWidth: 5)
             )
+            .onAppear() {
+              Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (timer) in
+                  //self.count値をコンソールへ出力
+                print(self.text)
+              })
+          }
     }
 }
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-      
-      CardView(text: "text")
+      CardView()
     }
 }

@@ -11,7 +11,7 @@ import Combine
 
 struct TranslateView: View {
   @ObservedObject private var myData = UserData()
-  
+ 
   var body: some View {
     VStack {
       MultilineTextField(text: $myData.text)
@@ -20,8 +20,9 @@ struct TranslateView: View {
           RoundedRectangle(cornerRadius: 10)
               .stroke(Color.blue, lineWidth: 5)
       )
+      
       Spacer()
-      CardView(text: myData.text)
+      Card(text: $myData.text)
       .frame(width: UIScreen.main.bounds.width * 0.8, height: 200)
       Spacer()
     }

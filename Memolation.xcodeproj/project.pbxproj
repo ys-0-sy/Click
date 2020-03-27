@@ -117,7 +117,6 @@
 				5BE2EE62242DBA19007BC85F /* CommonTabView.swift */,
 				5B171683242CF80E0081D603 /* SceneDelegate.swift */,
 				5B171688242CF80E0081D603 /* ContentView.swift */,
-				5B1716B8242CFE910081D603 /* NavTabView.swift */,
 				5B17168A242CF8110081D603 /* Assets.xcassets */,
 				5B17168F242CF8110081D603 /* LaunchScreen.storyboard */,
 				5B171692242CF8110081D603 /* Info.plist */,
@@ -166,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				5BE2EE64242DBAA6007BC85F /* TranslateView.swift */,
+				5B1716B8242CFE910081D603 /* NavTabView.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
