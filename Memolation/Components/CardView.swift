@@ -27,12 +27,6 @@ struct Card: View {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(Color.purple, lineWidth: 5)
             )
-            .onAppear() {
-              Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (timer) in
-                  //self.count値をコンソールへ出力
-                print(self.text)
-              })
-          }
     }
 }
 

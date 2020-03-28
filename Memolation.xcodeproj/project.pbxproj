@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,12 @@
 		5BE2EE65242DBAA6007BC85F /* TranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE64242DBAA6007BC85F /* TranslateView.swift */; };
 		5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE67242DC0AA007BC85F /* CardView.swift */; };
 		5BE2EE6B242DC1FE007BC85F /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE6A242DC1FE007BC85F /* MultilineTextField.swift */; };
+		5BE2EE6F242E0B5A007BC85F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5BE2EE6E242E0B5A007BC85F /* Alamofire */; };
+		5BE2EE72242E0B79007BC85F /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5BE2EE71242E0B79007BC85F /* SwiftyJSON */; };
+		5BE2EE74242E0B93007BC85F /* TranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE73242E0B93007BC85F /* TranslateAPI.swift */; };
+		5BE2EE76242E0BB1007BC85F /* KeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE75242E0BB1007BC85F /* KeyManager.swift */; };
+		5BE2EE78242E2059007BC85F /* TranslationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE77242E2059007BC85F /* TranslationManager.swift */; };
+		5BE2EE7A242F5408007BC85F /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BE2EE79242F5408007BC85F /* keys.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +67,10 @@
 		5BE2EE64242DBAA6007BC85F /* TranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateView.swift; sourceTree = "<group>"; };
 		5BE2EE67242DC0AA007BC85F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5BE2EE6A242DC1FE007BC85F /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
+		5BE2EE73242E0B93007BC85F /* TranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateAPI.swift; sourceTree = "<group>"; };
+		5BE2EE75242E0BB1007BC85F /* KeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyManager.swift; sourceTree = "<group>"; };
+		5BE2EE77242E2059007BC85F /* TranslationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationManager.swift; sourceTree = "<group>"; };
+		5BE2EE79242F5408007BC85F /* keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = keys.plist; path = Memolation/keys.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BE2EE72242E0B79007BC85F /* SwiftyJSON in Frameworks */,
+				5BE2EE6F242E0B5A007BC85F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +123,7 @@
 		5B171680242CF80E0081D603 /* Memolation */ = {
 			isa = PBXGroup;
 			children = (
+				5BE2EE6C242E0A8F007BC85F /* API */,
 				5BE2EE69242DC103007BC85F /* Pages */,
 				5BE2EE66242DC069007BC85F /* Components */,
 				5B171681242CF80E0081D603 /* AppDelegate.swift */,
@@ -170,6 +183,17 @@
 			path = Pages;
 			sourceTree = "<group>";
 		};
+		5BE2EE6C242E0A8F007BC85F /* API */ = {
+			isa = PBXGroup;
+			children = (
+				5BE2EE79242F5408007BC85F /* keys.plist */,
+				5BE2EE73242E0B93007BC85F /* TranslateAPI.swift */,
+				5BE2EE77242E2059007BC85F /* TranslationManager.swift */,
+				5BE2EE75242E0BB1007BC85F /* KeyManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -186,6 +210,10 @@
 			dependencies = (
 			);
 			name = Memolation;
+			packageProductDependencies = (
+				5BE2EE6E242E0B5A007BC85F /* Alamofire */,
+				5BE2EE71242E0B79007BC85F /* SwiftyJSON */,
+			);
 			productName = Memolation;
 			productReference = 5B17167E242CF80E0081D603 /* Memolation.app */;
 			productType = "com.apple.product-type.application";
@@ -258,6 +286,10 @@
 				Base,
 			);
 			mainGroup = 5B171675242CF80E0081D603;
+			packageReferences = (
+				5BE2EE6D242E0B5A007BC85F /* XCRemoteSwiftPackageReference "Alamofire" */,
+				5BE2EE70242E0B79007BC85F /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = 5B17167F242CF80E0081D603 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -276,6 +308,7 @@
 			files = (
 				5B171691242CF8110081D603 /* LaunchScreen.storyboard in Resources */,
 				5B17168E242CF8110081D603 /* Preview Assets.xcassets in Resources */,
+				5BE2EE7A242F5408007BC85F /* keys.plist in Resources */,
 				5B17168B242CF8110081D603 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,12 +335,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */,
+				5BE2EE78242E2059007BC85F /* TranslationManager.swift in Sources */,
 				5B171682242CF80E0081D603 /* AppDelegate.swift in Sources */,
 				5BE2EE65242DBAA6007BC85F /* TranslateView.swift in Sources */,
+				5BE2EE76242E0BB1007BC85F /* KeyManager.swift in Sources */,
 				5BE2EE63242DBA19007BC85F /* CommonTabView.swift in Sources */,
 				5B171687242CF80E0081D603 /* Memolation.xcdatamodeld in Sources */,
 				5B171689242CF80E0081D603 /* ContentView.swift in Sources */,
 				5B1716B9242CFE910081D603 /* NavTabView.swift in Sources */,
+				5BE2EE74242E0B93007BC85F /* TranslateAPI.swift in Sources */,
 				5B171684242CF80E0081D603 /* SceneDelegate.swift in Sources */,
 				5BE2EE6B242DC1FE007BC85F /* MultilineTextField.swift in Sources */,
 			);
@@ -478,6 +514,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Memolation/Preview Content\"";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
+				GoogleAPIKey = GoogleAPIKeyDebug;
 				INFOPLIST_FILE = Memolation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -498,6 +535,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Memolation/Preview Content\"";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
+				GoogleAPIKey = GoogleAPIKeyRelease;
 				INFOPLIST_FILE = Memolation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -634,6 +672,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5BE2EE6D242E0B5A007BC85F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		5BE2EE70242E0B79007BC85F /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5BE2EE6E242E0B5A007BC85F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BE2EE6D242E0B5A007BC85F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		5BE2EE71242E0B79007BC85F /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5BE2EE70242E0B79007BC85F /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		5B171685242CF80E0081D603 /* Memolation.xcdatamodeld */ = {
