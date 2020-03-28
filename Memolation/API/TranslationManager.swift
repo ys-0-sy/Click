@@ -7,10 +7,17 @@
 //
 
 import Foundation
+import Combine
 
-class TranslationManager: NSObject {
+struct TranslationLanguage: Hashable {
+  var code: String?
+  var name: String?
+}
+
+class TranslationManager: NSObject{
   static let shared = TranslationManager()
   private var googleAPIKey: String = ""
+  @Published var supportedLanguages = [TranslationLanguage]()
   var sourceLanguageCode: String?
   
   override init(){
@@ -24,6 +31,11 @@ class TranslationManager: NSObject {
     } else {
         print("Dictionaly Key doesn't set")
     }
+    self.fetchSupportedLanguages() { (success) in
+      print("FetchSuppotedLanguage: \(success)")
+      debugPrint(self.supportedLanguages.count)
+    }
+    
   }
   
   private func makeRequest(usingTranslationAPI api: TranslationAPI, urlParams: [String: String], completion: @escaping (_ resuslts: [String: Any]?) -> Void) {
@@ -90,6 +102,37 @@ class TranslationManager: NSObject {
         }
       } else {
         completion(nil)
+      }
+    }
+  }
+  
+  func fetchSupportedLanguages(completion: @escaping (_ success: Bool) -> Void ) {
+    var urlParams = [String: String]()
+    urlParams["key"] = googleAPIKey
+    urlParams["target"] = Locale.current.languageCode ?? "en"
+    
+    makeRequest(usingTranslationAPI: .supportedLanguages, urlParams: urlParams) { (results) in
+      guard let results = results else { completion(false); return }
+      
+      if let data = results["data"] as? [String: Any], let languages = data["languages"] as? [[String: Any]] {
+        
+        for lang in languages {
+          var languageCode: String?
+          var languageName: String?
+          
+          if let code = lang["language"] as? String {
+            languageCode = code
+          }
+          if let name = lang["name"] as? String {
+            languageName = name
+          }
+          
+          self.supportedLanguages.append(TranslationLanguage(code: languageCode, name: languageName))
+        }
+        
+        completion(true)
+      } else {
+        completion(false)
       }
     }
   }
