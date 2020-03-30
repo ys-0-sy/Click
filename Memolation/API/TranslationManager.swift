@@ -19,6 +19,8 @@ class TranslationManager: NSObject{
   private var googleAPIKey: String = ""
   @Published var supportedLanguages = [TranslationLanguage]()
   var sourceLanguageCode: String?
+  var textToTranslate: String?
+  var targetLanguageCode: String?
   
   override init(){
     super.init()
@@ -133,6 +135,42 @@ class TranslationManager: NSObject{
         completion(true)
       } else {
         completion(false)
+      }
+    }
+  }
+  
+  func translate(completion: @escaping (_ translations: String?) -> Void) {
+    guard let textToTranslate = textToTranslate, let targetLanguage = targetLanguageCode else { completion(nil); return }
+    
+    var urlParams = [String: String]()
+    urlParams["key"] = googleAPIKey
+    urlParams["q"] = textToTranslate
+    urlParams["target"] = targetLanguage
+    urlParams["format"] = "text"
+    
+    if let sourceLanguage = sourceLanguageCode {
+      urlParams["source"] = sourceLanguage
+    }
+    
+    makeRequest(usingTranslationAPI: .transelate, urlParams: urlParams) { (results) in
+      guard let results = results else { completion(nil); return }
+      
+      if let data = results["data"] as? [String: Any], let translations = data["translations"] as? [[String: Any]] {
+        var allTranslations = [String]()
+        for translation in translations {
+          if let translatedText = translation["translatedText"] as? String {
+             allTranslations.append(translatedText)
+          }
+        }
+        
+        if allTranslations.count > 0 {
+          completion(allTranslations[0])
+        } else {
+          completion(nil)
+        }
+       
+      } else {
+        completion(nil)
       }
     }
   }
