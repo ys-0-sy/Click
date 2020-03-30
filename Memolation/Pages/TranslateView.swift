@@ -17,6 +17,7 @@ struct TranslateView: View {
  
   var body: some View {
     VStack {
+    VStack {
       NavigationView {
         Form {
           Picker(selection: $languageSelection, label: Text("language")) {
@@ -26,6 +27,8 @@ struct TranslateView: View {
           }
         }
       }
+    }
+    VStack {
       Text(String(TranslationManager.shared.supportedLanguages.count))
 
       MultilineTextField(text: $myData.text)
@@ -53,9 +56,17 @@ struct TranslateView: View {
       Card(text: $myData.text)
       .frame(width: UIScreen.main.bounds.width * 0.8, height: 200)
       Spacer()
+    }.onTapGesture {
+      self.endEditing()
+    }
     }
   }
+  private func endEditing() {
+      UIApplication.shared.endEditing()
+  }
+  
 }
+
 
 struct TranslateView_Previews: PreviewProvider {
     static var previews: some View {
