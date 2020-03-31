@@ -70,13 +70,6 @@
             ReferencedContainer = "container:Memolation.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "GOOGLE_API_KEY"
-            value = "AIzaSyDZgJSHYfaK2rioaLdXtzZzs_QP21nl4Cw"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

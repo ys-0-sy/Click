@@ -14,6 +14,10 @@ struct TranslationLanguage: Hashable {
   var name: String?
 }
 
+struct Keys: Codable {
+    var GoogleAPIKey: String
+}
+
 class TranslationManager: NSObject{
   static let shared = TranslationManager()
   private var googleAPIKey: String = ""
@@ -24,13 +28,23 @@ class TranslationManager: NSObject{
   
   override init(){
     super.init()
-    let env = ProcessInfo.processInfo.environment
-    guard let apikey = env["GOOGLE_API_KEY"] else {
-      print("Dictionaly Key doesn't set")
-      return
+
+    self.googleAPIKey = loadKeys()
+  }
+  
+  private func loadKeys() -> String {
+    do {
+      let settingURL: URL = URL(fileURLWithPath: Bundle.main.path(forResource: "keys", ofType: "plist")!)
+      let data = try Data(contentsOf: settingURL)
+      let decoder = PropertyListDecoder()
+      let keys = try decoder.decode(Keys.self, from: data)
+      print(keys.GoogleAPIKey)
+      return keys.GoogleAPIKey
+    } catch {
+      print("api get error")
+      print(error)
+      return ""
     }
-    self.googleAPIKey = apikey
-    
   }
   
   private func makeRequest(usingTranslationAPI api: TranslationAPI, urlParams: [String: String], completion: @escaping (_ resuslts: [String: Any]?) -> Void) {

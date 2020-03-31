@@ -17,6 +17,8 @@
 		5B17169C242CF8110081D603 /* MemolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B17169B242CF8110081D603 /* MemolationTests.swift */; };
 		5B1716A7242CF8110081D603 /* MemolationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716A6242CF8110081D603 /* MemolationUITests.swift */; };
 		5B1716B9242CFE910081D603 /* NavTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716B8242CFE910081D603 /* NavTabView.swift */; };
+		5BB362622432DF890065FD5D /* keys.template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB362612432DF890065FD5D /* keys.template.plist */; };
+		5BB362642432DFEF0065FD5D /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB362632432DFEF0065FD5D /* keys.plist */; };
 		5BE2EE63242DBA19007BC85F /* CommonTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE62242DBA19007BC85F /* CommonTabView.swift */; };
 		5BE2EE65242DBAA6007BC85F /* TranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE64242DBAA6007BC85F /* TranslateView.swift */; };
 		5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE67242DC0AA007BC85F /* CardView.swift */; };
@@ -63,6 +65,8 @@
 		5B1716A8242CF8110081D603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B1716B8242CFE910081D603 /* NavTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavTabView.swift; sourceTree = "<group>"; };
 		5BB3625D2432D5230065FD5D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		5BB362612432DF890065FD5D /* keys.template.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.template.plist; sourceTree = "<group>"; };
+		5BB362632432DFEF0065FD5D /* keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		5BE2EE62242DBA19007BC85F /* CommonTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTabView.swift; sourceTree = "<group>"; };
 		5BE2EE64242DBAA6007BC85F /* TranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateView.swift; sourceTree = "<group>"; };
 		5BE2EE67242DC0AA007BC85F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 		5B171680242CF80E0081D603 /* Memolation */ = {
 			isa = PBXGroup;
 			children = (
+				5BB362602432DF600065FD5D /* Secret */,
 				5BE2EE6C242E0A8F007BC85F /* API */,
 				5BE2EE69242DC103007BC85F /* Pages */,
 				5BE2EE66242DC069007BC85F /* Components */,
@@ -162,6 +167,15 @@
 				5B1716A8242CF8110081D603 /* Info.plist */,
 			);
 			path = MemolationUITests;
+			sourceTree = "<group>";
+		};
+		5BB362602432DF600065FD5D /* Secret */ = {
+			isa = PBXGroup;
+			children = (
+				5BB362612432DF890065FD5D /* keys.template.plist */,
+				5BB362632432DFEF0065FD5D /* keys.plist */,
+			);
+			path = Secret;
 			sourceTree = "<group>";
 		};
 		5BE2EE66242DC069007BC85F /* Components */ = {
@@ -306,9 +320,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BB362642432DFEF0065FD5D /* keys.plist in Resources */,
 				5B171691242CF8110081D603 /* LaunchScreen.storyboard in Resources */,
 				5B17168E242CF8110081D603 /* Preview Assets.xcassets in Resources */,
 				5B17168B242CF8110081D603 /* Assets.xcassets in Resources */,
+				5BB362622432DF890065FD5D /* keys.template.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,7 +552,6 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Memolation/Preview Content\"";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
-				GoogleAPIKey = GoogleAPIKeyDebug;
 				INFOPLIST_FILE = Memolation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -557,7 +572,6 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Memolation/Preview Content\"";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
-				GoogleAPIKey = GoogleAPIKeyRelease;
 				INFOPLIST_FILE = Memolation/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
