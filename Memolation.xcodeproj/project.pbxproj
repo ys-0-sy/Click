@@ -17,7 +17,6 @@
 		5B17169C242CF8110081D603 /* MemolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B17169B242CF8110081D603 /* MemolationTests.swift */; };
 		5B1716A7242CF8110081D603 /* MemolationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716A6242CF8110081D603 /* MemolationUITests.swift */; };
 		5B1716B9242CFE910081D603 /* NavTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716B8242CFE910081D603 /* NavTabView.swift */; };
-		5B3DD2072432CE9D00B60AA6 /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B3DD2062432CE9D00B60AA6 /* keys.plist */; };
 		5BE2EE63242DBA19007BC85F /* CommonTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE62242DBA19007BC85F /* CommonTabView.swift */; };
 		5BE2EE65242DBAA6007BC85F /* TranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE64242DBAA6007BC85F /* TranslateView.swift */; };
 		5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE67242DC0AA007BC85F /* CardView.swift */; };
@@ -63,7 +62,7 @@
 		5B1716A6242CF8110081D603 /* MemolationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemolationUITests.swift; sourceTree = "<group>"; };
 		5B1716A8242CF8110081D603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B1716B8242CFE910081D603 /* NavTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavTabView.swift; sourceTree = "<group>"; };
-		5B3DD2062432CE9D00B60AA6 /* keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
+		5BB3625D2432D5230065FD5D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5BE2EE62242DBA19007BC85F /* CommonTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTabView.swift; sourceTree = "<group>"; };
 		5BE2EE64242DBAA6007BC85F /* TranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateView.swift; sourceTree = "<group>"; };
 		5BE2EE67242DC0AA007BC85F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -134,7 +133,6 @@
 				5B17168F242CF8110081D603 /* LaunchScreen.storyboard */,
 				5B171692242CF8110081D603 /* Info.plist */,
 				5B171685242CF80E0081D603 /* Memolation.xcdatamodeld */,
-				5B3DD2062432CE9D00B60AA6 /* keys.plist */,
 				5B17168C242CF8110081D603 /* Preview Content */,
 			);
 			path = Memolation;
@@ -201,6 +199,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B1716AB242CF8110081D603 /* Build configuration list for PBXNativeTarget "Memolation" */;
 			buildPhases = (
+				5BB3625C2432D3260065FD5D /* ShellScript */,
 				5B17167A242CF80E0081D603 /* Sources */,
 				5B17167B242CF80E0081D603 /* Frameworks */,
 				5B17167C242CF80E0081D603 /* Resources */,
@@ -284,6 +283,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = 5B171675242CF80E0081D603;
 			packageReferences = (
@@ -306,7 +306,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B3DD2072432CE9D00B60AA6 /* keys.plist in Resources */,
 				5B171691242CF8110081D603 /* LaunchScreen.storyboard in Resources */,
 				5B17168E242CF8110081D603 /* Preview Assets.xcassets in Resources */,
 				5B17168B242CF8110081D603 /* Assets.xcassets in Resources */,
@@ -328,6 +327,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5BB3625C2432D3260065FD5D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\necho env[\"GOOGLE_API_KEY\"]\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5B17167A242CF80E0081D603 /* Sources */ = {
@@ -385,6 +404,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				5B171690242CF8110081D603 /* Base */,
+				5BB3625D2432D5230065FD5D /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -396,6 +416,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -456,6 +477,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

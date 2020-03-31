@@ -24,15 +24,12 @@ class TranslationManager: NSObject{
   
   override init(){
     super.init()
-    if let keyString =  Bundle.main.object(forInfoDictionaryKey: "GoogleAPIKey") as? String {
-      if (KeyManager().getValue(key: keyString) as? String) != nil {
-        self.googleAPIKey = KeyManager().getValue(key: keyString) as! String
-      } else {
-        print("API Key get Error")
-      }
-    } else {
-        print("Dictionaly Key doesn't set")
+    let env = ProcessInfo.processInfo.environment
+    guard let apikey = env["GOOGLE_API_KEY"] else {
+      print("Dictionaly Key doesn't set")
+      return
     }
+    self.googleAPIKey = apikey
     
   }
   
