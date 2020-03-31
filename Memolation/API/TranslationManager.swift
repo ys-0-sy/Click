@@ -33,10 +33,6 @@ class TranslationManager: NSObject{
     } else {
         print("Dictionaly Key doesn't set")
     }
-    self.fetchSupportedLanguages() { (success) in
-      print("FetchSuppotedLanguage: \(success)")
-      debugPrint(self.supportedLanguages.count)
-    }
     
   }
   
