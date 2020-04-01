@@ -11,52 +11,41 @@ import Combine
 
 struct TranslateView: View {
   @ObservedObject private var myData = UserData()
-  @State private var detectedLanguage: String = "Initializing"
+  @State private var detectedLanguage: String = "Auto Detect"
   @State var surpportedLanguages = TranslationManager.shared.supportedLanguages
   @State private var languageSelection = "ja"
   @State private var translatedText: String = "Enter Text"
  
   var body: some View {
-    VStack {
-    VStack {
-      NavigationView {
-        Form {
-          Picker(selection: $languageSelection, label: Text("language")) {
-            ForEach(TranslationManager.shared.supportedLanguages, id: \.self) { language in
-              Text(language.name!).tag(language.code!)
+    NavigationView {
+      VStack {
+        Button(action: {TranslationManager.shared.detectLanguage(forText: self.myData.text, completion: {(language) in
+          if let language = language {
+            self.detectedLanguage = language
+            for lang in TranslationManager.shared.supportedLanguages {
+              if lang.code == language {
+                self.detectedLanguage = lang.name ?? language
+              }
             }
+            
+          } else {
+            self.detectedLanguage = "Oops! It seems that something went wrong and language cannot be detected."
           }
+        })}) {
+          Text(detectedLanguage)
         }
-      }
-    }
-    VStack {
-      Text(String(TranslationManager.shared.supportedLanguages.count))
-
-      MultilineTextField(text: $myData.text)
-      .frame(width: UIScreen.main.bounds.width * 0.8, height: 200)
-      .overlay(
-          RoundedRectangle(cornerRadius: 10)
-              .stroke(Color.blue, lineWidth: 5)
-      )
-      
-      HStack {
-      Button(action: {TranslationManager.shared.detectLanguage(forText: self.myData.text, completion: {(language) in
-        if let language = language {
-          self.detectedLanguage = language
-          for lang in TranslationManager.shared.supportedLanguages {
-            if lang.code == language {
-              self.detectedLanguage = lang.name ?? language
-            }
-          }
-          
-        } else {
-          self.detectedLanguage = "Oops! It seems that something went wrong and language cannot be detected."
+        MultilineTextField(text: $myData.text)
+        .frame(width: UIScreen.main.bounds.width * 0.8, height: 200)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.blue, lineWidth: 5)
+        )
+        NavigationLink(destination: ChooseLanguages()) {
+          Text("Target Language")
         }
-      })}) {
-        Text("DetectLanguage")
-      }
-        Divider()
-
+        Card(text:  $translatedText)
+        .frame(width: UIScreen.main.bounds.width * 0.8, height: 200)
+        
         Button(action: {
           TranslationManager.shared.targetLanguageCode = self.languageSelection
           TranslationManager.shared.textToTranslate = self.myData.text
@@ -71,14 +60,12 @@ struct TranslateView: View {
         }) {
           Text("Translate")
         }
+        Spacer()
+        Card(text: $myData.text)
+          .frame(width: UIScreen.main.bounds.width * 0.8, height: 200)
+      }.onTapGesture {
+        self.endEditing()
       }
-      Text(detectedLanguage)
-      Card(text:  $translatedText)
-      .frame(width: UIScreen.main.bounds.width * 0.8, height: 200)
-      Spacer()
-    }.onTapGesture {
-      self.endEditing()
-    }
     }
   }
   private func endEditing() {
