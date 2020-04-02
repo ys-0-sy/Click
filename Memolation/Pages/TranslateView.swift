@@ -10,14 +10,16 @@ import SwiftUI
 import Combine
 
 struct TranslateView: View {
+  @State private var showAfterView: Bool = false
   @ObservedObject private var myData = UserData()
   @State private var detectedLanguage: String = "Auto Detect"
   @State var surpportedLanguages = TranslationManager.shared.supportedLanguages
-  @State private var languageSelection = "ja"
+  @State private var languageSelection = TranslationLanguage(code: "ja", name: "Japanese")
   @State private var translatedText: String = "Enter Text"
  
   var body: some View {
     NavigationView {
+      ScrollView {
       VStack {
         Button(action: {TranslationManager.shared.detectLanguage(forText: self.myData.text, completion: {(language) in
           if let language = language {
@@ -40,14 +42,26 @@ struct TranslateView: View {
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color.blue, lineWidth: 5)
         )
-        NavigationLink(destination: ChooseLanguages()) {
-          Text("Target Language")
+        HStack {
+          NavigationLink(destination:
+            VStack {
+              Button(action: {self.showAfterView = false}){
+                  Text("Back")
+              }
+              ChooseLanguages(showAfterView: $showAfterView, languageSelection: $languageSelection)
+            }
+          .navigationBarBackButtonHidden(true),isActive: $showAfterView) {
+              Button(action: {self.showAfterView = true}){
+                  Text("Target Laguage")
+              }
+          }
+          Text(self.languageSelection.name!)
         }
         Card(text:  $translatedText)
         .frame(width: UIScreen.main.bounds.width * 0.8, height: 200)
         
         Button(action: {
-          TranslationManager.shared.targetLanguageCode = self.languageSelection
+          TranslationManager.shared.targetLanguageCode = self.languageSelection.code!
           TranslationManager.shared.textToTranslate = self.myData.text
           TranslationManager.shared.translate(completion: {(returnString) in
             if let returnString = returnString  {
@@ -66,6 +80,7 @@ struct TranslateView: View {
       }.onTapGesture {
         self.endEditing()
       }
+    }
     }
   }
   private func endEditing() {
