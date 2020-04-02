@@ -20,13 +20,13 @@ struct Card: View {
     @Binding var text: String
   
     var body: some View {
-      Text(self.text)
-            .lineLimit(nil)
-            .frame(width: UIScreen.main.bounds.width * 0.8, height: 200, alignment: .topLeading)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.purple, lineWidth: 5)
-            )
+      ZStack {
+        Text(self.text)
+        .lineLimit(nil)
+        .frame(alignment: .topLeading)
+      RoundedRectangle(cornerRadius: 10)
+            .stroke(Color.purple, lineWidth: 5)
+      }
     }
 }
 

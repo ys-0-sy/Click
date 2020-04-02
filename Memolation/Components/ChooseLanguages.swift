@@ -20,16 +20,16 @@ struct ChooseLanguages: View {
   @Binding var showAfterView: Bool
   @Binding var languageSelection: TranslationLanguage
   var body: some View {
-      List{
-        ForEach(TranslationManager.shared.supportedLanguages, id: \.self) { language in
-            Button(action: {
-              self.showAfterView = false
-              self.languageSelection = language
-            }) {
-              Text(language.name!)
-            }
-          }
+    List{
+      ForEach(TranslationManager.shared.supportedLanguages, id: \.self) { language in
+        Button(action: {
+          self.showAfterView = false
+          self.languageSelection = language
+        }) {
+          Text(language.name!)
+        }
       }
+    }
     .navigationBarTitle("")
     .navigationBarHidden(true)
   }

@@ -20,45 +20,46 @@ struct TranslateView: View {
   var body: some View {
     NavigationView {
       ScrollView(showsIndicators: false) {
-        VStack(alignment: .leading, spacing: 5) {
-        Button(action: {TranslationManager.shared.detectLanguage(forText: self.myData.text, completion: {(language) in
-          if let language = language {
-            self.detectedLanguage = language
-            for lang in TranslationManager.shared.supportedLanguages {
-              if lang.code == language {
-                self.detectedLanguage = lang.name ?? language
+        VStack(alignment: .center, spacing: 10) {
+          HStack( spacing: 50) {
+            Button(action: {TranslationManager.shared.detectLanguage(forText: self.myData.text, completion: {(language) in
+              if let language = language {
+                self.detectedLanguage = language
+                for lang in TranslationManager.shared.supportedLanguages {
+                  if lang.code == language {
+                    self.detectedLanguage = lang.name ?? language
+                  }
+                }
+                
+              } else {
+                self.detectedLanguage = "Oops! It seems that something went wrong and language cannot be detected."
               }
+            })}) {
+              Text(detectedLanguage)
             }
-            
-          } else {
-            self.detectedLanguage = "Oops! It seems that something went wrong and language cannot be detected."
+            Image(systemName: "arrow.right")
+            NavigationLink(destination:
+              VStack {
+                Button(action: {self.showAfterView = false}){
+                    Text("Back")
+                }
+                ChooseLanguages(showAfterView: $showAfterView, languageSelection: $languageSelection)
+              }
+            .navigationBarBackButtonHidden(true),isActive: $showAfterView) {
+                Button(action: {self.showAfterView = true}){
+                    Text(self.languageSelection.name!)
+                }
+            }
           }
-        })}) {
-          Text(detectedLanguage)
-        }
         MultilineTextField(text: $myData.text)
-        .frame(width: UIScreen.main.bounds.width * 0.8, height: 200)
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.blue, lineWidth: 5)
-        )
-        HStack {
-          NavigationLink(destination:
-            VStack {
-              Button(action: {self.showAfterView = false}){
-                  Text("Back")
-              }
-              ChooseLanguages(showAfterView: $showAfterView, languageSelection: $languageSelection)
-            }
-          .navigationBarBackButtonHidden(true),isActive: $showAfterView) {
-              Button(action: {self.showAfterView = true}){
-                  Text("Target Laguage")
-              }
-          }
-          Text(self.languageSelection.name!)
-        }
-        Card(text:  $translatedText)
-        .frame(width: UIScreen.main.bounds.width * 0.8, height: 200)
+          .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.2)
+          .overlay(
+              RoundedRectangle(cornerRadius: 10)
+                  .stroke(Color.blue, lineWidth: 5)
+          )
+
+        Card(text: $translatedText)
+          .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.2, alignment: .topLeading)
         
         Button(action: {
           TranslationManager.shared.targetLanguageCode = self.languageSelection.code!
