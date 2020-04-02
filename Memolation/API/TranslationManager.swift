@@ -38,7 +38,6 @@ class TranslationManager: NSObject{
       let data = try Data(contentsOf: settingURL)
       let decoder = PropertyListDecoder()
       let keys = try decoder.decode(Keys.self, from: data)
-      print(keys.GoogleAPIKey)
       return keys.GoogleAPIKey
     } catch {
       print("api get error")
