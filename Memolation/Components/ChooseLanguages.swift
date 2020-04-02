@@ -30,6 +30,8 @@ struct ChooseLanguages: View {
             }
           }
       }
+    .navigationBarTitle("")
+    .navigationBarHidden(true)
   }
 }
 

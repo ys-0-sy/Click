@@ -19,8 +19,8 @@ struct TranslateView: View {
  
   var body: some View {
     NavigationView {
-      ScrollView {
-      VStack {
+      ScrollView(showsIndicators: false) {
+        VStack(alignment: .leading, spacing: 5) {
         Button(action: {TranslationManager.shared.detectLanguage(forText: self.myData.text, completion: {(language) in
           if let language = language {
             self.detectedLanguage = language
@@ -79,8 +79,10 @@ struct TranslateView: View {
           .frame(width: UIScreen.main.bounds.width * 0.8, height: 200)
       }.onTapGesture {
         self.endEditing()
+        }.frame(maxWidth: .infinity, alignment: .top)
       }
-    }
+      .navigationBarTitle("")
+      .navigationBarHidden(true)
     }
   }
   private func endEditing() {

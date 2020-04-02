@@ -53,7 +53,7 @@ struct ContentView: View {
               }
               .tag(4)
         }
-    }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
