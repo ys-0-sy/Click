@@ -77,10 +77,10 @@ struct TranslateView: View {
         }
         Spacer()
         Card(text: $myData.text)
-          .frame(width: UIScreen.main.bounds.width * 0.8, height: 200)
+          .frame(width: UIScreen.main.bounds.width * 0.8, height: 400)
       }.onTapGesture {
         self.endEditing()
-        }.frame(maxWidth: .infinity, alignment: .top)
+        }.frame(maxWidth: .infinity)
       }
       .navigationBarTitle("Translation")
     }

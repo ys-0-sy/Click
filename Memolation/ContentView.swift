@@ -11,45 +11,7 @@ struct ContentView: View {
   @State var selection = 0
 
   var body: some View {
-    TabView(selection: $selection) {
-      TranslateView()
-        .tabItem {
-          VStack {
-            Image("translation")
-            Text("Translation")
-          }
-        }
-        .tag(0)
-      Text("Remember")
-        .font(.title)
-        .tabItem {
-          VStack {
-            Image("cards")
-            Text("Cards")
-          }
-        }
-        .tag(1)
-
-      Text("Words List")
-        .font(.title)
-        .tabItem {
-          VStack {
-            Image("list")
-            Text("List")
-          }
-        }
-        .tag(2)
-
-      Text("Settings")
-        .font(.title)
-        .tabItem {
-          VStack {
-            Image("settings")
-            Text("Settings")
-          }
-        }
-        .tag(3)
-    }
+    NavTab()
   }
 }
 

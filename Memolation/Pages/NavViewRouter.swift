@@ -11,6 +11,6 @@ import SwiftUI
 import Combine
 
 class NavViewRouter: ObservableObject {
-    @Published var currentView = "home"
+    @Published var currentView = "translation"
 
 }
