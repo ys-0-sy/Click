@@ -20,7 +20,7 @@ struct ChooseLanguages: View {
   @Binding var showAfterView: Bool
   @Binding var languageSelection: TranslationLanguage
   var body: some View {
-    List{
+    List {
       ForEach(TranslationManager.shared.supportedLanguages, id: \.self) { language in
         Button(action: {
           self.showAfterView = false

@@ -16,7 +16,7 @@ struct TranslateView: View {
   @State var surpportedLanguages = TranslationManager.shared.supportedLanguages
   @State private var languageSelection = TranslationLanguage(code: "ja", name: "Japanese")
   @State private var translatedText: String = "Enter Text"
- 
+
   var body: some View {
     NavigationView {
       ScrollView(showsIndicators: false) {
@@ -30,7 +30,7 @@ struct TranslateView: View {
                     self.detectedLanguage = lang.name ?? language
                   }
                 }
-                
+
               } else {
                 self.detectedLanguage = "Oops! It seems that something went wrong and language cannot be detected."
               }
@@ -40,13 +40,13 @@ struct TranslateView: View {
             Image(systemName: "arrow.right")
             NavigationLink(destination:
               VStack {
-                Button(action: {self.showAfterView = false}){
+                Button(action: {self.showAfterView = false}) {
                     Text("Back")
                 }
                 ChooseLanguages(showAfterView: $showAfterView, languageSelection: $languageSelection)
               }
-            .navigationBarBackButtonHidden(true),isActive: $showAfterView) {
-                Button(action: {self.showAfterView = true}){
+            .navigationBarBackButtonHidden(true), isActive: $showAfterView) {
+                Button(action: {self.showAfterView = true}) {
                     Text(self.languageSelection.name!)
                 }
             }
@@ -60,17 +60,17 @@ struct TranslateView: View {
 
         Card(text: $translatedText)
           .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.2, alignment: .topLeading)
-        
+
         Button(action: {
           TranslationManager.shared.targetLanguageCode = self.languageSelection.code!
           TranslationManager.shared.textToTranslate = self.myData.text
           TranslationManager.shared.translate(completion: {(returnString) in
-            if let returnString = returnString  {
+            if let returnString = returnString {
               self.translatedText = returnString
             } else {
               self.translatedText = "translation error"
             }
-           
+
           })
         }) {
           Text("Translate")
@@ -82,16 +82,14 @@ struct TranslateView: View {
         self.endEditing()
         }.frame(maxWidth: .infinity, alignment: .top)
       }
-      .navigationBarTitle("")
-      .navigationBarHidden(true)
+      .navigationBarTitle("Translation")
     }
   }
   private func endEditing() {
       UIApplication.shared.endEditing()
   }
-  
-}
 
+}
 
 struct TranslateView_Previews: PreviewProvider {
     static var previews: some View {

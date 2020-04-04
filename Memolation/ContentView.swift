@@ -8,51 +8,48 @@
 
 import SwiftUI
 struct ContentView: View {
-    @State var selection = 0
- 
-    var body: some View {
-        TabView(selection: $selection){
-            TranslateView()
-                .tabItem {
-                  Image("translate")
-                    .padding(.top)
-                }
-                .tag(0)
-            Text("Second View")
-                .font(.title)
-                .tabItem {
-                    VStack {
-                        Image("cards")
-                    }
-                }
-                .tag(1)
-            Text("3 View")
-                .font(.title)
-                .tabItem {
-                    VStack {
-                        Image("add")
-                    }
-                }
-                .tag(2)
-            
-            Text("4 View")
-              .font(.title)
-              .tabItem {
-                  VStack {
-                      Image("list")
-                  }
-              }
-              .tag(3)
-          
-            Text("5 View")
-              .font(.title)
-              .tabItem {
-                  VStack {
-                      Image("settings")
-                  }
-              }
-              .tag(4)
+  @State var selection = 0
+
+  var body: some View {
+    TabView(selection: $selection) {
+      TranslateView()
+        .tabItem {
+          VStack {
+            Image("translation")
+            Text("Translation")
+          }
         }
+        .tag(0)
+      Text("Remember")
+        .font(.title)
+        .tabItem {
+          VStack {
+            Image("cards")
+            Text("Cards")
+          }
+        }
+        .tag(1)
+
+      Text("Words List")
+        .font(.title)
+        .tabItem {
+          VStack {
+            Image("list")
+            Text("List")
+          }
+        }
+        .tag(2)
+
+      Text("Settings")
+        .font(.title)
+        .tabItem {
+          VStack {
+            Image("settings")
+            Text("Settings")
+          }
+        }
+        .tag(3)
+    }
   }
 }
 

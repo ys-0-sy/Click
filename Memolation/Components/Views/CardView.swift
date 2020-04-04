@@ -10,23 +10,26 @@ import SwiftUI
 import Combine
 
 struct CardView: View {
-  @State var current:String = "t"
+  @State var current: String = "t"
   var body: some View {
     Card(text: $current)
+      .frame(width: 200, height: 200)
   }
 }
 
 struct Card: View {
     @Binding var text: String
-  
+
     var body: some View {
       ZStack {
         Text(self.text)
-        .lineLimit(nil)
-        .frame(alignment: .topLeading)
-      RoundedRectangle(cornerRadius: 10)
-            .stroke(Color.purple, lineWidth: 5)
-      }
+          .lineLimit(nil)
+          .background(Color.white)
+          .frame(alignment: .topLeading)
+        RoundedRectangle(cornerRadius: 10)
+          .stroke(Color.purple, lineWidth: 5)
+          
+      }.shadow(radius: 10)
     }
 }
 

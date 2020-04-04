@@ -14,10 +14,10 @@ enum TranslationAPI {
   case detectLanguage
   case transelate
   case supportedLanguages
-  
+
   func getURL() -> String {
     var urlString = ""
-    
+
     switch self {
       case .detectLanguage:
         urlString = "https://translation.googleapis.com/language/translate/v2/detect"
@@ -29,7 +29,7 @@ enum TranslationAPI {
     }
     return urlString
   }
-  
+
   func getHTTPMethod() -> String {
     if self == .supportedLanguages {
       return "GET"
@@ -39,39 +39,47 @@ enum TranslationAPI {
   }
 }
 
-class testApi: ObservableObject {
+class TestApi: ObservableObject {
   @Published var responseString: String = "Initializing..."
-  
-  init(){
+
+  init() {
     translate(rawString: "")
   }
-  
-  func translate(rawString:String)  {
-    if let keyString = Bundle.main.object(forInfoDictionaryKey: "GoogleAPIKey") as? String, let googleAPIKey = KeyManager().getValue(key: keyString) as? String {
-        AF.request("https://translation.googleapis.com/language/translate/v2",
-                   method: .post,
-                   parameters: [
-                    "q": rawString,
-                    "target": "ja",
-                    "key": googleAPIKey]).responseData {response in
-                      if let value = response.value {
-                        let json = JSON(value)
-                        print(json)
-                        if let translatedText = json["data"]["translations"][0]["translatedText"].string {
-                          debugPrint(translatedText)
-                          self.responseString = translatedText
-                        } else {
-                          self.responseString = "json parse error"
-                      }
-                        
-                      } else {
-                        self.responseString = "request Error"
-                      }
-      }
-    } else {
-      print("Environment error")
-    }
 
-    
+  private func loadKeys() -> String {
+    do {
+      let settingURL: URL = URL(fileURLWithPath: Bundle.main.path(forResource: "keys", ofType: "plist")!)
+      let data = try Data(contentsOf: settingURL)
+      let decoder = PropertyListDecoder()
+      let keys = try decoder.decode(Keys.self, from: data)
+      return keys.googleAPIKey
+    } catch {
+      print("api get error")
+      print(error)
+      return ""
+    }
   }
+  func translate(rawString: String) {
+    let googleAPIKey = loadKeys()
+    AF.request("https://translation.googleapis.com/language/translate/v2",
+               method: .post,
+               parameters: [
+                "q": rawString,
+                "target": "ja",
+                "key": googleAPIKey]).responseData {response in
+                  if let value = response.value {
+                    let json = JSON(value)
+                    print(json)
+                    if let translatedText = json["data"]["translations"][0]["translatedText"].string {
+                      debugPrint(translatedText)
+                      self.responseString = translatedText
+                    } else {
+                      self.responseString = "json parse error"
+                  }
+
+                  } else {
+                    self.responseString = "request Error"
+                  }
+      }
+    }
 }
