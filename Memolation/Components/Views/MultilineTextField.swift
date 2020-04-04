@@ -29,18 +29,14 @@ struct MultilineTextFieldView: View {
                       .stroke(Color.green, lineWidth: 5)
               )
 
-      }.onTapGesture {
-          self.endEditing()
       }
-    }
-  private func endEditing() {
-      UIApplication.shared.endEditing()
   }
 }
 
 final class UserData: ObservableObject {
     @Published var text: String = ""
 }
+
 
 struct MultilineTextField: UIViewRepresentable {
 
@@ -53,28 +49,33 @@ struct MultilineTextField: UIViewRepresentable {
     view.isUserInteractionEnabled = true
     return view
   }
-  
+
   func updateUIView(_ uiView: UITextView, context: Context) {
     uiView.text = text
   }
-  
+
   func makeCoordinator() -> Coordinator {
     Coordinator(self)
   }
-  
+
   class Coordinator: NSObject, UITextViewDelegate {
     var parent: MultilineTextField
-    
+
     init(_ textView: MultilineTextField) {
       self.parent = textView
     }
-    
+
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
       return true
     }
-    
+
     func textViewDidChange(_ textView: UITextView) {
       self.parent.text = textView.text
+    }
+    func textViewShouldEndEditing(textView: UITextView) -> Bool {
+      self.parent.text = textView.text
+      UIApplication.shared.endEditing()
+      return true
     }
   }
 }
