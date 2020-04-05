@@ -23,6 +23,8 @@ struct NavTab: View {
       VStack {
         if self.navViewRouter.currentView == "translation" {
           TranslateView()
+            .offset(y: 7)
+          
         } else if self.navViewRouter.currentView == "cards" {
           Text("Cards")
         } else if self.navViewRouter.currentView == "lists" {
@@ -39,6 +41,7 @@ struct NavTab: View {
               .frame(width: geometry.size.width/5, height: 60)
             Text("Translation")
               .offset(y: -14)
+              .font(.footnote)
           }
             .foregroundColor(self.navViewRouter.currentView == "translation" ? .purple : .gray)
             .onTapGesture {
@@ -51,30 +54,41 @@ struct NavTab: View {
               .aspectRatio(contentMode: .fit)
               .frame(width: geometry.size.width/5, height: 60)
             Text("Cards")
+              .font(.footnote)
             .offset(y: -14)
           }
             .foregroundColor(self.navViewRouter.currentView == "cards" ? .purple : .gray)
             .onTapGesture {
               self.navViewRouter.currentView = "cards"
             }
-          Image("list")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .padding(8)
-            .frame(width: geometry.size.width/5, height: 60)
+          VStack {
+            Image("list")
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .padding(8)
+              .frame(width: geometry.size.width/5, height: 60)
+            Text("List")
+              .font(.footnote)
+              .offset(y: -14)
+          }
             .foregroundColor(self.navViewRouter.currentView == "lists" ? .purple : .gray)
             .onTapGesture {
               self.navViewRouter.currentView = "lists"
             }
-          Image("settings")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .padding(8)
-            .frame(width: geometry.size.width/5, height: 60)
+          VStack {
+            Image("settings")
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .padding(8)
+              .frame(width: geometry.size.width/5, height: 60)
+            Text("Settings")
+            .font(.footnote)
+            .offset(y: -14)
+          }
             .foregroundColor(self.navViewRouter.currentView == "settings" ? .purple : .gray)
             .onTapGesture {
                 self.navViewRouter.currentView = "settings"
-          }
+            }
         }
         .frame(width: geometry.size.width, height: geometry.size.height/10)
         .background(Color.white.shadow(radius: 2))
