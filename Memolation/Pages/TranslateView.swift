@@ -54,8 +54,8 @@ struct TranslateView: View {
         MultilineTextField(text: $myData.text)
           .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.2)
           .overlay(
-              RoundedRectangle(cornerRadius: 10)
-                  .stroke(Color.blue, lineWidth: 5)
+              RoundedRectangle(cornerRadius: 6)
+                  .stroke(Color.blue, lineWidth: 3)
           )
 
         Card(text: $translatedText)
@@ -82,7 +82,8 @@ struct TranslateView: View {
         self.endEditing()
         }.frame(maxWidth: .infinity)
       }
-      .navigationBarTitle("Translation")
+      .navigationBarTitle("")
+      .navigationBarHidden(true)
     }
   }
   private func endEditing() {

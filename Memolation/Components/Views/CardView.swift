@@ -29,7 +29,7 @@ struct Card: View {
         RoundedRectangle(cornerRadius: 10)
           .stroke(Color.purple, lineWidth: 5)
           
-      }.shadow(radius: 10)
+      }
     }
 }
 

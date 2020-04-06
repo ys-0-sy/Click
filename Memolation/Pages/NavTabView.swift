@@ -21,10 +21,10 @@ struct NavTab: View {
   var body: some View {
     GeometryReader { geometry in
       VStack {
+        Spacer()
         if self.navViewRouter.currentView == "translation" {
           TranslateView()
             .offset(y: 7)
-          
         } else if self.navViewRouter.currentView == "cards" {
           Text("Cards")
         } else if self.navViewRouter.currentView == "lists" {
@@ -32,6 +32,7 @@ struct NavTab: View {
         } else if self.navViewRouter.currentView == "settings" {
           Text("Settings")
         }
+        Spacer()
         HStack {
           VStack {
             Image("translation")
@@ -56,7 +57,7 @@ struct NavTab: View {
             Text("Cards")
               .font(.footnote)
             .offset(y: -14)
-          }
+          }.offset(y: -6)
             .foregroundColor(self.navViewRouter.currentView == "cards" ? .purple : .gray)
             .onTapGesture {
               self.navViewRouter.currentView = "cards"
@@ -90,7 +91,7 @@ struct NavTab: View {
                 self.navViewRouter.currentView = "settings"
             }
         }
-        .frame(width: geometry.size.width, height: geometry.size.height/10)
+        .frame(width: geometry.size.width, height: geometry.size.height/9)
         .background(Color.white.shadow(radius: 2))
       }
     }.edgesIgnoringSafeArea(.bottom)

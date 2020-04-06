@@ -78,6 +78,7 @@
 		5BE2EE77242E2059007BC85F /* TranslationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationManager.swift; sourceTree = "<group>"; };
 		5BF26393243894930047B426 /* NavViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavViewRouter.swift; sourceTree = "<group>"; };
 		5BF263952438A30D0047B426 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		5BF26398243B800E0047B426 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,6 +442,7 @@
 			children = (
 				5B171690242CF8110081D603 /* Base */,
 				5BB3625D2432D5230065FD5D /* ja */,
+				5BF26398243B800E0047B426 /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
