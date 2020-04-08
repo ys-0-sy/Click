@@ -55,7 +55,7 @@ struct TranslateView: View {
           .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.2)
           .overlay(
               RoundedRectangle(cornerRadius: 6)
-                  .stroke(Color.blue, lineWidth: 3)
+                  .stroke(Color("BaseColor"), lineWidth: 3)
           )
 
         Card(text: $translatedText)

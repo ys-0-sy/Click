@@ -17,6 +17,7 @@
 		5B17169C242CF8110081D603 /* MemolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B17169B242CF8110081D603 /* MemolationTests.swift */; };
 		5B1716A7242CF8110081D603 /* MemolationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716A6242CF8110081D603 /* MemolationUITests.swift */; };
 		5B1716B9242CFE910081D603 /* NavTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716B8242CFE910081D603 /* NavTabView.swift */; };
+		5B6E3914243DDE6300120F33 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6E3913243DDE6300120F33 /* ButtonView.swift */; };
 		5BB362622432DF890065FD5D /* keys.template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB362612432DF890065FD5D /* keys.template.plist */; };
 		5BB362642432DFEF0065FD5D /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB362632432DFEF0065FD5D /* keys.plist */; };
 		5BB362672434E7CD0065FD5D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5BB362662434E7CD0065FD5D /* RealmSwift */; };
@@ -67,6 +68,7 @@
 		5B1716A6242CF8110081D603 /* MemolationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemolationUITests.swift; sourceTree = "<group>"; };
 		5B1716A8242CF8110081D603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B1716B8242CFE910081D603 /* NavTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavTabView.swift; sourceTree = "<group>"; };
+		5B6E3913243DDE6300120F33 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		5BB3625D2432D5230065FD5D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5BB362612432DF890065FD5D /* keys.template.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.template.plist; sourceTree = "<group>"; };
 		5BB362632432DFEF0065FD5D /* keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
@@ -133,13 +135,12 @@
 		5B171680242CF80E0081D603 /* Memolation */ = {
 			isa = PBXGroup;
 			children = (
+				5B6E3912243CC2A900120F33 /* View */,
+				5B6E3911243CC2A100120F33 /* ViewModel */,
+				5B6E3910243CC29500120F33 /* Model */,
 				5BB362602432DF600065FD5D /* Secret */,
-				5BE2EE6C242E0A8F007BC85F /* API */,
-				5BE2EE69242DC103007BC85F /* Pages */,
-				5BE2EE66242DC069007BC85F /* Components */,
 				5B171681242CF80E0081D603 /* AppDelegate.swift */,
 				5B171683242CF80E0081D603 /* SceneDelegate.swift */,
-				5B171688242CF80E0081D603 /* ContentView.swift */,
 				5B17168A242CF8110081D603 /* Assets.xcassets */,
 				5B17168F242CF8110081D603 /* LaunchScreen.storyboard */,
 				5B171692242CF8110081D603 /* Info.plist */,
@@ -175,6 +176,32 @@
 			path = MemolationUITests;
 			sourceTree = "<group>";
 		};
+		5B6E3910243CC29500120F33 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5BE2EE6C242E0A8F007BC85F /* API */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5B6E3911243CC2A100120F33 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5BF26393243894930047B426 /* NavViewRouter.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5B6E3912243CC2A900120F33 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5B171688242CF80E0081D603 /* ContentView.swift */,
+				5BE2EE69242DC103007BC85F /* Pages */,
+				5BE2EE66242DC069007BC85F /* Components */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		5BB362602432DF600065FD5D /* Secret */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,19 +211,20 @@
 			path = Secret;
 			sourceTree = "<group>";
 		};
-		5BB3626A2434E91C0065FD5D /* Views */ = {
+		5BB3626A2434E91C0065FD5D /* atom */ = {
 			isa = PBXGroup;
 			children = (
 				5BE2EE67242DC0AA007BC85F /* CardView.swift */,
 				5BE2EE6A242DC1FE007BC85F /* MultilineTextField.swift */,
+				5B6E3913243DDE6300120F33 /* ButtonView.swift */,
 			);
-			path = Views;
+			path = atom;
 			sourceTree = "<group>";
 		};
 		5BE2EE66242DC069007BC85F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				5BB3626A2434E91C0065FD5D /* Views */,
+				5BB3626A2434E91C0065FD5D /* atom */,
 				5BB3626B2434E9410065FD5D /* ChooseLanguages.swift */,
 			);
 			path = Components;
@@ -207,7 +235,6 @@
 			children = (
 				5BE2EE64242DBAA6007BC85F /* TranslateView.swift */,
 				5B1716B8242CFE910081D603 /* NavTabView.swift */,
-				5BF26393243894930047B426 /* NavViewRouter.swift */,
 				5BF263952438A30D0047B426 /* Settings.swift */,
 			);
 			path = Pages;
@@ -395,6 +422,7 @@
 				5BE2EE78242E2059007BC85F /* TranslationManager.swift in Sources */,
 				5BF263962438A30D0047B426 /* Settings.swift in Sources */,
 				5B171682242CF80E0081D603 /* AppDelegate.swift in Sources */,
+				5B6E3914243DDE6300120F33 /* ButtonView.swift in Sources */,
 				5BE2EE65242DBAA6007BC85F /* TranslateView.swift in Sources */,
 				5B171687242CF80E0081D603 /* Memolation.xcdatamodeld in Sources */,
 				5B171689242CF80E0081D603 /* ContentView.swift in Sources */,

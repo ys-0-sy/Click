@@ -86,7 +86,7 @@ struct NavTab: View {
             .font(.footnote)
             .offset(y: -14)
           }
-            .foregroundColor(self.navViewRouter.currentView == "settings" ? .purple : .gray)
+            .foregroundColor(self.navViewRouter.currentView == "settings" ? Color("SecondColor") : .gray)
             .onTapGesture {
                 self.navViewRouter.currentView = "settings"
             }

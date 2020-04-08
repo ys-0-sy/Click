@@ -27,7 +27,7 @@ struct Card: View {
           .background(Color.white)
           .frame(alignment: .topLeading)
         RoundedRectangle(cornerRadius: 10)
-          .stroke(Color.purple, lineWidth: 5)
+          .stroke(Color("SecondBaseColor"), lineWidth: 5)
           
       }
     }
