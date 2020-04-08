@@ -10,31 +10,31 @@ import SwiftUI
 import Combine
 
 struct CardView: View {
-  @State var current: String = "t"
+  let text: String
+  let width: CGFloat
+  let height: CGFloat
+  let alignment: Alignment
+  let boarderColor: Color
+
   var body: some View {
-    Card(text: $current)
-      .frame(width: 200, height: 200)
+      Text(self.text)
+        .lineLimit(nil)
+        .padding(.all)
+        .frame(width: width, height: height, alignment: alignment)
+        .background(Color.white)
+        .border(boarderColor, width: 5)
+        .cornerRadius(7)
+        .background(Color.white)
+
   }
-}
-
-struct Card: View {
-    @Binding var text: String
-
-    var body: some View {
-      ZStack {
-        Text(self.text)
-          .lineLimit(nil)
-          .background(Color.white)
-          .frame(alignment: .topLeading)
-        RoundedRectangle(cornerRadius: 10)
-          .stroke(Color("SecondBaseColor"), lineWidth: 5)
-          
-      }
-    }
 }
 
 struct CardView_Previews: PreviewProvider {
     static var previews: some View {
-      CardView()
-    }
+      CardView(
+        text: "test", width: 200, height: 200,
+        alignment: .topLeading,
+        boarderColor: Color("SecondBaseColor"))
+        .shadow(color: Color.gray, radius: 20, x: 0, y: 5)
+  }
 }

@@ -10,19 +10,25 @@ import SwiftUI
 
 struct ButtonView: View {
   let buttonAction: () -> Void
+  let backGroundColor: Color
   let text: String
-    var body: some View {
-        Button(action: buttonAction) {
-          Text(text)
-          .foregroundColor(Color.black)
-        }
-      .padding(.all)
-      .background(Color("SubColor"))
+
+  var body: some View {
+    Button(action: buttonAction) {
+      Text(text)
+      .foregroundColor(Color.black)
     }
+    .padding(.horizontal)
+    .background(backGroundColor)
+    .cornerRadius(25)
+  }
 }
 
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView(buttonAction: {}, text: "text")
+        ButtonView(
+          buttonAction: {},
+          backGroundColor: Color("SubColor"), text: "text"
+      )
     }
 }

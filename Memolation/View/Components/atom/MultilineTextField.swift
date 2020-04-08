@@ -11,31 +11,24 @@ import Combine
 
 struct MultilineTextFieldView: View {
   @ObservedObject private var myData = UserData()
-    var body: some View {
-      VStack {
-          MultilineTextField(text: $myData.text)
-             .frame(width: UIScreen.main.bounds.width * 0.8, height: 200)
-             .overlay(
-                 RoundedRectangle(cornerRadius: 10)
-                     .stroke(Color.blue, lineWidth: 5)
-             )
-          Text("↓")
-              .font(.title)
-          Text(myData.text)
-              .lineLimit(nil)
-              .frame(width: UIScreen.main.bounds.width * 0.8, height: 200, alignment: .topLeading)
-              .overlay(
-                  RoundedRectangle(cornerRadius: 10)
-                      .stroke(Color.green, lineWidth: 5)
-              )
-
-      }
+  let width: CGFloat = 200
+  let height: CGFloat = 200
+  let alignment: Alignment = .top
+  let boarderColor: Color = Color("BaseColor")
+  var body: some View {
+        MultilineTextField(text: $myData.text)
+          .frame(width: UIScreen.main.bounds.width * 0.8, height: 200)
+          .lineLimit(nil)
+          .padding(.all)
+          .frame(width: width, height: height, alignment: alignment)
+          .background(Color.white)
+          .border(boarderColor, width: 5)
+          .cornerRadius(7)
+          .background(Color.white)
   }
 }
 
-final class UserData: ObservableObject {
-    @Published var text: String = ""
-}
+
 
 
 struct MultilineTextField: UIViewRepresentable {

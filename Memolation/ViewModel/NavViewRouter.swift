@@ -14,3 +14,7 @@ class NavViewRouter: ObservableObject {
     @Published var currentView = "translation"
 
 }
+
+final class UserData: ObservableObject {
+    @Published var text: String = ""
+}
