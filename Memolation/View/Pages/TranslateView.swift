@@ -16,12 +16,12 @@ struct TranslateView: View {
   @State var surpportedLanguages = TranslationManager.shared.supportedLanguages
   @State private var languageSelection = TranslationLanguage(code: "ja", name: "Japanese")
   @State private var translatedText: String = "Enter Text"
-
+  
   var body: some View {
     NavigationView {
       ScrollView(showsIndicators: false) {
         VStack(alignment: .center, spacing: 10) {
-          HStack(alignment: .center, spacing: 50) {
+          HStack(alignment: .center, spacing: 23) {
             ButtonView(
               buttonAction: {TranslationManager.shared.detectLanguage(forText: self.myData.text, completion: {(language) in
               if let language = language {
@@ -54,18 +54,19 @@ struct TranslateView: View {
               text: self.languageSelection.name!
               )
             }
-          }
+          }.frame(width:UIScreen.main.bounds.width * 0.9)
         MultilineTextField(text: $myData.text)
-          .lineLimit(nil)
-          .padding(.all)
-          .frame(width: UIScreen.main.bounds.width * 0.8, height: UIScreen.main.bounds.height * 0.2, alignment: .topLeading)
+          .padding()
+          .frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.2, alignment: .topLeading)
           .background(Color.white)
-          .border(Color("BaseColor"), width: 3)
-          .cornerRadius(7)
+          .overlay(
+              RoundedRectangle(cornerRadius: 6)
+                .stroke(Color("BaseColor"), lineWidth: 4)
+          )
 
         CardView(
           text: translatedText,
-          width: UIScreen.main.bounds.width * 0.8,
+          width: UIScreen.main.bounds.width * 0.9,
           height: UIScreen.main.bounds.height * 0.2,
           alignment: .topLeading,
           boarderColor: Color("SecondBaseColor"))
@@ -87,16 +88,19 @@ struct TranslateView: View {
         Spacer()
         CardView(
           text: myData.text,
-          width: UIScreen.main.bounds.width * 0.8,
+          width: UIScreen.main.bounds.width * 0.9,
           height: 200,
           alignment: .topLeading, boarderColor: .white)
-          .shadow(color: Color.gray, radius: 20, x: 0, y: 5)
+          .shadow(color: Color("shade"), radius: 20, x: 0, y: 5)
+          .background(Color.white)
+
+          
       }.onTapGesture {
         self.endEditing()
         }.frame(maxWidth: .infinity)
       }
-      .navigationBarTitle("")
-      .navigationBarHidden(true)
+      .navigationBarTitle("Translation")
+      .navigationBarHidden(false)
     }
   }
   private func endEditing() {

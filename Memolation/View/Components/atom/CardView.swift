@@ -22,9 +22,11 @@ struct CardView: View {
         .padding(.all)
         .frame(width: width, height: height, alignment: alignment)
         .background(Color.white)
-        .border(boarderColor, width: 5)
-        .cornerRadius(7)
-        .background(Color.white)
+        .cornerRadius(6)
+        .overlay(
+            RoundedRectangle(cornerRadius: 6)
+                .stroke(boarderColor, lineWidth: 4)
+        )
 
   }
 }
@@ -35,6 +37,7 @@ struct CardView_Previews: PreviewProvider {
         text: "test", width: 200, height: 200,
         alignment: .topLeading,
         boarderColor: Color("SecondBaseColor"))
-        .shadow(color: Color.gray, radius: 20, x: 0, y: 5)
+        .shadow(color: Color("shade"), radius: 20, x: 0, y: 5)
+        .background(Color.white)
   }
 }
