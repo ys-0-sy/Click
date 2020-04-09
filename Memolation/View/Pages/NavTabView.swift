@@ -34,59 +34,28 @@ struct NavTab: View {
         }
         Spacer()
         HStack {
-          VStack {
-            Image("translation")
-              .resizable()
-              .aspectRatio(contentMode: .fit)
-              .padding(8)
-              .frame(width: geometry.size.width/5, height: 60)
-            Text("Translation")
-              .offset(y: -14)
-              .font(.footnote)
-          }
+          NavigatinButtonView(width: geometry.size.width/5, image: "translation", text: "Translation")
+            .offset(y: geometry.size.height >= 768 ? -6 : 0)
             .foregroundColor(self.navViewRouter.currentView == "translation" ? .purple : .gray)
             .onTapGesture {
+              print(geometry.size.height)
               self.navViewRouter.currentView = "translation"
           }
-          VStack {
-            Image("cards")
-              .resizable()
-              .padding(8)
-              .aspectRatio(contentMode: .fit)
-              .frame(width: geometry.size.width/5, height: 60)
-            Text("Cards")
-              .font(.footnote)
-            .offset(y: -14)
-          }.offset(y: -6)
+          NavigatinButtonView(width: geometry.size.width/5, image: "cards", text: "Cards")
+            .offset(y: geometry.size.height >= 768 ? -6 : 0)
             .foregroundColor(self.navViewRouter.currentView == "cards" ? .purple : .gray)
             .onTapGesture {
               self.navViewRouter.currentView = "cards"
             }
-          VStack {
-            Image("list")
-              .resizable()
-              .aspectRatio(contentMode: .fit)
-              .padding(8)
-              .frame(width: geometry.size.width/5, height: 60)
-            Text("List")
-              .font(.footnote)
-              .offset(y: -14)
-          }
+          NavigatinButtonView(width: geometry.size.width/5, image: "list", text: "List")
+            .offset(y: geometry.size.height >= 768 ? -6 : 0)
             .foregroundColor(self.navViewRouter.currentView == "lists" ? .purple : .gray)
             .onTapGesture {
               self.navViewRouter.currentView = "lists"
             }
-          VStack {
-            Image("settings")
-              .resizable()
-              .aspectRatio(contentMode: .fit)
-              .padding(8)
-              .frame(width: geometry.size.width/5, height: 60)
-            Text("Settings")
-            .font(.footnote)
-            .offset(y: -14)
-          }
-            .foregroundColor(self.navViewRouter.currentView == "settings" ? Color("SecondColor") : .gray)
+          NavigatinButtonView(width: geometry.size.width/5, image: "settings", text: "Settings")
+            .offset(y: geometry.size.height >= 768 ? -6 : 0)
+            .foregroundColor(self.navViewRouter.currentView == "settings" ? Color("SecondBaseColor") : .gray)
             .onTapGesture {
                 self.navViewRouter.currentView = "settings"
             }
