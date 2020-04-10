@@ -34,7 +34,7 @@ struct NavTab: View {
         }
         Spacer()
         HStack {
-          NavigatinButtonView(width: geometry.size.width/5, image: "translation", text: "Translation")
+          NavigatinButtonView(width: geometry.size.width/6, image: "translation", text: "Translation")
             .offset(y: geometry.size.height >= 768 ? -6 : 0)
             .foregroundColor(self.navViewRouter.currentView == "translation" ? .purple : .gray)
             .onTapGesture {
@@ -60,7 +60,7 @@ struct NavTab: View {
                 self.navViewRouter.currentView = "settings"
             }
         }
-        .frame(width: geometry.size.width, height: geometry.size.height/9)
+        .frame(width: geometry.size.width, height: geometry.size.height/10)
         .background(Color.white.shadow(radius: 2))
       }
     }.edgesIgnoringSafeArea(.bottom)

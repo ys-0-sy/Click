@@ -11,7 +11,36 @@ struct ContentView: View {
   @State var selection = 0
 
   var body: some View {
-    NavTab()
+    ZStack(alignment: .top) {
+      VStack(spacing: 1) {
+        Rectangle()
+          .foregroundColor(Color("BaseColor"))
+           .edgesIgnoringSafeArea(.top)
+           .frame(height: 0)
+      TabView {
+        TranslateView()
+          .tabItem {
+            Image("translation")
+            Text("Translation")
+          }
+        Text("Cards")
+          .tabItem {
+            Image("cards")
+            Text("Cards")
+        }
+        Text("Lists")
+          .tabItem {
+            Image("list")
+            Text("Lists")
+        }
+        Text("Settings")
+          .tabItem {
+            Image("settings")
+            Text("Settings")
+        }
+      }.accentColor(Color("SecondBaseColor"))
+      }
+    }
   }
 }
 
