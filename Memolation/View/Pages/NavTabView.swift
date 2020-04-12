@@ -23,7 +23,7 @@ struct NavTab: View {
       VStack {
         Spacer()
         if self.navViewRouter.currentView == "translation" {
-          TranslateView()
+          TranslateView(viewModel: .init(apiService: APIService()))
             .offset(y: 7)
         } else if self.navViewRouter.currentView == "cards" {
           Text("Cards")
@@ -40,7 +40,7 @@ struct NavTab: View {
             .onTapGesture {
               print(geometry.size.height)
               self.navViewRouter.currentView = "translation"
-          }
+            }
           NavigatinButtonView(width: geometry.size.width/5, image: "cards", text: "Cards")
             .offset(y: geometry.size.height >= 768 ? -6 : 0)
             .foregroundColor(self.navViewRouter.currentView == "cards" ? .purple : .gray)

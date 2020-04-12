@@ -12,12 +12,11 @@ struct Translation: View {
   @State private var showAfterView: Bool = false
   @ObservedObject private var myData = UserData()
   @State private var detectedLanguage: String = "Auto Detect"
-  @State private var languageSelection = TranslationLanguage(code: "ja", name: "Japanese")
-
+  @ObservedObject(initialValue: .init()) var viewModel: UserData
     var body: some View {
         HStack(alignment: .center, spacing: 23) {
           ButtonView(
-            buttonAction: {TranslationManager.shared.detectLanguage(forText: self.myData.text, completion: {(language) in
+            buttonAction: {TranslationManager.shared.detectLanguage(forText: self.myData.rawText, completion: {(language) in
             if let language = language {
               self.detectedLanguage = language
               for lang in TranslationManager.shared.supportedLanguages {
@@ -40,26 +39,16 @@ struct Translation: View {
               ButtonView(buttonAction: {self.showAfterView = false},
                 backGroundColor: Color("SecondSubColor"),
                 text: "Back")
-              ChooseLanguages(showAfterView: $showAfterView, languageSelection: $languageSelection)
+              ChooseLanguages(showAfterView: $showAfterView, languageSelection: $myData.targetLanguageSelection)
             }
+            .navigationBarHidden(true)
           .navigationBarBackButtonHidden(true), isActive: $showAfterView) {
               ButtonView(buttonAction: {self.showAfterView = true},
             backGroundColor: Color("SecondSubColor"),
-            text: self.languageSelection.name!
+            text: self.myData.targetLanguageSelection.name
             )
           }
-        Button(action: {
-          TranslationManager.shared.targetLanguageCode = self.languageSelection.code!
-          TranslationManager.shared.textToTranslate = self.myData.text
-          TranslationManager.shared.translate(completion: {(returnString) in
-            if let returnString = returnString {
-              self.myData.translatedText = returnString
-            } else {
-              self.myData.translatedText = "translation error"
-            }
-
-          })
-        }) {
+          Button(action: {self.viewModel.translate()}) {
           Text("Translate")
         }
         }.frame(width:UIScreen.main.bounds.width * 0.9)

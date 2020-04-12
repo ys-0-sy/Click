@@ -12,13 +12,13 @@ struct ContentView: View {
 
   var body: some View {
     ZStack(alignment: .top) {
-      VStack(spacing: 1) {
+      VStack(spacing: 0) {
         Rectangle()
           .foregroundColor(Color("BaseColor"))
            .edgesIgnoringSafeArea(.top)
            .frame(height: 0)
       TabView {
-        TranslateView()
+        TranslateView(viewModel: .init(apiService: APIService()))
           .tabItem {
             Image("translation")
             Text("Translation")

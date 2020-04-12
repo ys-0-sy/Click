@@ -18,6 +18,9 @@
 		5B1716A7242CF8110081D603 /* MemolationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716A6242CF8110081D603 /* MemolationUITests.swift */; };
 		5B1716B9242CFE910081D603 /* NavTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716B8242CFE910081D603 /* NavTabView.swift */; };
 		5B64174C24406FCC003DCAAF /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64174B24406FCC003DCAAF /* Translation.swift */; };
+		5B64174E24430C13003DCAAF /* TranslationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64174D24430C13003DCAAF /* TranslationModel.swift */; };
+		5B64175024430C4A003DCAAF /* CardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64174F24430C4A003DCAAF /* CardsModel.swift */; };
+		5B6417522443393B003DCAAF /* TranslateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6417512443393B003DCAAF /* TranslateViewModel.swift */; };
 		5B6E3914243DDE6300120F33 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6E3913243DDE6300120F33 /* ButtonView.swift */; };
 		5B6E3916243EC16E00120F33 /* NavigatinButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6E3915243EC16E00120F33 /* NavigatinButtonView.swift */; };
 		5BB362622432DF890065FD5D /* keys.template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB362612432DF890065FD5D /* keys.template.plist */; };
@@ -28,8 +31,6 @@
 		5BE2EE65242DBAA6007BC85F /* TranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE64242DBAA6007BC85F /* TranslateView.swift */; };
 		5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE67242DC0AA007BC85F /* CardView.swift */; };
 		5BE2EE6B242DC1FE007BC85F /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE6A242DC1FE007BC85F /* MultilineTextField.swift */; };
-		5BE2EE6F242E0B5A007BC85F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 5BE2EE6E242E0B5A007BC85F /* Alamofire */; };
-		5BE2EE72242E0B79007BC85F /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 5BE2EE71242E0B79007BC85F /* SwiftyJSON */; };
 		5BE2EE74242E0B93007BC85F /* TranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE73242E0B93007BC85F /* TranslateAPI.swift */; };
 		5BE2EE78242E2059007BC85F /* TranslationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE77242E2059007BC85F /* TranslationManager.swift */; };
 		5BF26394243894930047B426 /* NavViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF26393243894930047B426 /* NavViewRouter.swift */; };
@@ -71,6 +72,9 @@
 		5B1716A8242CF8110081D603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B1716B8242CFE910081D603 /* NavTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavTabView.swift; sourceTree = "<group>"; };
 		5B64174B24406FCC003DCAAF /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
+		5B64174D24430C13003DCAAF /* TranslationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationModel.swift; sourceTree = "<group>"; };
+		5B64174F24430C4A003DCAAF /* CardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsModel.swift; sourceTree = "<group>"; };
+		5B6417512443393B003DCAAF /* TranslateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewModel.swift; sourceTree = "<group>"; };
 		5B6E3913243DDE6300120F33 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		5B6E3915243EC16E00120F33 /* NavigatinButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatinButtonView.swift; sourceTree = "<group>"; };
 		5BB3625D2432D5230065FD5D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -93,9 +97,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BB362672434E7CD0065FD5D /* RealmSwift in Frameworks */,
-				5BE2EE72242E0B79007BC85F /* SwiftyJSON in Frameworks */,
 				5BB362692434E7CD0065FD5D /* Realm in Frameworks */,
-				5BE2EE6F242E0B5A007BC85F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				5BE2EE6C242E0A8F007BC85F /* API */,
+				5B64174D24430C13003DCAAF /* TranslationModel.swift */,
+				5B64174F24430C4A003DCAAF /* CardsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -201,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				5BF26393243894930047B426 /* NavViewRouter.swift */,
+				5B6417512443393B003DCAAF /* TranslateViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -270,7 +275,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B1716AB242CF8110081D603 /* Build configuration list for PBXNativeTarget "Memolation" */;
 			buildPhases = (
-				5BB3625C2432D3260065FD5D /* Run Script */,
 				5B17167A242CF80E0081D603 /* Sources */,
 				5B17167B242CF80E0081D603 /* Frameworks */,
 				5B17167C242CF80E0081D603 /* Resources */,
@@ -281,8 +285,6 @@
 			);
 			name = Memolation;
 			packageProductDependencies = (
-				5BE2EE6E242E0B5A007BC85F /* Alamofire */,
-				5BE2EE71242E0B79007BC85F /* SwiftyJSON */,
 				5BB362662434E7CD0065FD5D /* RealmSwift */,
 				5BB362682434E7CD0065FD5D /* Realm */,
 			);
@@ -404,27 +406,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		5BB3625C2432D3260065FD5D /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/zsh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		5B17167A242CF80E0081D603 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -439,13 +420,16 @@
 				5B6E3916243EC16E00120F33 /* NavigatinButtonView.swift in Sources */,
 				5B6E3914243DDE6300120F33 /* ButtonView.swift in Sources */,
 				5BE2EE65242DBAA6007BC85F /* TranslateView.swift in Sources */,
+				5B64175024430C4A003DCAAF /* CardsModel.swift in Sources */,
 				5B171687242CF80E0081D603 /* Memolation.xcdatamodeld in Sources */,
+				5B6417522443393B003DCAAF /* TranslateViewModel.swift in Sources */,
 				5B171689242CF80E0081D603 /* ContentView.swift in Sources */,
 				5B64174C24406FCC003DCAAF /* Translation.swift in Sources */,
 				5B1716B9242CFE910081D603 /* NavTabView.swift in Sources */,
 				5BE2EE74242E0B93007BC85F /* TranslateAPI.swift in Sources */,
 				5B171684242CF80E0081D603 /* SceneDelegate.swift in Sources */,
 				5BE2EE6B242DC1FE007BC85F /* MultilineTextField.swift in Sources */,
+				5B64174E24430C13003DCAAF /* TranslationModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -816,16 +800,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5BB362652434E7CD0065FD5D /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = Realm;
-		};
-		5BE2EE6E242E0B5A007BC85F /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5BE2EE6D242E0B5A007BC85F /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		5BE2EE71242E0B79007BC85F /* SwiftyJSON */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5BE2EE70242E0B79007BC85F /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
 		};
 /* End XCSwiftPackageProductDependency section */
 

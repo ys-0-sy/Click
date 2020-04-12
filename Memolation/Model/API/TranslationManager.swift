@@ -9,10 +9,7 @@
 import Foundation
 import Combine
 
-struct TranslationLanguage: Hashable {
-  var code: String?
-  var name: String?
-}
+
 
 struct Keys: Codable {
     var googleAPIKey: String
@@ -135,7 +132,7 @@ class TranslationManager: NSObject {
             languageName = name
           }
 
-          self.supportedLanguages.append(TranslationLanguage(code: languageCode, name: languageName))
+          self.supportedLanguages.append(TranslationLanguage(code: languageCode!, name: languageName!))
         }
 
         completion(true)

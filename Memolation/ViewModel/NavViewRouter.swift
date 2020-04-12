@@ -10,12 +10,36 @@ import Foundation
 import SwiftUI
 import Combine
 
-class NavViewRouter: ObservableObject {
-    @Published var currentView = "translation"
+final class NavViewRouter: ObservableObject {
+  @Published var currentView = "translation"
 
 }
 
 final class UserData: ObservableObject {
-    @Published var text: String = ""
-    @Published var translatedText: String = "Enter Text"
+  @Published var rawText: String = ""
+  var translatedText: String = "Enter Text"
+  @Published var targetLanguageSelection = TranslationLanguage(code: "ja", name: "Japanese")
+  @Published var surpportedLanguages = TranslationManager.shared.supportedLanguages
+
+  init() {
+    return
+  }
+  
+  func translate() {
+    TranslationManager.shared.targetLanguageCode = targetLanguageSelection.code
+    TranslationManager.shared.textToTranslate = rawText
+    
+    TranslationManager.shared.translate(completion: {(returnString) in
+      
+      if let returnString = returnString {
+        self.translatedText = returnString
+      } else {
+        self.translatedText = "translation error"
+      }
+
+    })
+    print(self.rawText)
+    print(self.translatedText)
+
+  }
 }

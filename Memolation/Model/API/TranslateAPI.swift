@@ -61,7 +61,7 @@ class TestApi: ObservableObject {
   }
   func translate(rawString: String) {
     let googleAPIKey = loadKeys()
-    AF.request("https://translation.googleapis.com/language/translate/v2",
+    AF.request("https://translation.googleapis.com",
                method: .post,
                parameters: [
                 "q": rawString,

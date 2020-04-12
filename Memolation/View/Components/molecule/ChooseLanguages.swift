@@ -7,12 +7,14 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ChooseLanguagesView: View {
   @State private var showAfterView: Bool = false
-  @State private var languageSelection = TranslationLanguage(code: "ja", name: "Japanese")
+  @ObservedObject private var myData = UserData()
+  
   var body: some View {
-    ChooseLanguages(showAfterView: $showAfterView, languageSelection: $languageSelection)
+    ChooseLanguages(showAfterView: $showAfterView, languageSelection: $myData.targetLanguageSelection)
   }
 }
 
@@ -26,7 +28,7 @@ struct ChooseLanguages: View {
           self.showAfterView = false
           self.languageSelection = language
         }) {
-          Text(language.name!)
+          Text(language.name)
         }
       }
     }

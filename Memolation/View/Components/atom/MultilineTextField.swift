@@ -16,7 +16,7 @@ struct MultilineTextFieldView: View {
   let alignment: Alignment = .top
   let boarderColor: Color = Color("BaseColor")
   var body: some View {
-        MultilineTextField(text: $myData.text)
+        MultilineTextField(text: $myData.rawText, onEditingChanged: update)
           .frame(width: UIScreen.main.bounds.width * 0.8, height: 200)
           .lineLimit(nil)
           .padding(.all)
@@ -27,6 +27,13 @@ struct MultilineTextFieldView: View {
                   .stroke(boarderColor, lineWidth: 4)
           ) 
           .background(Color.white)
+    
+  }
+  
+  func update(changed: Bool) {
+      guard !changed else { return }
+      //document.content = content
+      //document.updateChangeCount(.done)
   }
 }
 
@@ -36,42 +43,49 @@ struct MultilineTextFieldView: View {
 struct MultilineTextField: UIViewRepresentable {
 
   @Binding var text: String
+  let onEditingChanged: (Bool) -> Void
+  
+  init(text: Binding<String>, onEditingChanged: @escaping (Bool) -> Void = {_ in}) {
+    self._text = text
+    self.onEditingChanged = onEditingChanged
+  }
+  
+  func makeCoordinator() -> MultilineTextFieldCoordinator {
+    MultilineTextFieldCoordinator(target: self, onEditingChanged: onEditingChanged)
+  }
+  
   func makeUIView(context: Context) -> UITextView {
-    let view = UITextView()
-    view.delegate = context.coordinator
-    view.isScrollEnabled = true
-    view.isEditable = true
-    view.isUserInteractionEnabled = true
-    return view
+    let textView = UITextView()
+    textView.delegate = context.coordinator
+    textView.isScrollEnabled = true
+    textView.text = text
+    return textView
   }
 
-  func updateUIView(_ uiView: UITextView, context: Context) {
-    uiView.text = text
+  func updateUIView(_ textView: UITextView, context: Context) {
+    if textView.text != text {
+      textView.text = text
+    }
+  }
+}
+class MultilineTextFieldCoordinator: NSObject, UITextViewDelegate {
+  let target: MultilineTextField
+  let onEditingChanged: (Bool) -> Void
+
+  init(target: MultilineTextField, onEditingChanged: @escaping (Bool) -> Void = {_ in}) {
+    self.target = target
+    self.onEditingChanged = onEditingChanged
   }
 
-  func makeCoordinator() -> Coordinator {
-    Coordinator(self)
+  func textViewDidChange(_ textView: UITextView) {
+    target.text = textView.text
   }
-
-  class Coordinator: NSObject, UITextViewDelegate {
-    var parent: MultilineTextField
-
-    init(_ textView: MultilineTextField) {
-      self.parent = textView
-    }
-
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-      return true
-    }
-
-    func textViewDidChange(_ textView: UITextView) {
-      self.parent.text = textView.text
-    }
-    func textViewShouldEndEditing(textView: UITextView) -> Bool {
-      self.parent.text = textView.text
-      UIApplication.shared.endEditing()
-      return true
-    }
+  
+  func textViewDidBeginEditing(_ textView: UITextView) {
+    onEditingChanged(true)
+  }
+  func textViewDidEndEditing(_ textView: UITextView) {
+    onEditingChanged(false)
   }
 }
 
