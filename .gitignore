@@ -1,2 +1,2 @@
-Memolation/Secret/*
-!Memolation/Secret/*.template.plist
+Clip/Secret/*
+!Clip/Secret/*.template.plist
