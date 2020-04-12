@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5B17167D242CF80E0081D603"
-               BuildableName = "Memolation.app"
-               BlueprintName = "Memolation"
-               ReferencedContainer = "container:Memolation.xcodeproj">
+               BuildableName = "Clip.app"
+               BlueprintName = "Clip"
+               ReferencedContainer = "container:Clip.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5B171696242CF8110081D603"
-               BuildableName = "MemolationTests.xctest"
-               BlueprintName = "MemolationTests"
-               ReferencedContainer = "container:Memolation.xcodeproj">
+               BuildableName = "ClipTests.xctest"
+               BlueprintName = "ClipTests"
+               ReferencedContainer = "container:Clip.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5B1716A1242CF8110081D603"
-               BuildableName = "MemolationUITests.xctest"
-               BlueprintName = "MemolationUITests"
-               ReferencedContainer = "container:Memolation.xcodeproj">
+               BuildableName = "ClipUITests.xctest"
+               BlueprintName = "ClipUITests"
+               ReferencedContainer = "container:Clip.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5B17167D242CF80E0081D603"
-            BuildableName = "Memolation.app"
-            BlueprintName = "Memolation"
-            ReferencedContainer = "container:Memolation.xcodeproj">
+            BuildableName = "Clip.app"
+            BlueprintName = "Clip"
+            ReferencedContainer = "container:Clip.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -82,9 +82,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5B17167D242CF80E0081D603"
-            BuildableName = "Memolation.app"
-            BlueprintName = "Memolation"
-            ReferencedContainer = "container:Memolation.xcodeproj">
+            BuildableName = "Clip.app"
+            BlueprintName = "Clip"
+            ReferencedContainer = "container:Clip.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

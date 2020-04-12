@@ -55,7 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5B17167E242CF80E0081D603 /* Memolation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memolation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B17167E242CF80E0081D603 /* Clip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B171681242CF80E0081D603 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B171683242CF80E0081D603 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5B171686242CF80E0081D603 /* Memolation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Memolation.xcdatamodel; sourceTree = "<group>"; };
@@ -64,10 +64,10 @@
 		5B17168D242CF8110081D603 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5B171690242CF8110081D603 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B171692242CF8110081D603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B171697242CF8110081D603 /* MemolationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemolationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B171697242CF8110081D603 /* ClipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B17169B242CF8110081D603 /* MemolationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemolationTests.swift; sourceTree = "<group>"; };
 		5B17169D242CF8110081D603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B1716A2242CF8110081D603 /* MemolationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemolationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B1716A2242CF8110081D603 /* ClipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B1716A6242CF8110081D603 /* MemolationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemolationUITests.swift; sourceTree = "<group>"; };
 		5B1716A8242CF8110081D603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B1716B8242CFE910081D603 /* NavTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavTabView.swift; sourceTree = "<group>"; };
@@ -121,9 +121,9 @@
 		5B171675242CF80E0081D603 = {
 			isa = PBXGroup;
 			children = (
-				5B171680242CF80E0081D603 /* Memolation */,
-				5B17169A242CF8110081D603 /* MemolationTests */,
-				5B1716A5242CF8110081D603 /* MemolationUITests */,
+				5B171680242CF80E0081D603 /* Clip */,
+				5B17169A242CF8110081D603 /* ClipTests */,
+				5B1716A5242CF8110081D603 /* ClipUITests */,
 				5B17167F242CF80E0081D603 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,14 +131,14 @@
 		5B17167F242CF80E0081D603 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5B17167E242CF80E0081D603 /* Memolation.app */,
-				5B171697242CF8110081D603 /* MemolationTests.xctest */,
-				5B1716A2242CF8110081D603 /* MemolationUITests.xctest */,
+				5B17167E242CF80E0081D603 /* Clip.app */,
+				5B171697242CF8110081D603 /* ClipTests.xctest */,
+				5B1716A2242CF8110081D603 /* ClipUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5B171680242CF80E0081D603 /* Memolation */ = {
+		5B171680242CF80E0081D603 /* Clip */ = {
 			isa = PBXGroup;
 			children = (
 				5B6E3912243CC2A900120F33 /* View */,
@@ -153,7 +153,7 @@
 				5B171685242CF80E0081D603 /* Memolation.xcdatamodeld */,
 				5B17168C242CF8110081D603 /* Preview Content */,
 			);
-			path = Memolation;
+			path = Clip;
 			sourceTree = "<group>";
 		};
 		5B17168C242CF8110081D603 /* Preview Content */ = {
@@ -164,22 +164,22 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		5B17169A242CF8110081D603 /* MemolationTests */ = {
+		5B17169A242CF8110081D603 /* ClipTests */ = {
 			isa = PBXGroup;
 			children = (
 				5B17169B242CF8110081D603 /* MemolationTests.swift */,
 				5B17169D242CF8110081D603 /* Info.plist */,
 			);
-			path = MemolationTests;
+			path = ClipTests;
 			sourceTree = "<group>";
 		};
-		5B1716A5242CF8110081D603 /* MemolationUITests */ = {
+		5B1716A5242CF8110081D603 /* ClipUITests */ = {
 			isa = PBXGroup;
 			children = (
 				5B1716A6242CF8110081D603 /* MemolationUITests.swift */,
 				5B1716A8242CF8110081D603 /* Info.plist */,
 			);
-			path = MemolationUITests;
+			path = ClipUITests;
 			sourceTree = "<group>";
 		};
 		5B64174A24406F8A003DCAAF /* molecule */ = {
@@ -271,9 +271,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5B17167D242CF80E0081D603 /* Memolation */ = {
+		5B17167D242CF80E0081D603 /* Clip */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B1716AB242CF8110081D603 /* Build configuration list for PBXNativeTarget "Memolation" */;
+			buildConfigurationList = 5B1716AB242CF8110081D603 /* Build configuration list for PBXNativeTarget "Clip" */;
 			buildPhases = (
 				5B17167A242CF80E0081D603 /* Sources */,
 				5B17167B242CF80E0081D603 /* Frameworks */,
@@ -283,18 +283,18 @@
 			);
 			dependencies = (
 			);
-			name = Memolation;
+			name = Clip;
 			packageProductDependencies = (
 				5BB362662434E7CD0065FD5D /* RealmSwift */,
 				5BB362682434E7CD0065FD5D /* Realm */,
 			);
 			productName = Memolation;
-			productReference = 5B17167E242CF80E0081D603 /* Memolation.app */;
+			productReference = 5B17167E242CF80E0081D603 /* Clip.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5B171696242CF8110081D603 /* MemolationTests */ = {
+		5B171696242CF8110081D603 /* ClipTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B1716AE242CF8110081D603 /* Build configuration list for PBXNativeTarget "MemolationTests" */;
+			buildConfigurationList = 5B1716AE242CF8110081D603 /* Build configuration list for PBXNativeTarget "ClipTests" */;
 			buildPhases = (
 				5B171693242CF8110081D603 /* Sources */,
 				5B171694242CF8110081D603 /* Frameworks */,
@@ -305,14 +305,14 @@
 			dependencies = (
 				5B171699242CF8110081D603 /* PBXTargetDependency */,
 			);
-			name = MemolationTests;
+			name = ClipTests;
 			productName = MemolationTests;
-			productReference = 5B171697242CF8110081D603 /* MemolationTests.xctest */;
+			productReference = 5B171697242CF8110081D603 /* ClipTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5B1716A1242CF8110081D603 /* MemolationUITests */ = {
+		5B1716A1242CF8110081D603 /* ClipUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B1716B1242CF8110081D603 /* Build configuration list for PBXNativeTarget "MemolationUITests" */;
+			buildConfigurationList = 5B1716B1242CF8110081D603 /* Build configuration list for PBXNativeTarget "ClipUITests" */;
 			buildPhases = (
 				5B17169E242CF8110081D603 /* Sources */,
 				5B17169F242CF8110081D603 /* Frameworks */,
@@ -323,9 +323,9 @@
 			dependencies = (
 				5B1716A4242CF8110081D603 /* PBXTargetDependency */,
 			);
-			name = MemolationUITests;
+			name = ClipUITests;
 			productName = MemolationUITests;
-			productReference = 5B1716A2242CF8110081D603 /* MemolationUITests.xctest */;
+			productReference = 5B1716A2242CF8110081D603 /* ClipUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -351,7 +351,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5B171679242CF80E0081D603 /* Build configuration list for PBXProject "Memolation" */;
+			buildConfigurationList = 5B171679242CF80E0081D603 /* Build configuration list for PBXProject "Clip" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -370,9 +370,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5B17167D242CF80E0081D603 /* Memolation */,
-				5B171696242CF8110081D603 /* MemolationTests */,
-				5B1716A1242CF8110081D603 /* MemolationUITests */,
+				5B17167D242CF80E0081D603 /* Clip */,
+				5B171696242CF8110081D603 /* ClipTests */,
+				5B1716A1242CF8110081D603 /* ClipUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -454,12 +454,12 @@
 /* Begin PBXTargetDependency section */
 		5B171699242CF8110081D603 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5B17167D242CF80E0081D603 /* Memolation */;
+			target = 5B17167D242CF80E0081D603 /* Clip */;
 			targetProxy = 5B171698242CF8110081D603 /* PBXContainerItemProxy */;
 		};
 		5B1716A4242CF8110081D603 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5B17167D242CF80E0081D603 /* Memolation */;
+			target = 5B17167D242CF80E0081D603 /* Clip */;
 			targetProxy = 5B1716A3242CF8110081D603 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -608,8 +608,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.Memolation";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.Clip";
+				PRODUCT_NAME = Clip;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -630,8 +630,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.Memolation";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.Clip";
+				PRODUCT_NAME = Clip;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -656,7 +656,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Memolation.app/Memolation";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clip.app/Clip";
 			};
 			name = Debug;
 		};
@@ -678,7 +678,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Memolation.app/Memolation";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clip.app/Clip";
 			};
 			name = Release;
 		};
@@ -725,7 +725,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5B171679242CF80E0081D603 /* Build configuration list for PBXProject "Memolation" */ = {
+		5B171679242CF80E0081D603 /* Build configuration list for PBXProject "Clip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B1716A9242CF8110081D603 /* Debug */,
@@ -734,7 +734,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B1716AB242CF8110081D603 /* Build configuration list for PBXNativeTarget "Memolation" */ = {
+		5B1716AB242CF8110081D603 /* Build configuration list for PBXNativeTarget "Clip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B1716AC242CF8110081D603 /* Debug */,
@@ -743,7 +743,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B1716AE242CF8110081D603 /* Build configuration list for PBXNativeTarget "MemolationTests" */ = {
+		5B1716AE242CF8110081D603 /* Build configuration list for PBXNativeTarget "ClipTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B1716AF242CF8110081D603 /* Debug */,
@@ -752,7 +752,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B1716B1242CF8110081D603 /* Build configuration list for PBXNativeTarget "MemolationUITests" */ = {
+		5B1716B1242CF8110081D603 /* Build configuration list for PBXNativeTarget "ClipUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B1716B2242CF8110081D603 /* Debug */,
