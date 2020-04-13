@@ -3,19 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5B171682242CF80E0081D603 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B171681242CF80E0081D603 /* AppDelegate.swift */; };
 		5B171684242CF80E0081D603 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B171683242CF80E0081D603 /* SceneDelegate.swift */; };
-		5B171687242CF80E0081D603 /* Memolation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B171685242CF80E0081D603 /* Memolation.xcdatamodeld */; };
+		5B171687242CF80E0081D603 /* Clip.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B171685242CF80E0081D603 /* Clip.xcdatamodeld */; };
 		5B171689242CF80E0081D603 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B171688242CF80E0081D603 /* ContentView.swift */; };
 		5B17168B242CF8110081D603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B17168A242CF8110081D603 /* Assets.xcassets */; };
 		5B17168E242CF8110081D603 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B17168D242CF8110081D603 /* Preview Assets.xcassets */; };
 		5B171691242CF8110081D603 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B17168F242CF8110081D603 /* LaunchScreen.storyboard */; };
-		5B17169C242CF8110081D603 /* MemolationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B17169B242CF8110081D603 /* MemolationTests.swift */; };
-		5B1716A7242CF8110081D603 /* MemolationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716A6242CF8110081D603 /* MemolationUITests.swift */; };
+		5B17169C242CF8110081D603 /* ClipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B17169B242CF8110081D603 /* ClipTests.swift */; };
+		5B1716A7242CF8110081D603 /* ClipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716A6242CF8110081D603 /* ClipUITests.swift */; };
 		5B1716B9242CFE910081D603 /* NavTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716B8242CFE910081D603 /* NavTabView.swift */; };
 		5B64174C24406FCC003DCAAF /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64174B24406FCC003DCAAF /* Translation.swift */; };
 		5B64174E24430C13003DCAAF /* TranslationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64174D24430C13003DCAAF /* TranslationModel.swift */; };
@@ -25,8 +25,6 @@
 		5B6E3916243EC16E00120F33 /* NavigatinButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6E3915243EC16E00120F33 /* NavigatinButtonView.swift */; };
 		5BB362622432DF890065FD5D /* keys.template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB362612432DF890065FD5D /* keys.template.plist */; };
 		5BB362642432DFEF0065FD5D /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB362632432DFEF0065FD5D /* keys.plist */; };
-		5BB362672434E7CD0065FD5D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5BB362662434E7CD0065FD5D /* RealmSwift */; };
-		5BB362692434E7CD0065FD5D /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 5BB362682434E7CD0065FD5D /* Realm */; };
 		5BB3626C2434E9410065FD5D /* ChooseLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB3626B2434E9410065FD5D /* ChooseLanguages.swift */; };
 		5BE2EE65242DBAA6007BC85F /* TranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE64242DBAA6007BC85F /* TranslateView.swift */; };
 		5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE67242DC0AA007BC85F /* CardView.swift */; };
@@ -65,10 +63,10 @@
 		5B171690242CF8110081D603 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B171692242CF8110081D603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B171697242CF8110081D603 /* ClipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B17169B242CF8110081D603 /* MemolationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemolationTests.swift; sourceTree = "<group>"; };
+		5B17169B242CF8110081D603 /* ClipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipTests.swift; sourceTree = "<group>"; };
 		5B17169D242CF8110081D603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B1716A2242CF8110081D603 /* ClipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B1716A6242CF8110081D603 /* MemolationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemolationUITests.swift; sourceTree = "<group>"; };
+		5B1716A6242CF8110081D603 /* ClipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipUITests.swift; sourceTree = "<group>"; };
 		5B1716A8242CF8110081D603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B1716B8242CFE910081D603 /* NavTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavTabView.swift; sourceTree = "<group>"; };
 		5B64174B24406FCC003DCAAF /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
@@ -96,8 +94,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BB362672434E7CD0065FD5D /* RealmSwift in Frameworks */,
-				5BB362692434E7CD0065FD5D /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +146,7 @@
 				5B17168A242CF8110081D603 /* Assets.xcassets */,
 				5B17168F242CF8110081D603 /* LaunchScreen.storyboard */,
 				5B171692242CF8110081D603 /* Info.plist */,
-				5B171685242CF80E0081D603 /* Memolation.xcdatamodeld */,
+				5B171685242CF80E0081D603 /* Clip.xcdatamodeld */,
 				5B17168C242CF8110081D603 /* Preview Content */,
 			);
 			path = Clip;
@@ -167,7 +163,7 @@
 		5B17169A242CF8110081D603 /* ClipTests */ = {
 			isa = PBXGroup;
 			children = (
-				5B17169B242CF8110081D603 /* MemolationTests.swift */,
+				5B17169B242CF8110081D603 /* ClipTests.swift */,
 				5B17169D242CF8110081D603 /* Info.plist */,
 			);
 			path = ClipTests;
@@ -176,7 +172,7 @@
 		5B1716A5242CF8110081D603 /* ClipUITests */ = {
 			isa = PBXGroup;
 			children = (
-				5B1716A6242CF8110081D603 /* MemolationUITests.swift */,
+				5B1716A6242CF8110081D603 /* ClipUITests.swift */,
 				5B1716A8242CF8110081D603 /* Info.plist */,
 			);
 			path = ClipUITests;
@@ -285,8 +281,6 @@
 			);
 			name = Clip;
 			packageProductDependencies = (
-				5BB362662434E7CD0065FD5D /* RealmSwift */,
-				5BB362682434E7CD0065FD5D /* Realm */,
 			);
 			productName = Memolation;
 			productReference = 5B17167E242CF80E0081D603 /* Clip.app */;
@@ -362,7 +356,6 @@
 			);
 			mainGroup = 5B171675242CF80E0081D603;
 			packageReferences = (
-				5BB362652434E7CD0065FD5D /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 5B17167F242CF80E0081D603 /* Products */;
 			projectDirPath = "";
@@ -419,7 +412,7 @@
 				5B6E3914243DDE6300120F33 /* ButtonView.swift in Sources */,
 				5BE2EE65242DBAA6007BC85F /* TranslateView.swift in Sources */,
 				5B64175024430C4A003DCAAF /* CardsModel.swift in Sources */,
-				5B171687242CF80E0081D603 /* Memolation.xcdatamodeld in Sources */,
+				5B171687242CF80E0081D603 /* Clip.xcdatamodeld in Sources */,
 				5B6417522443393B003DCAAF /* TranslateViewModel.swift in Sources */,
 				5B171689242CF80E0081D603 /* ContentView.swift in Sources */,
 				5B64174C24406FCC003DCAAF /* Translation.swift in Sources */,
@@ -435,7 +428,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B17169C242CF8110081D603 /* MemolationTests.swift in Sources */,
+				5B17169C242CF8110081D603 /* ClipTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B1716A7242CF8110081D603 /* MemolationUITests.swift in Sources */,
+				5B1716A7242CF8110081D603 /* ClipUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,14 +640,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
-				INFOPLIST_FILE = MemolationTests/Info.plist;
+				INFOPLIST_FILE = ClipTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.MemolationTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.ClipTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -669,14 +662,14 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
-				INFOPLIST_FILE = MemolationTests/Info.plist;
+				INFOPLIST_FILE = ClipTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.MemolationTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.ClipTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -690,17 +683,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
-				INFOPLIST_FILE = MemolationUITests/Info.plist;
+				INFOPLIST_FILE = ClipUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.MemolationUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.ClipnUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Memolation;
+				TEST_TARGET_NAME = Clip;
 			};
 			name = Debug;
 		};
@@ -710,17 +703,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
-				INFOPLIST_FILE = MemolationUITests/Info.plist;
+				INFOPLIST_FILE = ClipUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.MemolationUITests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.ClipnUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Memolation;
+				TEST_TARGET_NAME = Clip;
 			};
 			name = Release;
 		};
@@ -765,38 +758,14 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		5BB362652434E7CD0065FD5D /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-cocoa";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.4.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		5BB362662434E7CD0065FD5D /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5BB362652434E7CD0065FD5D /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = RealmSwift;
-		};
-		5BB362682434E7CD0065FD5D /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5BB362652434E7CD0065FD5D /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = Realm;
-		};
-/* End XCSwiftPackageProductDependency section */
-
 /* Begin XCVersionGroup section */
-		5B171685242CF80E0081D603 /* Memolation.xcdatamodeld */ = {
+		5B171685242CF80E0081D603 /* Clip.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				5B171686242CF80E0081D603 /* Memolation.xcdatamodel */,
 			);
 			currentVersion = 5B171686242CF80E0081D603 /* Memolation.xcdatamodel */;
-			path = Memolation.xcdatamodeld;
+			path = Clip.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

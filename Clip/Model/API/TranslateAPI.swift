@@ -7,8 +7,8 @@
 //
 
 import Foundation
-import Alamofire
-import SwiftyJSON
+//import Alamofire
+//import SwiftyJSON
 
 enum TranslationAPI {
   case detectLanguage

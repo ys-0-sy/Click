@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Memolation
+@testable import Clip
 
 class MemolationTests: XCTestCase {
 
