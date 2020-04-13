@@ -32,8 +32,6 @@ struct MultilineTextFieldView: View {
   
   func update(changed: Bool) {
       guard !changed else { return }
-      //document.content = content
-      //document.updateChangeCount(.done)
   }
 }
 
@@ -68,6 +66,8 @@ struct MultilineTextField: UIViewRepresentable {
     }
   }
 }
+
+
 class MultilineTextFieldCoordinator: NSObject, UITextViewDelegate {
   let target: MultilineTextField
   let onEditingChanged: (Bool) -> Void
