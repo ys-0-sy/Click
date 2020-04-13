@@ -11,7 +11,7 @@ import Combine
 
 struct TranslateView: View {
   @State private var showAfterView: Bool = false
-  @ObservedObject private var viewModel: TranslateViewModel
+  @ObservedObject var viewModel: TranslateViewModel
   var body: some View {
     NavigationView {
       ScrollView(showsIndicators: false) {

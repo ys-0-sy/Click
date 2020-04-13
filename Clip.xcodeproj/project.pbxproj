@@ -362,8 +362,6 @@
 			);
 			mainGroup = 5B171675242CF80E0081D603;
 			packageReferences = (
-				5BE2EE6D242E0B5A007BC85F /* XCRemoteSwiftPackageReference "Alamofire" */,
-				5BE2EE70242E0B79007BC85F /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				5BB362652434E7CD0065FD5D /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 			);
 			productRefGroup = 5B17167F242CF80E0081D603 /* Products */;
@@ -600,14 +598,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Memolation/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "Clip/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Memolation/Info.plist;
+				INFOPLIST_FILE = Clip/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.Clip";
 				PRODUCT_NAME = Clip;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -622,14 +622,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Memolation/Preview Content\"";
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "Clip/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Memolation/Info.plist;
+				INFOPLIST_FILE = Clip/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.Clip";
 				PRODUCT_NAME = Clip;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -770,22 +772,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 4.4.0;
-			};
-		};
-		5BE2EE6D242E0B5A007BC85F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:Alamofire/Alamofire.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		5BE2EE70242E0B79007BC85F /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:SwiftyJSON/SwiftyJSON.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

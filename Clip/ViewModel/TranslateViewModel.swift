@@ -11,13 +11,13 @@ import Combine
 import UIKit
 
 final class TranslateViewModel: ObservableObject {
-  // Mark: -Inputs
+  // MARK: - Inputs
   
   enum Inputs {
     case onCommit(text: String)
   }
   
-  //Mark Outputs
+  // MARK: -  Outputs
   @Published var sourceText: String = ""
   @Published var translatedText: String = ""
   @Published var targetLanguageSelection = TranslationLanguage(code: "ja", name: "Japanese")
@@ -27,7 +27,12 @@ final class TranslateViewModel: ObservableObject {
   @Published var isLoading = false
   @Published var isShowSheet = false
   @Published var repositoryUrl: String = ""
-
+  
+  init(apiService: APIServiceType) {
+    self.apiService = apiService
+    bind()
+  }
+  
   func apply(inputs: Inputs) {
       switch inputs {
           case .onCommit(let inputText):
@@ -35,17 +40,14 @@ final class TranslateViewModel: ObservableObject {
       }
   }
 
-  //Mark Private
+  //MARK: - Private
   private let apiService: APIServiceType
   private let onCommitSubject = PassthroughSubject<String, Never>()
   private let responseSubject = PassthroughSubject<FetchSupportedLanguageResponse, Never>()
   private let errprSubject = PassthroughSubject<APIServiceError, Never>()
   private var cancellables: [AnyCancellable] = []
 
-  init(apiService: APIServiceType) {
-    self.apiService = apiService
-    bind()
-  }
+
   private func bind() {
       let responseSubscriber = onCommitSubject
           .flatMap { [apiService] (query) in
