@@ -18,7 +18,7 @@ struct TranslateView: View {
         VStack(alignment: .center, spacing: 30) {
           Text("Translation")
             .font(.title)
-          Translation()
+          Translation(viewModel: .init(apiService: APIService()))
           MultilineTextField(text: $viewModel.sourceText, onEditingChanged: update)
             .padding()
             .frame(

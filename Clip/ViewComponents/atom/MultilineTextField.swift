@@ -8,6 +8,7 @@
 
 import SwiftUI
 import Combine
+import UIKit
 
 struct MultilineTextFieldView: View {
   @ObservedObject private var myData = UserData()
@@ -16,8 +17,7 @@ struct MultilineTextFieldView: View {
   let alignment: Alignment = .top
   let boarderColor: Color = Color("BaseColor")
   var body: some View {
-        MultilineTextField(text: $myData.rawText, onEditingChanged: update)
-          .frame(width: UIScreen.main.bounds.width * 0.8, height: 200)
+    MultilineTextField(text: $myData.rawText, onEditingChanged: update)
           .lineLimit(nil)
           .padding(.all)
           .frame(width: width, height: height, alignment: alignment)
@@ -57,6 +57,15 @@ struct MultilineTextField: UIViewRepresentable {
     textView.delegate = context.coordinator
     textView.isScrollEnabled = true
     textView.text = text
+    textView.textContainer.lineFragmentPadding = 0
+    textView.textContainerInset = .zero
+    textView.font = UIFont.systemFont(ofSize: 17)
+    
+    let myMenuController: UIMenuController = UIMenuController.shared
+    myMenuController.arrowDirection = UIMenuController.ArrowDirection.down
+    let paste: UIMenuItem = UIMenuItem(title: "Paste", action: #selector(UIResponderStandardEditActions.paste(_:)))
+    myMenuController.menuItems = [paste] as [UIMenuItem]
+    
     return textView
   }
 
