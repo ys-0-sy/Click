@@ -18,7 +18,7 @@ final class NavViewRouter: ObservableObject {
 final class UserData: ObservableObject {
   @Published var rawText: String = ""
   var translatedText: String = "Enter Text"
-  @Published var targetLanguageSelection = TranslationLanguage(code: "ja", name: "Japanese")
+  @Published var targetLanguageSelection = TranslationLanguage(language: "ja", name: "Japanese")
   @Published var surpportedLanguages = TranslationManager.shared.supportedLanguages
 
   init() {
@@ -26,7 +26,7 @@ final class UserData: ObservableObject {
   }
   
   func translate() {
-    TranslationManager.shared.targetLanguageCode = targetLanguageSelection.code
+    TranslationManager.shared.targetLanguageCode = targetLanguageSelection.language
     TranslationManager.shared.textToTranslate = rawText
     
     TranslationManager.shared.translate(completion: {(returnString) in

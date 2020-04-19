@@ -14,18 +14,21 @@ final class TranslateViewModel: ObservableObject {
   // MARK: - Inputs
   
   enum Inputs {
-    case fetchLanguages(Void)
+    case fetchLanguages
+    case tappedLanguageSelection(language: TranslationLanguage)
   }
   
   // MARK: -  Outputs
   @Published var sourceText: String = ""
   @Published var translatedText: String = ""
-  @Published var targetLanguageSelection = TranslationLanguage(code: "ja", name: "Japanese")
-  var surpportedLanguages = [TranslationLanguage]()
+  @Published var targetLanguageSelection = TranslationLanguage(language: "ja", name: "Japanese")
+  @Published private(set) var surpportedLanguages: [TranslationLanguage] = []
   @Published var inputText: String = ""
   @Published var isShowError = false
   @Published var isLoading = false
   @Published var isShowSheet = false
+  @Published var detectedLanguage: String = "Auto Detect"
+  @Published var showAfterView: Bool = false
   
   init(apiService: APIServiceType) {
     self.apiService = apiService
@@ -33,10 +36,13 @@ final class TranslateViewModel: ObservableObject {
   }
   
   func apply(inputs: Inputs) {
-      switch inputs {
-          case .fetchLanguages():
-              onCommitSubject.send()
-      }
+    switch inputs {
+    case .fetchLanguages:
+          onCommitSubject.send()
+    case .tappedLanguageSelection(let language):
+      showAfterView = false
+      targetLanguageSelection = language
+    }
   }
 
   //MARK: - Private
@@ -53,15 +59,14 @@ final class TranslateViewModel: ObservableObject {
               apiService.request(with: FetchSupportedLanguageRequest())
                   .catch { [weak self] error -> Empty<FetchSupportedLanguageResponse, Never> in
                       self?.errorSubject.send(error)
+                      print(error)
                       return .init()
                   }
           }
-          .map{ $0.languages }
-          .sink(receiveValue: { [weak self] (repositories) in
-            print(repositories)
+          .map{ $0.data.languages }
+          .sink(receiveValue: { [weak self] (languages) in
               guard let self = self else { return }
-//              self.cardViewInputs = self.convertInput(repositories: repositories)
-              self.surpportedLanguages = self.convertInput(repositories: repositories)
+              self.surpportedLanguages = self.convertInput(languages: languages)
               self.isLoading = false
           })
 
@@ -82,11 +87,11 @@ final class TranslateViewModel: ObservableObject {
           errorSubscriber
       ]
   }
-  private func convertInput(repositories: [TranslationLanguage]) -> [TranslationLanguage] {
-    return repositories.compactMap { (repo) -> TranslationLanguage? in
+  private func convertInput(languages: [TranslationLanguage]) -> [TranslationLanguage] {
+    return languages.compactMap { (language) -> TranslationLanguage? in
           do {
-              print(repo)
-              return repo
+              print(language)
+              return language
 
           } catch {
               return nil

@@ -20,7 +20,7 @@ struct Translation: View {
             if let language = language {
               self.detectedLanguage = language
               for lang in TranslationManager.shared.supportedLanguages {
-                if lang.code == language {
+                if lang.language == language {
                   self.detectedLanguage = lang.name
                 }
               }
@@ -39,7 +39,17 @@ struct Translation: View {
               ButtonView(buttonAction: {self.showAfterView = false},
                 backGroundColor: Color("SecondSubColor"),
                 text: "Back")
-              ChooseLanguages(showAfterView: $showAfterView, languageSelection: $myData.targetLanguageSelection)
+//              List {
+//                ForEach(viewModel.$surpportedLanguages, id: \.self) { language in
+//                  Button(action: {
+//                    self.showAfterView = false
+//                    viewModel.$targetLanguageSelection = language
+//                  }) {
+//                    Text(language.name)
+//                  }
+//                }
+//              }
+//              .navigationBarHidden(false)
             },
             isActive: $showAfterView) {
               ButtonView(buttonAction: {self.showAfterView = true},
@@ -47,7 +57,7 @@ struct Translation: View {
                          text: self.myData.targetLanguageSelection.name
               )
             }
-          Button(action: {self.viewModel.apply(inputs: .fetchLanguages({}()))}) {
+          Button(action: {self.viewModel.apply(inputs: .fetchLanguages)}) {
           Text("Translate")
         }
         }.frame(width:UIScreen.main.bounds.width * 0.9)

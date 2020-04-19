@@ -10,12 +10,16 @@ import Foundation
 import Combine
 
 struct TranslationLanguage: Decodable, Hashable {
-  var code: String
+  var language: String
   var name: String
 }
 
-struct FetchSupportedLanguageResponse: Decodable {
+struct TranslationLanguages: Decodable {
   var languages: [TranslationLanguage]
+}
+
+struct FetchSupportedLanguageResponse: Decodable {
+  var data: TranslationLanguages
 }
 
 protocol FetchSupportedLanguageRequestType {
@@ -27,7 +31,7 @@ protocol FetchSupportedLanguageRequestType {
 struct FetchSupportedLanguageRequest: FetchSupportedLanguageRequestType {
 typealias Response = FetchSupportedLanguageResponse
   
-  var path: String { return "/language/translate/v2" }
+  var path: String { return "/language/translate/v2/languages" }
   var queryItems: [URLQueryItem]? {
     return [
       .init(name: "key", value: self.loadKeys()),
@@ -79,7 +83,8 @@ final class APIService: APIServiceType {
     decorder.keyDecodingStrategy = .convertFromSnakeCase
     return URLSession.shared.dataTaskPublisher(for: request)
       .map { data, urlResponse in
-        dump(data)
+        let str: String? = String(data: data, encoding: .utf8)
+        print(str!)
         return data
         
     }

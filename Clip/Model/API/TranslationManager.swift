@@ -132,7 +132,7 @@ class TranslationManager: NSObject {
             languageName = name
           }
 
-          self.supportedLanguages.append(TranslationLanguage(code: languageCode!, name: languageName!))
+          self.supportedLanguages.append(TranslationLanguage(language: languageCode!, name: languageName!))
         }
 
         completion(true)
