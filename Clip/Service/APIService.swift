@@ -9,54 +9,10 @@
 import Foundation
 import Combine
 
-struct TranslationLanguage: Decodable, Hashable {
-  var language: String
-  var name: String
-}
-
-struct TranslationLanguages: Decodable {
-  var languages: [TranslationLanguage]
-}
-
-struct FetchSupportedLanguageResponse: Decodable {
-  var data: TranslationLanguages
-}
-
 protocol FetchSupportedLanguageRequestType {
   associatedtype Response: Decodable
   var path: String { get }
   var queryItems: [URLQueryItem]? { get }
-}
-
-struct FetchSupportedLanguageRequest: FetchSupportedLanguageRequestType {
-typealias Response = FetchSupportedLanguageResponse
-  
-  var path: String { return "/language/translate/v2/languages" }
-  var queryItems: [URLQueryItem]? {
-    return [
-      .init(name: "key", value: self.loadKeys()),
-      .init(name: "target", value: Locale.current.languageCode ?? "en")
-    ]
-  }
-  private func loadKeys() -> String {
-    do {
-      let settingURL: URL = URL(fileURLWithPath: Bundle.main.path(forResource: "keys", ofType: "plist")!)
-      let data = try Data(contentsOf: settingURL)
-      let decoder = PropertyListDecoder()
-      let keys = try decoder.decode(Keys.self, from: data)
-      return keys.googleAPIKey
-    } catch {
-      print("apiKeyget error")
-      print(error)
-      return ""
-    }
-  }
-}
-
-enum APIServiceError: Error {
-  case invalidURL
-  case responseError
-  case parseError(Error)
 }
 
 protocol APIServiceType {
