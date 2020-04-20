@@ -11,7 +11,6 @@ import Combine
 
 struct TranslateView: View {
   @State private var detectedLanguage: String = "Auto Detect"
-  @State private var showAfterView: Bool = false
   @ObservedObject var viewModel: TranslateViewModel
   @ObservedObject private var myData = UserData()
   
@@ -22,50 +21,60 @@ struct TranslateView: View {
           Text("Translation")
             .font(.title)
           HStack(alignment: .center, spacing: 23) {
-            ButtonView(
-              buttonAction: {TranslationManager.shared.detectLanguage(forText: self.myData.rawText, completion: {(language) in
-              if let language = language {
-                self.detectedLanguage = language
-                for lang in TranslationManager.shared.supportedLanguages {
-                  if lang.language == language {
-                    self.detectedLanguage = lang.name
-                  }
-                }
-
-              } else {
-                self.detectedLanguage = "Oops! It seems that something went wrong and language cannot be detected."
-              }
-            })}
-            ,
-            backGroundColor:Color("SubColor"),
-            text: detectedLanguage
-            )
-            Image(systemName: "arrow.right.arrow.left")
             NavigationLink(destination:
               VStack {
-                ButtonView(buttonAction: {self.showAfterView = false},
-                  backGroundColor: Color("SecondSubColor"),
-                  text: "Back")
+                HStack {
+                  Text("Source Language")
+                  ButtonView(buttonAction: {self.viewModel.showSourceLanguageSelectionView = false},
+                    backGroundColor: Color("SubColor"),
+                    text: "Back")
+                }
                 List {
+                  Button(action: {
+                    self.viewModel.apply(inputs: .tappedSourceLanguageSelection(language: nil))
+                    
+                  }) {
+                    Text("Auto Detect")
+                  }
                   ForEach(viewModel.surpportedLanguages, id: \.self) { language in
-                    Button(action: { self.viewModel.apply(inputs: .tappedLanguageSelection(language: language)) }) {
+                    Button(action: { self.viewModel.apply(inputs: .tappedSourceLanguageSelection(language: language)) }) {
                       Text(language.name)
                     }
                   }
                 }
               },
-              isActive: $showAfterView) {
+                           isActive: self.$viewModel.showSourceLanguageSelectionView) {
                 ButtonView(buttonAction: {
-                  self.showAfterView = true
+                  self.viewModel.showSourceLanguageSelectionView = true
+                  self.viewModel.apply(inputs: .fetchLanguages)
+                },
+                   backGroundColor: Color("SubColor"),
+                   text: viewModel.sourceLanguageSelection?.name ?? "Auto Detect"
+                )
+              }
+            Image(systemName: "arrow.right.arrow.left")
+            NavigationLink(destination:
+              VStack {
+                ButtonView(buttonAction: {self.viewModel.showTargetLanguageSelectionView = false},
+                  backGroundColor: Color("SecondSubColor"),
+                  text: "Back")
+                List {
+                  ForEach(viewModel.surpportedLanguages, id: \.self) { language in
+                    Button(action: { self.viewModel.apply(inputs: .tappedDetectedLanguageSelection(language: language)) }) {
+                      Text(language.name)
+                    }
+                  }
+                }
+              },
+                           isActive: self.$viewModel.showTargetLanguageSelectionView) {
+                ButtonView(buttonAction: {
+                  self.viewModel.showTargetLanguageSelectionView = true
                   self.viewModel.apply(inputs: .fetchLanguages)
                 },
                            backGroundColor: Color("SecondSubColor"),
-                           text: self.myData.targetLanguageSelection.name
+                           text: viewModel.targetLanguageSelection.name
                 )
               }
-            Button(action: {self.viewModel.apply(inputs: .fetchLanguages)}) {
-            Text("Translate")
-            }
           }.frame(width:UIScreen.main.bounds.width * 0.9)
           MultilineTextField(text: $viewModel.sourceText, onEditingChanged: update)
             .padding()

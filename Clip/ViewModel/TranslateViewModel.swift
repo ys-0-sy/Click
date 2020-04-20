@@ -15,7 +15,8 @@ final class TranslateViewModel: ObservableObject {
   
   enum Inputs {
     case fetchLanguages
-    case tappedLanguageSelection(language: TranslationLanguage)
+    case tappedDetectedLanguageSelection(language: TranslationLanguage)
+    case tappedSourceLanguageSelection(language: TranslationLanguage?)
   }
   
   // MARK: -  Outputs
@@ -27,8 +28,9 @@ final class TranslateViewModel: ObservableObject {
   @Published var isShowError = false
   @Published var isLoading = false
   @Published var isShowSheet = false
-  @Published var detectedLanguage: String = "Auto Detect"
-  @Published var showAfterView: Bool = false
+  @Published var sourceLanguageSelection: TranslationLanguage? = nil
+  @Published var showSourceLanguageSelectionView: Bool = false
+  @Published var showTargetLanguageSelectionView: Bool = false
   
   init(apiService: APIServiceType) {
     self.apiService = apiService
@@ -38,10 +40,16 @@ final class TranslateViewModel: ObservableObject {
   func apply(inputs: Inputs) {
     switch inputs {
     case .fetchLanguages:
-          onCommitSubject.send()
-    case .tappedLanguageSelection(let language):
-      showAfterView = false
+      if surpportedLanguages == [] {
+        onCommitSubject.send()
+      }
+    case .tappedDetectedLanguageSelection(let language):
+      showTargetLanguageSelectionView = false
+      print(language)
       targetLanguageSelection = language
+    case .tappedSourceLanguageSelection(let language):
+      showSourceLanguageSelectionView = false
+      sourceLanguageSelection = language
     }
   }
 
@@ -89,13 +97,7 @@ final class TranslateViewModel: ObservableObject {
   }
   private func convertInput(languages: [TranslationLanguage]) -> [TranslationLanguage] {
     return languages.compactMap { (language) -> TranslationLanguage? in
-          do {
-              print(language)
               return language
-
-          } catch {
-              return nil
-          }
       }
   }
 
