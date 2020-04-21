@@ -11,13 +11,13 @@ import Combine
 import UIKit
 
 struct MultilineTextFieldView: View {
-  @ObservedObject private var myData = UserData()
+  @State private var rawText: String = "Sample Text"
   let width: CGFloat = 200
   let height: CGFloat = 200
   let alignment: Alignment = .top
   let boarderColor: Color = Color("BaseColor")
   var body: some View {
-    MultilineTextField(text: $myData.rawText, onEditingChanged: update)
+    MultilineTextField(text: $rawText, onEditingChanged: update)
           .lineLimit(nil)
           .padding(.all)
           .frame(width: width, height: height, alignment: alignment)
@@ -31,7 +31,8 @@ struct MultilineTextFieldView: View {
   }
   
   func update(changed: Bool) {
-      guard !changed else { return }
+    guard !changed else { return }
+    print(changed)
   }
 }
 
@@ -106,6 +107,6 @@ extension UIApplication {
 
 struct MultilineTextField_Previews: PreviewProvider {
     static var previews: some View {
-        MultilineTextFieldView()
+      MultilineTextFieldView()
     }
 }

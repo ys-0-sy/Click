@@ -9,14 +9,15 @@
 import Foundation
 import Combine
 
-protocol FetchSupportedLanguageRequestType {
+protocol RequestType {
   associatedtype Response: Decodable
   var path: String { get }
   var queryItems: [URLQueryItem]? { get }
 }
 
+
 protocol APIServiceType {
-  func request<Request>(with request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request: FetchSupportedLanguageRequestType
+  func request<Request>(with request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request: RequestType
 }
 
 final class APIService: APIServiceType {
@@ -25,7 +26,7 @@ final class APIService: APIServiceType {
     self.baseURLString = baseURLString
   }
   
-  func request<Request>(with request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request : FetchSupportedLanguageRequestType {
+  func request<Request>(with request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request : RequestType {
     guard let pathURL = URL(string: request.path, relativeTo: URL(string: baseURLString)) else {
       return Fail(error: APIServiceError.invalidURL).eraseToAnyPublisher()
     }

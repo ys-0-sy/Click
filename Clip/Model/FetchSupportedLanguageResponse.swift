@@ -11,3 +11,16 @@ import Foundation
 struct FetchSupportedLanguageResponse: Decodable {
   var data: TranslationLanguages
 }
+
+struct DetectionLanguageResponse: Decodable {
+  var data: DetectionLanguages
+}
+
+struct DetectionLanguages: Decodable {
+  var detections: [DetectionLanguage]
+}
+
+struct DetectionLanguage: Decodable, Hashable {
+  var language: String
+  var confidence: Float
+}

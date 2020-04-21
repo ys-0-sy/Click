@@ -12,7 +12,6 @@ import Combine
 struct TranslateView: View {
   @State private var detectedLanguage: String = "Auto Detect"
   @ObservedObject var viewModel: TranslateViewModel
-  @ObservedObject private var myData = UserData()
   
   var body: some View {
     NavigationView {
@@ -124,9 +123,8 @@ struct TranslateView: View {
   }
   
   func update(changed: Bool) {
-      guard !changed else { return }
-      //document.content = content
-      //document.updateChangeCount(.done)
+    guard !changed else { return }
+    print(changed)
   }
 
 }

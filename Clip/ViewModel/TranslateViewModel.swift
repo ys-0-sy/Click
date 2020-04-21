@@ -25,6 +25,7 @@ final class TranslateViewModel: ObservableObject {
   @Published var targetLanguageSelection = TranslationLanguage(language: "ja", name: "Japanese")
   @Published private(set) var surpportedLanguages: [TranslationLanguage] = []
   @Published var inputText: String = ""
+  @Published var detectionLanguage: TranslationLanguage? = nil
   @Published var isShowError = false
   @Published var isLoading = false
   @Published var isShowSheet = false
@@ -41,7 +42,7 @@ final class TranslateViewModel: ObservableObject {
     switch inputs {
     case .fetchLanguages:
       if surpportedLanguages == [] {
-        onCommitSubject.send()
+        onTappedSubject.send()
       }
     case .tappedDetectedLanguageSelection(let language):
       showTargetLanguageSelectionView = false
@@ -55,14 +56,14 @@ final class TranslateViewModel: ObservableObject {
 
   //MARK: - Private
   private let apiService: APIServiceType
-  private let onCommitSubject = PassthroughSubject<Void, Never>()
-  private let responseSubject = PassthroughSubject<FetchSupportedLanguageResponse, Never>()
+  private let onTappedSubject = PassthroughSubject<Void, Never>()
+  private let onCheckLanguageSubject = PassthroughSubject<String, Never>()
   private let errorSubject = PassthroughSubject<APIServiceError, Never>()
   private var cancellables: [AnyCancellable] = []
 
 
   private func bind() {
-      let responseSubscriber = onCommitSubject
+      let tappedResponseSubscriber = onTappedSubject
           .flatMap { [apiService] (query) in
               apiService.request(with: FetchSupportedLanguageRequest())
                   .catch { [weak self] error -> Empty<FetchSupportedLanguageResponse, Never> in
@@ -77,10 +78,22 @@ final class TranslateViewModel: ObservableObject {
               self.surpportedLanguages = self.convertInput(languages: languages)
               self.isLoading = false
           })
-
-      let loadingStartSubscriber = onCommitSubject
-          .map { _ in true }
-          .assign(to: \.isLoading, on: self)
+    
+      let responseSubscriber = onCheckLanguageSubject
+        .flatMap { [apiService] (query) in
+          apiService.request(with: DetectionLanguageRequest(query: query))
+                .catch { [weak self] error -> Empty<DetectionLanguageResponse, Never> in
+                    self?.errorSubject.send(error)
+                    print(error)
+                    return .init()
+                }
+        }
+        .map{ $0.data.detections}
+        .sink(receiveValue: { [weak self] (detections) in
+          guard let self = self else { return }
+          self.detectionLanguage = self.surpportedLanguages.filter({ $0.language == detections[0].language }).first
+          self.isLoading = false
+        })
 
       let errorSubscriber = errorSubject
           .sink(receiveValue: { [weak self] (error) in
@@ -90,11 +103,13 @@ final class TranslateViewModel: ObservableObject {
           })
 
       cancellables += [
+          tappedResponseSubscriber,
           responseSubscriber,
-          loadingStartSubscriber,
           errorSubscriber
       ]
   }
+  
+  
   private func convertInput(languages: [TranslationLanguage]) -> [TranslationLanguage] {
     return languages.compactMap { (language) -> TranslationLanguage? in
               return language
