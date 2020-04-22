@@ -108,5 +108,6 @@ extension UIApplication {
 struct MultilineTextField_Previews: PreviewProvider {
     static var previews: some View {
       MultilineTextFieldView()
+      .previewLayout(.sizeThatFits)
     }
 }

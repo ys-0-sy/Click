@@ -19,7 +19,6 @@
 		5B64175024430C4A003DCAAF /* CardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64174F24430C4A003DCAAF /* CardsModel.swift */; };
 		5B6417522443393B003DCAAF /* TranslateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6417512443393B003DCAAF /* TranslateViewModel.swift */; };
 		5B6E3914243DDE6300120F33 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6E3913243DDE6300120F33 /* ButtonView.swift */; };
-		5B6E3916243EC16E00120F33 /* NavigatinButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6E3915243EC16E00120F33 /* NavigatinButtonView.swift */; };
 		5B9156BF24445291003EFA2C /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B9156BE24445291003EFA2C /* keys.plist */; };
 		5BB362622432DF890065FD5D /* keys.template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB362612432DF890065FD5D /* keys.template.plist */; };
 		5BBCB477244DD79B008107C4 /* TranslationLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCB476244DD79B008107C4 /* TranslationLanguage.swift */; };
@@ -72,7 +71,6 @@
 		5B64174F24430C4A003DCAAF /* CardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsModel.swift; sourceTree = "<group>"; };
 		5B6417512443393B003DCAAF /* TranslateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewModel.swift; sourceTree = "<group>"; };
 		5B6E3913243DDE6300120F33 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
-		5B6E3915243EC16E00120F33 /* NavigatinButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatinButtonView.swift; sourceTree = "<group>"; };
 		5B9156BE24445291003EFA2C /* keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		5BB3625D2432D5230065FD5D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5BB362612432DF890065FD5D /* keys.template.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.template.plist; sourceTree = "<group>"; };
@@ -238,7 +236,6 @@
 				5BE2EE67242DC0AA007BC85F /* CardView.swift */,
 				5BE2EE6A242DC1FE007BC85F /* MultilineTextField.swift */,
 				5B6E3913243DDE6300120F33 /* ButtonView.swift */,
-				5B6E3915243EC16E00120F33 /* NavigatinButtonView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -397,7 +394,6 @@
 				5B171682242CF80E0081D603 /* AppDelegate.swift in Sources */,
 				5BBCB484244DFD0F008107C4 /* Clip.xcdatamodeld in Sources */,
 				5BBCB477244DD79B008107C4 /* TranslationLanguage.swift in Sources */,
-				5B6E3916243EC16E00120F33 /* NavigatinButtonView.swift in Sources */,
 				5B6E3914243DDE6300120F33 /* ButtonView.swift in Sources */,
 				5BE2EE65242DBAA6007BC85F /* TranslateView.swift in Sources */,
 				5B64175024430C4A003DCAAF /* CardsModel.swift in Sources */,
@@ -582,7 +578,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 187;
+				CURRENT_PROJECT_VERSION = 228;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -606,7 +602,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 187;
+				CURRENT_PROJECT_VERSION = 228;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;

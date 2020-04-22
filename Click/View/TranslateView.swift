@@ -48,7 +48,7 @@ struct TranslateView: View {
                   self.viewModel.showSourceLanguageSelectionView = true
                 },
                    backGroundColor: Color("SubColor"),
-                   text: viewModel.sourceLanguageSelection?.name ?? "Auto Detect \(viewModel.detectionLanguage?.name ?? "")"
+                   text: viewModel.sourceLanguageSelection?.name ?? "Auto Detect\n  \(viewModel.detectionLanguage?.name ?? "")"
                 )
               }
             Image(systemName: "arrow.right.arrow.left")
@@ -110,15 +110,22 @@ struct TranslateView: View {
             .foregroundColor(Color("SubColor"))
             .frame( height: 50)
         }
-          .frame(maxWidth: .infinity)
-          .background(Color.white)
+        .background(Color(UIColor.systemBackground))
+          .frame(maxWidth: UIScreen.main.bounds.width * 0.95)
+        .cornerRadius(10)
+          
+
+        Spacer().frame(height: 50)
       }
+      .frame(maxWidth: .infinity)
       .background(Color("SubColor"))
       .onTapGesture {
         UIApplication.shared.closeKeyboard()
         self.viewModel.apply(inputs: .onCommitText(text: self.viewModel.sourceText))
       }
     }
+    
+    .background(Color("SubColor"))
     .navigationBarHidden(true)
     .navigationBarTitle("")
     .edgesIgnoringSafeArea(.top)

@@ -16,11 +16,13 @@ struct ButtonView: View {
   var body: some View {
     Button(action: buttonAction) {
       Text(text)
-      .foregroundColor(Color.black)
+      .multilineTextAlignment(.center)
     }
-    .padding(.horizontal)
-    .background(backGroundColor)
-    .cornerRadius(25)
+      .foregroundColor(Color.black)
+      .padding(.horizontal)
+      .background(backGroundColor)
+      .cornerRadius(10)
+      
   }
 }
 
@@ -28,7 +30,8 @@ struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
         ButtonView(
           buttonAction: {},
-          backGroundColor: Color("SubColor"), text: "text"
+          backGroundColor: Color("SubColor"), text: "tex\nt"
       )
-    }
+          .previewLayout(.sizeThatFits)
+  }
 }

@@ -39,5 +39,6 @@ struct CardView_Previews: PreviewProvider {
         boarderColor: Color("SecondBaseColor"))
         .shadow(color: Color("shade"), radius: 20, x: 0, y: 5)
         .background(Color.white)
+      .previewLayout(.sizeThatFits)
   }
 }
