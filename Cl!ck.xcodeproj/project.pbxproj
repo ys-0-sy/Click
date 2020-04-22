@@ -13,8 +13,8 @@
 		5B17168B242CF8110081D603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B17168A242CF8110081D603 /* Assets.xcassets */; };
 		5B17168E242CF8110081D603 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B17168D242CF8110081D603 /* Preview Assets.xcassets */; };
 		5B171691242CF8110081D603 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B17168F242CF8110081D603 /* LaunchScreen.storyboard */; };
-		5B17169C242CF8110081D603 /* ClipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B17169B242CF8110081D603 /* ClipTests.swift */; };
-		5B1716A7242CF8110081D603 /* ClipUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716A6242CF8110081D603 /* ClipUITests.swift */; };
+		5B17169C242CF8110081D603 /* Cl!ckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B17169B242CF8110081D603 /* Cl!ckTests.swift */; };
+		5B1716A7242CF8110081D603 /* ClickUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716A6242CF8110081D603 /* ClickUITests.swift */; };
 		5B64174E24430C13003DCAAF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64174D24430C13003DCAAF /* APIService.swift */; };
 		5B64175024430C4A003DCAAF /* CardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64174F24430C4A003DCAAF /* CardsModel.swift */; };
 		5B6417522443393B003DCAAF /* TranslateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6417512443393B003DCAAF /* TranslateViewModel.swift */; };
@@ -54,7 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5B17167E242CF80E0081D603 /* Clip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B17167E242CF80E0081D603 /* Cl!ck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cl!ck.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B171681242CF80E0081D603 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B171683242CF80E0081D603 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5B171688242CF80E0081D603 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,11 +62,11 @@
 		5B17168D242CF8110081D603 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5B171690242CF8110081D603 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B171692242CF8110081D603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B171697242CF8110081D603 /* ClipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B17169B242CF8110081D603 /* ClipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipTests.swift; sourceTree = "<group>"; };
+		5B171697242CF8110081D603 /* Cl!ckTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cl!ckTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B17169B242CF8110081D603 /* Cl!ckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cl!ckTests.swift"; sourceTree = "<group>"; };
 		5B17169D242CF8110081D603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B1716A2242CF8110081D603 /* ClipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B1716A6242CF8110081D603 /* ClipUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipUITests.swift; sourceTree = "<group>"; };
+		5B1716A2242CF8110081D603 /* Cl!ckUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cl!ckUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B1716A6242CF8110081D603 /* ClickUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickUITests.swift; sourceTree = "<group>"; };
 		5B1716A8242CF8110081D603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B64174D24430C13003DCAAF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		5B64174F24430C4A003DCAAF /* CardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsModel.swift; sourceTree = "<group>"; };
@@ -120,9 +120,9 @@
 		5B171675242CF80E0081D603 = {
 			isa = PBXGroup;
 			children = (
-				5B171680242CF80E0081D603 /* Clip */,
-				5B17169A242CF8110081D603 /* ClipTests */,
-				5B1716A5242CF8110081D603 /* ClipUITests */,
+				5B171680242CF80E0081D603 /* Click */,
+				5B17169A242CF8110081D603 /* ClickTests */,
+				5B1716A5242CF8110081D603 /* ClickUITests */,
 				5B17167F242CF80E0081D603 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,14 +130,14 @@
 		5B17167F242CF80E0081D603 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5B17167E242CF80E0081D603 /* Clip.app */,
-				5B171697242CF8110081D603 /* ClipTests.xctest */,
-				5B1716A2242CF8110081D603 /* ClipUITests.xctest */,
+				5B17167E242CF80E0081D603 /* Cl!ck.app */,
+				5B171697242CF8110081D603 /* Cl!ckTests.xctest */,
+				5B1716A2242CF8110081D603 /* Cl!ckUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5B171680242CF80E0081D603 /* Clip */ = {
+		5B171680242CF80E0081D603 /* Click */ = {
 			isa = PBXGroup;
 			children = (
 				5BBCB47C244DD842008107C4 /* Service */,
@@ -154,7 +154,7 @@
 				5B171692242CF8110081D603 /* Info.plist */,
 				5B17168C242CF8110081D603 /* Preview Content */,
 			);
-			path = Clip;
+			path = Click;
 			sourceTree = "<group>";
 		};
 		5B17168C242CF8110081D603 /* Preview Content */ = {
@@ -165,22 +165,22 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		5B17169A242CF8110081D603 /* ClipTests */ = {
+		5B17169A242CF8110081D603 /* ClickTests */ = {
 			isa = PBXGroup;
 			children = (
-				5B17169B242CF8110081D603 /* ClipTests.swift */,
+				5B17169B242CF8110081D603 /* Cl!ckTests.swift */,
 				5B17169D242CF8110081D603 /* Info.plist */,
 			);
-			path = ClipTests;
+			path = ClickTests;
 			sourceTree = "<group>";
 		};
-		5B1716A5242CF8110081D603 /* ClipUITests */ = {
+		5B1716A5242CF8110081D603 /* ClickUITests */ = {
 			isa = PBXGroup;
 			children = (
-				5B1716A6242CF8110081D603 /* ClipUITests.swift */,
+				5B1716A6242CF8110081D603 /* ClickUITests.swift */,
 				5B1716A8242CF8110081D603 /* Info.plist */,
 			);
-			path = ClipUITests;
+			path = ClickUITests;
 			sourceTree = "<group>";
 		};
 		5B6E3910243CC29500120F33 /* Model */ = {
@@ -255,9 +255,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5B17167D242CF80E0081D603 /* Clip */ = {
+		5B17167D242CF80E0081D603 /* Cl!ck */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B1716AB242CF8110081D603 /* Build configuration list for PBXNativeTarget "Clip" */;
+			buildConfigurationList = 5B1716AB242CF8110081D603 /* Build configuration list for PBXNativeTarget "Cl!ck" */;
 			buildPhases = (
 				5B17167A242CF80E0081D603 /* Sources */,
 				5B17167B242CF80E0081D603 /* Frameworks */,
@@ -267,16 +267,16 @@
 			);
 			dependencies = (
 			);
-			name = Clip;
+			name = "Cl!ck";
 			packageProductDependencies = (
 			);
 			productName = Memolation;
-			productReference = 5B17167E242CF80E0081D603 /* Clip.app */;
+			productReference = 5B17167E242CF80E0081D603 /* Cl!ck.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5B171696242CF8110081D603 /* ClipTests */ = {
+		5B171696242CF8110081D603 /* Cl!ckTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B1716AE242CF8110081D603 /* Build configuration list for PBXNativeTarget "ClipTests" */;
+			buildConfigurationList = 5B1716AE242CF8110081D603 /* Build configuration list for PBXNativeTarget "Cl!ckTests" */;
 			buildPhases = (
 				5B171693242CF8110081D603 /* Sources */,
 				5B171694242CF8110081D603 /* Frameworks */,
@@ -287,14 +287,14 @@
 			dependencies = (
 				5B171699242CF8110081D603 /* PBXTargetDependency */,
 			);
-			name = ClipTests;
+			name = "Cl!ckTests";
 			productName = MemolationTests;
-			productReference = 5B171697242CF8110081D603 /* ClipTests.xctest */;
+			productReference = 5B171697242CF8110081D603 /* Cl!ckTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5B1716A1242CF8110081D603 /* ClipUITests */ = {
+		5B1716A1242CF8110081D603 /* Cl!ckUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B1716B1242CF8110081D603 /* Build configuration list for PBXNativeTarget "ClipUITests" */;
+			buildConfigurationList = 5B1716B1242CF8110081D603 /* Build configuration list for PBXNativeTarget "Cl!ckUITests" */;
 			buildPhases = (
 				5B17169E242CF8110081D603 /* Sources */,
 				5B17169F242CF8110081D603 /* Frameworks */,
@@ -305,9 +305,9 @@
 			dependencies = (
 				5B1716A4242CF8110081D603 /* PBXTargetDependency */,
 			);
-			name = ClipUITests;
+			name = "Cl!ckUITests";
 			productName = MemolationUITests;
-			productReference = 5B1716A2242CF8110081D603 /* ClipUITests.xctest */;
+			productReference = 5B1716A2242CF8110081D603 /* Cl!ckUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -333,7 +333,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5B171679242CF80E0081D603 /* Build configuration list for PBXProject "Clip" */;
+			buildConfigurationList = 5B171679242CF80E0081D603 /* Build configuration list for PBXProject "Cl!ck" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -349,9 +349,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5B17167D242CF80E0081D603 /* Clip */,
-				5B171696242CF8110081D603 /* ClipTests */,
-				5B1716A1242CF8110081D603 /* ClipUITests */,
+				5B17167D242CF80E0081D603 /* Cl!ck */,
+				5B171696242CF8110081D603 /* Cl!ckTests */,
+				5B1716A1242CF8110081D603 /* Cl!ckUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -417,7 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B17169C242CF8110081D603 /* ClipTests.swift in Sources */,
+				5B17169C242CF8110081D603 /* Cl!ckTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B1716A7242CF8110081D603 /* ClipUITests.swift in Sources */,
+				5B1716A7242CF8110081D603 /* ClickUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,12 +434,12 @@
 /* Begin PBXTargetDependency section */
 		5B171699242CF8110081D603 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5B17167D242CF80E0081D603 /* Clip */;
+			target = 5B17167D242CF80E0081D603 /* Cl!ck */;
 			targetProxy = 5B171698242CF8110081D603 /* PBXContainerItemProxy */;
 		};
 		5B1716A4242CF8110081D603 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5B17167D242CF80E0081D603 /* Clip */;
+			target = 5B17167D242CF80E0081D603 /* Cl!ck */;
 			targetProxy = 5B1716A3242CF8110081D603 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -582,18 +582,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 111;
-				DEVELOPMENT_ASSET_PATHS = "Clip/Preview\\ Content/Preview\\ Assets.xcassets";
+				CURRENT_PROJECT_VERSION = 162;
+				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Clip/Info.plist;
+				INFOPLIST_FILE = Click/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.Clip";
-				PRODUCT_NAME = Clip;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.click";
+				PRODUCT_NAME = "Cl!ck";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -606,18 +606,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 111;
-				DEVELOPMENT_ASSET_PATHS = "Clip/Preview\\ Content/Preview\\ Assets.xcassets";
+				CURRENT_PROJECT_VERSION = 162;
+				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Clip/Info.plist;
+				INFOPLIST_FILE = Click/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 0.0.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.Clip";
-				PRODUCT_NAME = Clip;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ys-0-sy.click";
+				PRODUCT_NAME = "Cl!ck";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -642,7 +642,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clip.app/Clip";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cl!ck.app/Cl!ck";
 			};
 			name = Debug;
 		};
@@ -664,7 +664,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clip.app/Clip";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cl!ck.app/Cl!ck";
 			};
 			name = Release;
 		};
@@ -711,7 +711,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5B171679242CF80E0081D603 /* Build configuration list for PBXProject "Clip" */ = {
+		5B171679242CF80E0081D603 /* Build configuration list for PBXProject "Cl!ck" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B1716A9242CF8110081D603 /* Debug */,
@@ -720,7 +720,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B1716AB242CF8110081D603 /* Build configuration list for PBXNativeTarget "Clip" */ = {
+		5B1716AB242CF8110081D603 /* Build configuration list for PBXNativeTarget "Cl!ck" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B1716AC242CF8110081D603 /* Debug */,
@@ -729,7 +729,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B1716AE242CF8110081D603 /* Build configuration list for PBXNativeTarget "ClipTests" */ = {
+		5B1716AE242CF8110081D603 /* Build configuration list for PBXNativeTarget "Cl!ckTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B1716AF242CF8110081D603 /* Debug */,
@@ -738,7 +738,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B1716B1242CF8110081D603 /* Build configuration list for PBXNativeTarget "ClipUITests" */ = {
+		5B1716B1242CF8110081D603 /* Build configuration list for PBXNativeTarget "Cl!ckUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B1716B2242CF8110081D603 /* Debug */,

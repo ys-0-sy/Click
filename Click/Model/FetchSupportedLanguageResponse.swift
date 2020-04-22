@@ -17,7 +17,7 @@ struct DetectionLanguageResponse: Decodable {
 }
 
 struct DetectionLanguages: Decodable {
-  var detections: [DetectionLanguage]
+  var detections: [[DetectionLanguage]]
 }
 
 struct DetectionLanguage: Decodable, Hashable {

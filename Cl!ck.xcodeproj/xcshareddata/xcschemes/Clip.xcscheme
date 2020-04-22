@@ -16,9 +16,9 @@
                   <BuildableReference
                      BuildableIdentifier = "primary"
                      BlueprintIdentifier = "5B17167D242CF80E0081D603"
-                     BuildableName = "Clip.app"
-                     BlueprintName = "Clip"
-                     ReferencedContainer = "container:Clip.xcodeproj">
+                     BuildableName = "Cl!ck.app"
+                     BlueprintName = "Cl!ck"
+                     ReferencedContainer = "container:Cl!ck.xcodeproj">
                   </BuildableReference>
                </EnvironmentBuildable>
             </ActionContent>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5B17167D242CF80E0081D603"
-               BuildableName = "Clip.app"
-               BlueprintName = "Clip"
-               ReferencedContainer = "container:Clip.xcodeproj">
+               BuildableName = "Cl!ck.app"
+               BlueprintName = "Cl!ck"
+               ReferencedContainer = "container:Cl!ck.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -52,9 +52,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5B171696242CF8110081D603"
-               BuildableName = "ClipTests.xctest"
-               BlueprintName = "ClipTests"
-               ReferencedContainer = "container:Clip.xcodeproj">
+               BuildableName = "Cl!ckTests.xctest"
+               BlueprintName = "Cl!ckTests"
+               ReferencedContainer = "container:Cl!ck.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -62,9 +62,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "5B1716A1242CF8110081D603"
-               BuildableName = "ClipUITests.xctest"
-               BlueprintName = "ClipUITests"
-               ReferencedContainer = "container:Clip.xcodeproj">
+               BuildableName = "Cl!ckUITests.xctest"
+               BlueprintName = "Cl!ckUITests"
+               ReferencedContainer = "container:Cl!ck.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -84,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5B17167D242CF80E0081D603"
-            BuildableName = "Clip.app"
-            BlueprintName = "Clip"
-            ReferencedContainer = "container:Clip.xcodeproj">
+            BuildableName = "Cl!ck.app"
+            BlueprintName = "Cl!ck"
+            ReferencedContainer = "container:Cl!ck.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -101,9 +101,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5B17167D242CF80E0081D603"
-            BuildableName = "Clip.app"
-            BlueprintName = "Clip"
-            ReferencedContainer = "container:Clip.xcodeproj">
+            BuildableName = "Cl!ck.app"
+            BlueprintName = "Cl!ck"
+            ReferencedContainer = "container:Cl!ck.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -17,6 +17,7 @@ final class TranslateViewModel: ObservableObject {
     case fetchLanguages
     case tappedDetectedLanguageSelection(language: TranslationLanguage)
     case tappedSourceLanguageSelection(language: TranslationLanguage?)
+    case onCommitText(text: String)
   }
   
   // MARK: -  Outputs
@@ -36,6 +37,7 @@ final class TranslateViewModel: ObservableObject {
   init(apiService: APIServiceType) {
     self.apiService = apiService
     bind()
+    apply(inputs: .fetchLanguages)
   }
   
   func apply(inputs: Inputs) {
@@ -46,14 +48,17 @@ final class TranslateViewModel: ObservableObject {
       }
     case .tappedDetectedLanguageSelection(let language):
       showTargetLanguageSelectionView = false
-      print(language)
       targetLanguageSelection = language
     case .tappedSourceLanguageSelection(let language):
       showSourceLanguageSelectionView = false
       sourceLanguageSelection = language
+    case .onCommitText(let text):
+      onCheckLanguageSubject.send(text)
     }
   }
+  
 
+  
   //MARK: - Private
   private let apiService: APIServiceType
   private let onTappedSubject = PassthroughSubject<Void, Never>()
@@ -91,7 +96,11 @@ final class TranslateViewModel: ObservableObject {
         .map{ $0.data.detections}
         .sink(receiveValue: { [weak self] (detections) in
           guard let self = self else { return }
-          self.detectionLanguage = self.surpportedLanguages.filter({ $0.language == detections[0].language }).first
+          if detections[0][0].language != "und" {
+            self.detectionLanguage = self.surpportedLanguages.filter({ $0.language == detections[0][0].language }).first
+          } else {
+            self.detectionLanguage = nil
+          }
           self.isLoading = false
         })
 

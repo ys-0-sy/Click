@@ -10,12 +10,15 @@ import SwiftUI
 import Combine
 
 struct TranslateView: View {
-  @State private var detectedLanguage: String = "Auto Detect"
   @ObservedObject var viewModel: TranslateViewModel
   
   var body: some View {
     NavigationView {
       ScrollView(showsIndicators: false) {
+        ZStack {
+          Color.yellow
+               .opacity(0.4)
+               .edgesIgnoringSafeArea(.all)
         VStack(alignment: .center, spacing: 30) {
           Text("Translation")
             .font(.title)
@@ -45,10 +48,9 @@ struct TranslateView: View {
                            isActive: self.$viewModel.showSourceLanguageSelectionView) {
                 ButtonView(buttonAction: {
                   self.viewModel.showSourceLanguageSelectionView = true
-                  self.viewModel.apply(inputs: .fetchLanguages)
                 },
                    backGroundColor: Color("SubColor"),
-                   text: viewModel.sourceLanguageSelection?.name ?? "Auto Detect"
+                   text: viewModel.sourceLanguageSelection?.name ?? "Auto Detect \(viewModel.detectionLanguage?.name ?? "")"
                 )
               }
             Image(systemName: "arrow.right.arrow.left")
@@ -68,13 +70,13 @@ struct TranslateView: View {
                            isActive: self.$viewModel.showTargetLanguageSelectionView) {
                 ButtonView(buttonAction: {
                   self.viewModel.showTargetLanguageSelectionView = true
-                  self.viewModel.apply(inputs: .fetchLanguages)
                 },
                            backGroundColor: Color("SecondSubColor"),
                            text: viewModel.targetLanguageSelection.name
                 )
               }
           }.frame(width:UIScreen.main.bounds.width * 0.9)
+          
           MultilineTextField(text: $viewModel.sourceText, onEditingChanged: update)
             .padding()
             .frame(
@@ -97,6 +99,7 @@ struct TranslateView: View {
           )
 
           Spacer()
+          
           CardView(
             text: viewModel.sourceText,
             width: UIScreen.main.bounds.width * 0.9,
@@ -111,15 +114,17 @@ struct TranslateView: View {
         }
           .frame(maxWidth: .infinity)
           .background(Color.white)
-        Rectangle()
-          .foregroundColor(Color("SubColor"))
-          .frame( height: 50)
       }
       .background(Color("SubColor"))
+      }
     }
     .navigationBarHidden(true)
     .navigationBarTitle("")
     .edgesIgnoringSafeArea(.top)
+    .onTapGesture {
+      UIApplication.shared.closeKeyboard()
+      self.viewModel.apply(inputs: .onCommitText(text: self.viewModel.sourceText))
+    }
   }
   
   func update(changed: Bool) {
@@ -129,6 +134,11 @@ struct TranslateView: View {
 
 }
 
+extension UIApplication {
+    func closeKeyboard() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
 struct TranslateView_Previews: PreviewProvider {
     static var previews: some View {
       TranslateView(viewModel: .init(apiService: APIService()))
