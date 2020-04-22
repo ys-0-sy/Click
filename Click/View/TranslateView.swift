@@ -15,10 +15,6 @@ struct TranslateView: View {
   var body: some View {
     NavigationView {
       ScrollView(showsIndicators: false) {
-        ZStack {
-          Color.yellow
-               .opacity(0.4)
-               .edgesIgnoringSafeArea(.all)
         VStack(alignment: .center, spacing: 30) {
           Text("Translation")
             .font(.title)
@@ -118,7 +114,6 @@ struct TranslateView: View {
           .background(Color.white)
       }
       .background(Color("SubColor"))
-      }
       .onTapGesture {
         UIApplication.shared.closeKeyboard()
         self.viewModel.apply(inputs: .onCommitText(text: self.viewModel.sourceText))
