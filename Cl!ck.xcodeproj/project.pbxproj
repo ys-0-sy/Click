@@ -19,6 +19,7 @@
 		5B312DAB24509B2300B36DF4 /* TranslationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DAA24509B2300B36DF4 /* TranslationRequest.swift */; };
 		5B312DAD24509B4E00B36DF4 /* TranslatedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DAC24509B4E00B36DF4 /* TranslatedLanguage.swift */; };
 		5B312DAF24509B8700B36DF4 /* DetectionLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DAE24509B8700B36DF4 /* DetectionLanguage.swift */; };
+		5B312DB124509C9900B36DF4 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DB024509C9900B36DF4 /* Keys.swift */; };
 		5B64174E24430C13003DCAAF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64174D24430C13003DCAAF /* APIService.swift */; };
 		5B64175024430C4A003DCAAF /* CardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64174F24430C4A003DCAAF /* CardsModel.swift */; };
 		5B6417522443393B003DCAAF /* TranslateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6417512443393B003DCAAF /* TranslateViewModel.swift */; };
@@ -72,6 +73,7 @@
 		5B312DAA24509B2300B36DF4 /* TranslationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationRequest.swift; sourceTree = "<group>"; };
 		5B312DAC24509B4E00B36DF4 /* TranslatedLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedLanguage.swift; sourceTree = "<group>"; };
 		5B312DAE24509B8700B36DF4 /* DetectionLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionLanguage.swift; sourceTree = "<group>"; };
+		5B312DB024509C9900B36DF4 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		5B64174D24430C13003DCAAF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		5B64174F24430C4A003DCAAF /* CardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsModel.swift; sourceTree = "<group>"; };
 		5B6417512443393B003DCAAF /* TranslateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewModel.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				5B312DAC24509B4E00B36DF4 /* TranslatedLanguage.swift */,
 				5BBCB476244DD79B008107C4 /* TranslationLanguage.swift */,
 				5B64174F24430C4A003DCAAF /* CardsModel.swift */,
+				5B312DB024509C9900B36DF4 /* Keys.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				5B312DAF24509B8700B36DF4 /* DetectionLanguage.swift in Sources */,
 				5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */,
 				5BF263962438A30D0047B426 /* Settings.swift in Sources */,
+				5B312DB124509C9900B36DF4 /* Keys.swift in Sources */,
 				5B171682242CF80E0081D603 /* AppDelegate.swift in Sources */,
 				5B312DA924509AF300B36DF4 /* DetectionLanguageRequest.swift in Sources */,
 				5BBCB484244DFD0F008107C4 /* Clip.xcdatamodeld in Sources */,
@@ -574,7 +578,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 242;
+				CURRENT_PROJECT_VERSION = 243;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -598,7 +602,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 242;
+				CURRENT_PROJECT_VERSION = 243;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
