@@ -39,7 +39,9 @@ struct TranslateView: View {
                     Text("Auto Detect")
                   }
                   ForEach(viewModel.surpportedLanguages, id: \.self) { language in
-                    Button(action: { self.viewModel.apply(inputs: .tappedSourceLanguageSelection(language: language)) }) {
+                    Button(action: {
+                      print("tapped")
+                      self.viewModel.apply(inputs: .tappedSourceLanguageSelection(language: language)) }) {
                       Text(language.name)
                     }
                   }
@@ -117,19 +119,19 @@ struct TranslateView: View {
       }
       .background(Color("SubColor"))
       }
+      .onTapGesture {
+        UIApplication.shared.closeKeyboard()
+        self.viewModel.apply(inputs: .onCommitText(text: self.viewModel.sourceText))
+      }
     }
     .navigationBarHidden(true)
     .navigationBarTitle("")
     .edgesIgnoringSafeArea(.top)
-    .onTapGesture {
-      UIApplication.shared.closeKeyboard()
-      self.viewModel.apply(inputs: .onCommitText(text: self.viewModel.sourceText))
-    }
+
   }
   
   func update(changed: Bool) {
     guard !changed else { return }
-    print(changed)
   }
 
 }

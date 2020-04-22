@@ -11,32 +11,28 @@ struct ContentView: View {
   @State var selection = 0
 
   var body: some View {
-    ZStack(alignment: .top) {
-      Color("BaseColor")
-       .edgesIgnoringSafeArea(.top)
-      TabView {
-        TranslateView(viewModel: .init(apiService: APIService()))
-          .tabItem {
-            Image("translation")
-            Text("Translation")
-          }
-        Text("Cards")
-          .tabItem {
-            Image("cards")
-            Text("Cards")
+    TabView {
+      TranslateView(viewModel: .init(apiService: APIService()))
+        .tabItem {
+          Image("translation")
+          Text("Translation")
         }
-        Text("Lists")
-          .tabItem {
-            Image("list")
-            Text("Lists")
-        }
-        Text("Settings")
-          .tabItem {
-            Image("settings")
-            Text("Settings")
-        }
-      }.accentColor(Color("SecondBaseColor"))
-    }
+      Text("Cards")
+        .tabItem {
+          Image("cards")
+          Text("Cards")
+      }
+      Text("Lists")
+        .tabItem {
+          Image("list")
+          Text("Lists")
+      }
+      Text("Settings")
+        .tabItem {
+          Image("settings")
+          Text("Settings")
+      }
+    }.accentColor(Color("SecondBaseColor"))
   }
 }
 

@@ -47,11 +47,11 @@ final class TranslateViewModel: ObservableObject {
         onTappedSubject.send()
       }
     case .tappedDetectedLanguageSelection(let language):
-      showTargetLanguageSelectionView = false
-      targetLanguageSelection = language
+      self.showTargetLanguageSelectionView = false
+      self.targetLanguageSelection = language
     case .tappedSourceLanguageSelection(let language):
-      showSourceLanguageSelectionView = false
-      sourceLanguageSelection = language
+      self.showSourceLanguageSelectionView = false
+      self.sourceLanguageSelection = language
     case .onCommitText(let text):
       onCheckLanguageSubject.send(text)
     }
