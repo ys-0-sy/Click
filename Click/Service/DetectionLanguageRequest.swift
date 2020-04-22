@@ -1,23 +1,30 @@
 //
-//  FetchSupportedLanguageRequest.swift
-//  Clip
+//  File.swift
+//  Cl!ck
 //
-//  Created by saito on 2020/04/20.
+//  Created by saito on 2020/04/23.
 //  Copyright © 2020 ys-0-sy. All rights reserved.
 //
 
 import Foundation
 
-struct FetchSupportedLanguageRequest: RequestType {
-  typealias Response = FetchSupportedLanguageResponse
+struct DetectionLanguageRequest: RequestType {
+  typealias Response = DetectionLanguageResponse
   
-  var path: String { return "/language/translate/v2/languages" }
+  var path: String { return "/language/translate/v2/detect" }
   var queryItems: [URLQueryItem]? {
     return [
       .init(name: "key", value: self.loadKeys()),
-      .init(name: "target", value: Locale.current.languageCode ?? "en")
+      .init(name: "q", value: query)
     ]
   }
+  
+  private let query: String
+
+  init(query: String) {
+      self.query = query
+  }
+  
   private func loadKeys() -> String {
     do {
       let settingURL: URL = URL(fileURLWithPath: Bundle.main.path(forResource: "keys", ofType: "plist")!)
@@ -32,7 +39,3 @@ struct FetchSupportedLanguageRequest: RequestType {
     }
   }
 }
-
-
-
-

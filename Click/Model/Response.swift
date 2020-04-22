@@ -16,11 +16,9 @@ struct DetectionLanguageResponse: Decodable {
   var data: DetectionLanguages
 }
 
-struct DetectionLanguages: Decodable {
-  var detections: [[DetectionLanguage]]
+
+
+struct TranslationResponse: Decodable {
+  var data: TranslatedLanguages
 }
 
-struct DetectionLanguage: Decodable, Hashable {
-  var language: String
-  var confidence: Float
-}

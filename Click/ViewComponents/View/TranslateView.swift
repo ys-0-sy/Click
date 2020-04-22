@@ -106,9 +106,11 @@ struct TranslateView: View {
           )
             .shadow(color: Color("shade"), radius: 20, x: 0, y: 5)
             .background(Color.white)
+         
           Rectangle()
             .foregroundColor(Color("SubColor"))
             .frame( height: 50)
+           
         }
         .background(Color(UIColor.systemBackground))
           .frame(maxWidth: UIScreen.main.bounds.width * 0.95)

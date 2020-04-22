@@ -12,3 +12,7 @@ struct TranslationLanguage: Decodable, Hashable {
   var language: String
   var name: String
 }
+
+struct TranslationLanguages: Decodable {
+  var languages: [TranslationLanguage]
+}

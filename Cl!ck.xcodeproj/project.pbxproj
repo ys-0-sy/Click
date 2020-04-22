@@ -15,6 +15,10 @@
 		5B171691242CF8110081D603 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B17168F242CF8110081D603 /* LaunchScreen.storyboard */; };
 		5B17169C242CF8110081D603 /* ClickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B17169B242CF8110081D603 /* ClickTests.swift */; };
 		5B1716A7242CF8110081D603 /* ClickUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716A6242CF8110081D603 /* ClickUITests.swift */; };
+		5B312DA924509AF300B36DF4 /* DetectionLanguageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DA824509AF300B36DF4 /* DetectionLanguageRequest.swift */; };
+		5B312DAB24509B2300B36DF4 /* TranslationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DAA24509B2300B36DF4 /* TranslationRequest.swift */; };
+		5B312DAD24509B4E00B36DF4 /* TranslatedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DAC24509B4E00B36DF4 /* TranslatedLanguage.swift */; };
+		5B312DAF24509B8700B36DF4 /* DetectionLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DAE24509B8700B36DF4 /* DetectionLanguage.swift */; };
 		5B64174E24430C13003DCAAF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64174D24430C13003DCAAF /* APIService.swift */; };
 		5B64175024430C4A003DCAAF /* CardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64174F24430C4A003DCAAF /* CardsModel.swift */; };
 		5B6417522443393B003DCAAF /* TranslateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6417512443393B003DCAAF /* TranslateViewModel.swift */; };
@@ -22,16 +26,13 @@
 		5B9156BF24445291003EFA2C /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B9156BE24445291003EFA2C /* keys.plist */; };
 		5BB362622432DF890065FD5D /* keys.template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB362612432DF890065FD5D /* keys.template.plist */; };
 		5BBCB477244DD79B008107C4 /* TranslationLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCB476244DD79B008107C4 /* TranslationLanguage.swift */; };
-		5BBCB479244DD7C3008107C4 /* TranslationLanguages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCB478244DD7C3008107C4 /* TranslationLanguages.swift */; };
-		5BBCB47B244DD7E1008107C4 /* FetchSupportedLanguageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCB47A244DD7E1008107C4 /* FetchSupportedLanguageResponse.swift */; };
+		5BBCB47B244DD7E1008107C4 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCB47A244DD7E1008107C4 /* Response.swift */; };
 		5BBCB47E244DD893008107C4 /* FetchSupportedLanguageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCB47D244DD893008107C4 /* FetchSupportedLanguageRequest.swift */; };
 		5BBCB480244DD8E4008107C4 /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCB47F244DD8E4008107C4 /* APIServiceError.swift */; };
 		5BBCB484244DFD0F008107C4 /* Clip.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCB481244DFD0F008107C4 /* Clip.xcdatamodeld */; };
 		5BE2EE65242DBAA6007BC85F /* TranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE64242DBAA6007BC85F /* TranslateView.swift */; };
 		5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE67242DC0AA007BC85F /* CardView.swift */; };
 		5BE2EE6B242DC1FE007BC85F /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE6A242DC1FE007BC85F /* MultilineTextField.swift */; };
-		5BE2EE74242E0B93007BC85F /* TranslateAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE73242E0B93007BC85F /* TranslateAPI.swift */; };
-		5BE2EE78242E2059007BC85F /* TranslationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE77242E2059007BC85F /* TranslationManager.swift */; };
 		5BF263962438A30D0047B426 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF263952438A30D0047B426 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +68,10 @@
 		5B1716A2242CF8110081D603 /* Cl!ckUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cl!ckUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B1716A6242CF8110081D603 /* ClickUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickUITests.swift; sourceTree = "<group>"; };
 		5B1716A8242CF8110081D603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B312DA824509AF300B36DF4 /* DetectionLanguageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionLanguageRequest.swift; sourceTree = "<group>"; };
+		5B312DAA24509B2300B36DF4 /* TranslationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationRequest.swift; sourceTree = "<group>"; };
+		5B312DAC24509B4E00B36DF4 /* TranslatedLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedLanguage.swift; sourceTree = "<group>"; };
+		5B312DAE24509B8700B36DF4 /* DetectionLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionLanguage.swift; sourceTree = "<group>"; };
 		5B64174D24430C13003DCAAF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		5B64174F24430C4A003DCAAF /* CardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsModel.swift; sourceTree = "<group>"; };
 		5B6417512443393B003DCAAF /* TranslateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewModel.swift; sourceTree = "<group>"; };
@@ -75,8 +80,7 @@
 		5BB3625D2432D5230065FD5D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5BB362612432DF890065FD5D /* keys.template.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.template.plist; sourceTree = "<group>"; };
 		5BBCB476244DD79B008107C4 /* TranslationLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationLanguage.swift; sourceTree = "<group>"; };
-		5BBCB478244DD7C3008107C4 /* TranslationLanguages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationLanguages.swift; sourceTree = "<group>"; };
-		5BBCB47A244DD7E1008107C4 /* FetchSupportedLanguageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchSupportedLanguageResponse.swift; sourceTree = "<group>"; };
+		5BBCB47A244DD7E1008107C4 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		5BBCB47D244DD893008107C4 /* FetchSupportedLanguageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchSupportedLanguageRequest.swift; sourceTree = "<group>"; };
 		5BBCB47F244DD8E4008107C4 /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
 		5BBCB482244DFD0F008107C4 /* Clip.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Clip.xcdatamodel; sourceTree = "<group>"; };
@@ -84,8 +88,6 @@
 		5BE2EE64242DBAA6007BC85F /* TranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateView.swift; sourceTree = "<group>"; };
 		5BE2EE67242DC0AA007BC85F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5BE2EE6A242DC1FE007BC85F /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
-		5BE2EE73242E0B93007BC85F /* TranslateAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateAPI.swift; sourceTree = "<group>"; };
-		5BE2EE77242E2059007BC85F /* TranslationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationManager.swift; sourceTree = "<group>"; };
 		5BF263952438A30D0047B426 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		5BF26398243B800E0047B426 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,7 +142,6 @@
 			children = (
 				5BBCB47C244DD842008107C4 /* Service */,
 				5BE2EE66242DC069007BC85F /* ViewComponents */,
-				5B6E3912243CC2A900120F33 /* View */,
 				5B6E3911243CC2A100120F33 /* ViewModel */,
 				5B6E3910243CC29500120F33 /* Model */,
 				5BB362602432DF600065FD5D /* Secret */,
@@ -184,10 +185,10 @@
 		5B6E3910243CC29500120F33 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5BE2EE6C242E0A8F007BC85F /* API */,
-				5BBCB47A244DD7E1008107C4 /* FetchSupportedLanguageResponse.swift */,
+				5BBCB47A244DD7E1008107C4 /* Response.swift */,
+				5B312DAE24509B8700B36DF4 /* DetectionLanguage.swift */,
+				5B312DAC24509B4E00B36DF4 /* TranslatedLanguage.swift */,
 				5BBCB476244DD79B008107C4 /* TranslationLanguage.swift */,
-				5BBCB478244DD7C3008107C4 /* TranslationLanguages.swift */,
 				5B64174F24430C4A003DCAAF /* CardsModel.swift */,
 			);
 			path = Model;
@@ -224,6 +225,8 @@
 			isa = PBXGroup;
 			children = (
 				5BBCB47D244DD893008107C4 /* FetchSupportedLanguageRequest.swift */,
+				5B312DAA24509B2300B36DF4 /* TranslationRequest.swift */,
+				5B312DA824509AF300B36DF4 /* DetectionLanguageRequest.swift */,
 				5BBCB47F244DD8E4008107C4 /* APIServiceError.swift */,
 				5B64174D24430C13003DCAAF /* APIService.swift */,
 			);
@@ -234,19 +237,11 @@
 			isa = PBXGroup;
 			children = (
 				5BE2EE67242DC0AA007BC85F /* CardView.swift */,
+				5B6E3912243CC2A900120F33 /* View */,
 				5BE2EE6A242DC1FE007BC85F /* MultilineTextField.swift */,
 				5B6E3913243DDE6300120F33 /* ButtonView.swift */,
 			);
 			path = ViewComponents;
-			sourceTree = "<group>";
-		};
-		5BE2EE6C242E0A8F007BC85F /* API */ = {
-			isa = PBXGroup;
-			children = (
-				5BE2EE73242E0B93007BC85F /* TranslateAPI.swift */,
-				5BE2EE77242E2059007BC85F /* TranslationManager.swift */,
-			);
-			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,23 +383,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BBCB480244DD8E4008107C4 /* APIServiceError.swift in Sources */,
+				5B312DAF24509B8700B36DF4 /* DetectionLanguage.swift in Sources */,
 				5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */,
-				5BE2EE78242E2059007BC85F /* TranslationManager.swift in Sources */,
 				5BF263962438A30D0047B426 /* Settings.swift in Sources */,
 				5B171682242CF80E0081D603 /* AppDelegate.swift in Sources */,
+				5B312DA924509AF300B36DF4 /* DetectionLanguageRequest.swift in Sources */,
 				5BBCB484244DFD0F008107C4 /* Clip.xcdatamodeld in Sources */,
+				5B312DAB24509B2300B36DF4 /* TranslationRequest.swift in Sources */,
 				5BBCB477244DD79B008107C4 /* TranslationLanguage.swift in Sources */,
 				5B6E3914243DDE6300120F33 /* ButtonView.swift in Sources */,
 				5BE2EE65242DBAA6007BC85F /* TranslateView.swift in Sources */,
+				5B312DAD24509B4E00B36DF4 /* TranslatedLanguage.swift in Sources */,
 				5B64175024430C4A003DCAAF /* CardsModel.swift in Sources */,
 				5B6417522443393B003DCAAF /* TranslateViewModel.swift in Sources */,
-				5BBCB47B244DD7E1008107C4 /* FetchSupportedLanguageResponse.swift in Sources */,
+				5BBCB47B244DD7E1008107C4 /* Response.swift in Sources */,
 				5B171689242CF80E0081D603 /* ContentView.swift in Sources */,
-				5BE2EE74242E0B93007BC85F /* TranslateAPI.swift in Sources */,
 				5B171684242CF80E0081D603 /* SceneDelegate.swift in Sources */,
 				5BE2EE6B242DC1FE007BC85F /* MultilineTextField.swift in Sources */,
 				5BBCB47E244DD893008107C4 /* FetchSupportedLanguageRequest.swift in Sources */,
-				5BBCB479244DD7C3008107C4 /* TranslationLanguages.swift in Sources */,
 				5B64174E24430C13003DCAAF /* APIService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -578,7 +574,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 228;
+				CURRENT_PROJECT_VERSION = 242;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -602,7 +598,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 228;
+				CURRENT_PROJECT_VERSION = 242;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
