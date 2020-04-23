@@ -39,8 +39,11 @@ final class APIService: APIServiceType {
     let decorder = JSONDecoder()
     decorder.keyDecodingStrategy = .convertFromSnakeCase
     return URLSession.shared.dataTaskPublisher(for: request)
-      .map { data, urlResponse in 
+      .map { data, urlResponse in
+//        let str: String? = String(data: data, encoding: .utf8)
+//        print(str!)
         return data
+        
     }
       .mapError { _ in APIServiceError.responseError }
       .decode(type: Request.Response.self, decoder: decorder)

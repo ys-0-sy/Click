@@ -9,7 +9,7 @@
 import Foundation
 
 struct TranslatedLanguages: Decodable {
-  var translations: [[TranslatedLanguage]]
+  var translations: [TranslatedLanguage]
 }
 
 struct TranslatedLanguage: Decodable, Hashable {
