@@ -8,29 +8,42 @@
 
 import SwiftUI
 struct ContentView: View {
+  @State private var selection = 0
 
   var body: some View {
     TabView {
       TranslateView(viewModel: .init(apiService: APIService()))
         .tabItem {
-          Image("translation")
-          Text("Translation")
+          VStack {
+            Image("translation")
+            Text("Translation")
+          }
         }
+      .tag(0)
       Text("Cards")
         .tabItem {
-          Image("cards")
-          Text("Cards")
+          VStack {
+        Image("cards")
+        Text("Cards")
+          }
       }
+      .tag(1)
       Text("Lists")
         .tabItem {
-          Image("list")
-          Text("Lists")
-      }
+          VStack {
+            Image("list")
+            Text("Lists")
+          }
+        }
+      .tag(2)
       Text("Settings")
         .tabItem {
-          Image("settings")
-          Text("Settings")
+          VStack {
+            Image("settings")
+            Text("Settings")
+          }
       }
+    .tag(3)
     }.accentColor(Color("SecondBaseColor"))
   }
 }

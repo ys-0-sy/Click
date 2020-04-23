@@ -13,13 +13,18 @@ struct TranslateView: View {
   @ObservedObject var viewModel: TranslateViewModel
   
   var body: some View {
-    NavigationView {
       ScrollView(showsIndicators: false) {
         VStack(alignment: .center, spacing: 30) {
           Text("Translation")
             .font(.title)
           HStack(alignment: .center, spacing: 23) {
-            NavigationLink(destination:
+            ButtonView(buttonAction: {
+              self.viewModel.showSourceLanguageSelectionView = true
+            },
+               backGroundColor: Color("SubColor"),
+               text: viewModel.sourceLanguageSelection?.name ?? "Auto Detect\n\(viewModel.detectionLanguage?.name ?? "")"
+            )
+              .sheet(isPresented:  self.$viewModel.showSourceLanguageSelectionView) {
               VStack {
                 HStack {
                   Text("Source Language")
@@ -30,11 +35,11 @@ struct TranslateView: View {
                 List {
                   Button(action: {
                     self.viewModel.apply(inputs: .tappedSourceLanguageSelection(language: nil))
-                    
+
                   }) {
                     Text("Auto Detect")
                   }
-                  ForEach(viewModel.surpportedLanguages, id: \.self) { language in
+                  ForEach(self.viewModel.surpportedLanguages, id: \.self) { language in
                     Button(action: {
                       print("tapped")
                       self.viewModel.apply(inputs: .tappedSourceLanguageSelection(language: language)) }) {
@@ -42,37 +47,34 @@ struct TranslateView: View {
                     }
                   }
                 }
-              },
-                           isActive: self.$viewModel.showSourceLanguageSelectionView) {
-                ButtonView(buttonAction: {
-                  self.viewModel.showSourceLanguageSelectionView = true
-                },
-                   backGroundColor: Color("SubColor"),
-                   text: viewModel.sourceLanguageSelection?.name ?? "Auto Detect\n  \(viewModel.detectionLanguage?.name ?? "")"
-                )
               }
+            }
+
             Image(systemName: "arrow.right.arrow.left")
-            NavigationLink(destination:
-              VStack {
-                ButtonView(buttonAction: {self.viewModel.showTargetLanguageSelectionView = false},
-                  backGroundColor: Color("SecondSubColor"),
-                  text: "Back")
-                List {
-                  ForEach(viewModel.surpportedLanguages, id: \.self) { language in
-                    Button(action: { self.viewModel.apply(inputs: .tappedDetectedLanguageSelection(language: language)) }) {
-                      Text(language.name)
+            ButtonView(buttonAction: {
+                self.viewModel.showTargetLanguageSelectionView = true
+              },
+                         backGroundColor: Color("SecondSubColor"),
+                         text: viewModel.targetLanguageSelection.name
+              )
+              .sheet(isPresented: self.$viewModel.showTargetLanguageSelectionView) {
+                VStack {
+                  HStack {
+                    Text("Target Language")
+                    ButtonView(buttonAction: {self.viewModel.showTargetLanguageSelectionView = false},
+                      backGroundColor: Color("SecondSubColor"),
+                      text: "Back")
+                  }
+                  List {
+                    ForEach(self.viewModel.surpportedLanguages, id: \.self) { language in
+                      Button(action: { self.viewModel.apply(inputs: .tappedDetectedLanguageSelection(language: language)) }) {
+                        Text(language.name)
+                      }
                     }
                   }
                 }
-              },
-                           isActive: self.$viewModel.showTargetLanguageSelectionView) {
-                ButtonView(buttonAction: {
-                  self.viewModel.showTargetLanguageSelectionView = true
-                },
-                           backGroundColor: Color("SecondSubColor"),
-                           text: viewModel.targetLanguageSelection.name
-                )
               }
+
           }.frame(width:UIScreen.main.bounds.width * 0.9)
           
           MultilineTextField(text: $viewModel.sourceText, onEditingChanged: update)
@@ -113,25 +115,14 @@ struct TranslateView: View {
            
         }
         .background(Color(UIColor.systemBackground))
-          .frame(maxWidth: UIScreen.main.bounds.width * 0.95)
-        .cornerRadius(10)
-          
-
-        Spacer().frame(height: 50)
       }
       .frame(maxWidth: .infinity)
-      .background(Color("SubColor"))
       .onTapGesture {
         UIApplication.shared.closeKeyboard()
         self.viewModel.apply(inputs: .onCommitText(text: self.viewModel.sourceText))
       }
-    }
     
     .background(Color("SubColor"))
-    .navigationBarHidden(true)
-    .navigationBarTitle("")
-    .edgesIgnoringSafeArea(.top)
-
   }
   
   func update(changed: Bool) {

@@ -16,12 +16,13 @@ struct ButtonView: View {
   var body: some View {
     Button(action: buttonAction) {
       Text(text)
+      .padding(5)
       .multilineTextAlignment(.center)
     }
       .foregroundColor(Color.black)
       .padding(.horizontal)
       .background(backGroundColor)
-      .cornerRadius(10)
+      .cornerRadius(30)
       
   }
 }
