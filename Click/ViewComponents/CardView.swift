@@ -21,7 +21,7 @@ struct CardView: View {
         .lineLimit(nil)
         .padding(.all)
         .frame(width: width, height: height, alignment: alignment)
-        .background(Color.white)
+        .background(Color(UIColor.systemBackground))
         .cornerRadius(6)
         .overlay(
             RoundedRectangle(cornerRadius: 6)

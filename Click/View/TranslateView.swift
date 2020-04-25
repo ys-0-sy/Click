@@ -84,7 +84,7 @@ struct TranslateView: View {
               height: UIScreen.main.bounds.height * 0.2,
               alignment: .topLeading
             )
-            .background(Color.white)
+            .background(Color(UIColor.systemBackground))
             .overlay(
                 RoundedRectangle(cornerRadius: 6)
                   .stroke(Color("BaseColor"), lineWidth: 4)
@@ -121,8 +121,6 @@ struct TranslateView: View {
         UIApplication.shared.closeKeyboard()
         self.viewModel.apply(inputs: .onCommitText(text: self.viewModel.sourceText))
       }
-    
-    .background(Color("SubColor"))
   }
   
   func update(changed: Bool) {
