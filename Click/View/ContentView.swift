@@ -28,7 +28,7 @@ struct ContentView: View {
           }
       }
       .tag(1)
-      Text("Lists")
+      ListsView()
         .tabItem {
           VStack {
             Image("list")

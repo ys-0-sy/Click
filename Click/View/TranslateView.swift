@@ -15,7 +15,7 @@ struct TranslateView: View {
   var body: some View {
       ScrollView(showsIndicators: false) {
         VStack(alignment: .center, spacing: 10) {
-          VStack(alignment: .center, spacing: 10) {
+          VStack(alignment: .center, spacing: 20) {
           VStack(alignment: .leading, spacing: 20) {
           Text("Translation")
             .font(.largeTitle)
@@ -96,7 +96,6 @@ struct TranslateView: View {
                 RoundedRectangle(cornerRadius: 6)
                   .stroke(Color("SubColor"), lineWidth: 2)
             )
-            Spacer()
           CardView(
             text: viewModel.translatedText,
             width: UIScreen.main.bounds.width * 0.85,
@@ -111,9 +110,23 @@ struct TranslateView: View {
           .frame(width: UIScreen.main.bounds.width * 0.95)
           .background(Color(UIColor.systemGray6))
           .cornerRadius(20)
-           
-        }
           
+          VStack(alignment: .leading){
+            Text("History")
+            .font(.title)
+              .padding(.top)
+            
+            HistoryView(sourceText: "Poop", translationText: "うんち", sourceLanguage: TranslationLanguage(language: "en", name: "English"), translationLanguage: TranslationLanguage(language: "ja", name: "Japanese"), width: UIScreen.main.bounds.width * 0.85)
+              .background(Color(UIColor.systemBackground))
+            .cornerRadius(8)
+            Spacer()
+              .frame(height: 30)
+          }
+           .frame(width: UIScreen.main.bounds.width * 0.95)
+           .background(Color(UIColor.systemGray6))
+           .cornerRadius(20)
+        }
+
 
         .frame(maxWidth: .infinity)
       }

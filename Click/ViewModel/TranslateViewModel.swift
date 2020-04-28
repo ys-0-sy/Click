@@ -55,6 +55,7 @@ final class TranslateViewModel: ObservableObject {
     case .onCommitText(let text):
       onCheckLanguageSubject.send(text)
       translateLanguageSubject.send(Translate(query: text, sourceLanguage: self.sourceLanguageSelection, targetLanguage: self.targetLanguageSelection))
+      addnewCard(sourceLanguage: self.sourceLanguageSelection ?? self.detectionLanguage)
     }
   }
   
@@ -141,6 +142,18 @@ final class TranslateViewModel: ObservableObject {
     return languages.compactMap { (language) -> TranslationLanguage? in
               return language
       }
+  }
+  
+  private func addnewCard(sourceLanguage: TranslationLanguage?) {
+    if sourceLanguage != nil {
+      let newCard = CoreDataModel.newCards()
+      newCard.sourceLanguage = sourceLanguage!.name
+      newCard.sourceText = self.sourceText
+      newCard.translateLanguage = self.targetLanguageSelection.name
+      newCard.translateText = self.translatedText
+      newCard.date = Date()
+      CoreDataModel.save()
+    }
   }
 
 }
