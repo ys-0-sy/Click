@@ -24,3 +24,7 @@ extension Cards {
     @NSManaged public var translateText: String
 
 }
+
+extension Cards: Identifiable {
+  
+}

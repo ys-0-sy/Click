@@ -15,25 +15,37 @@ struct ListsView: View {
   init() {
     self.model = ListViewModel()
   }
-    var body: some View {
-      ForEach(self.model.cards, id: \.self) { card in
-          HistoryView(sourceText: card.sourceText, translationText: card.translateText, sourceLanguage: card.sourceLanguage, translationLanguage: card.translateLanguage, width: 200)
+  
+  var body: some View {
+    VStack{
+      if self.model.hasCards {
+        ForEach(self.model.cards, id: \.self) { card in
+          VStack {
+            HistoryView(card: card, width: 200)
+          Text("\(card.sourceText)")
+          }
         }
-        
-      .onAppear(perform: self.model.onAppear)
-    }
+      } else {
+        Text("NO Data")
+      }
+    }.onAppear(perform: self.model.onAppear)
+  }
+
 }
 
 
 class ListViewModel: ObservableObject {
   @Published var cards: [Cards]
+  @Published var hasCards: Bool
   init() {
     self.cards = []
+    self.hasCards = false
   }
   func fetchAll() {
     cards = CoreDataModel.getCards()
+    hasCards = cards.count > 0
   }
-  func onAppear() {
+  func onAppear(){
     fetchAll()
   }
 }

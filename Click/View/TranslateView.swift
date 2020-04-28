@@ -115,10 +115,23 @@ struct TranslateView: View {
             Text("History")
             .font(.title)
               .padding(.top)
-            
-            HistoryView(sourceText: "Poop", translationText: "うんち", sourceLanguage: TranslationLanguage(language: "en", name: "English"), translationLanguage: TranslationLanguage(language: "ja", name: "Japanese"), width: UIScreen.main.bounds.width * 0.85)
-              .background(Color(UIColor.systemBackground))
-            .cornerRadius(8)
+            if self.viewModel.hasCards {
+              if self.viewModel.cards.count <= 5 {
+                ForEach(self.viewModel.cards) { card in
+                  HistoryView(card: card, width: UIScreen.main.bounds.width * 0.85)
+                    .background(Color(UIColor.systemBackground))
+                  .cornerRadius(8)
+                }
+              } else {
+                ForEach(0 ..< 5) { index in
+                  HistoryView(card: self.viewModel.cards[index], width: UIScreen.main.bounds.width * 0.85)
+                    .background(Color(UIColor.systemBackground))
+                  .cornerRadius(8)
+                }
+              }
+
+
+            }
             Spacer()
               .frame(height: 30)
           }
@@ -130,8 +143,9 @@ struct TranslateView: View {
 
         .frame(maxWidth: .infinity)
       }
-      
+      .onAppear(perform: self.viewModel.onAppear)
       .onTapGesture {
+        self.viewModel.onAppear()
         UIApplication.shared.closeKeyboard()
         self.viewModel.apply(inputs: .onCommitText(text: self.viewModel.sourceText))
       }

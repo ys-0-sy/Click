@@ -9,15 +9,12 @@
 import SwiftUI
 
 struct HistoryView: View {
-  let sourceText: String
-  let translationText: String
-  let sourceLanguage: TranslationLanguage
-  let translationLanguage: TranslationLanguage
+  let card: Cards
   let width: CGFloat
     var body: some View {
         HStack(alignment: .center, spacing: 0) {
           VStack(alignment: .center, spacing: 0) {
-            Text(sourceLanguage.name)
+            Text(card.sourceLanguage)
               .font(.subheadline)
             .fixedSize()
               .padding(.leading)
@@ -26,7 +23,7 @@ struct HistoryView: View {
               .cornerRadius(10)
             Spacer()
               .frame(height: 20)
-            Text(sourceText)
+            Text(card.sourceText)
             .fixedSize(horizontal: false, vertical: true)
               .multilineTextAlignment(.center)
             .lineLimit(nil)
@@ -38,7 +35,7 @@ struct HistoryView: View {
           Divider()
             .frame(height: 80)
           VStack(alignment: .center, spacing: 0) {
-            Text(translationLanguage.name)
+            Text(card.translateLanguage)
               .font(.subheadline)
             .fixedSize()
               .padding(.leading)
@@ -47,7 +44,7 @@ struct HistoryView: View {
               .cornerRadius(10)
             Spacer()
               .frame(height: 20)
-            Text(translationText)
+            Text(card.translateText)
               .fixedSize(horizontal: false, vertical: true)
             .lineLimit(nil)
             Spacer()
@@ -64,7 +61,8 @@ struct HistoryView: View {
 
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-      HistoryView(sourceText: "Poop", translationText: "うんち", sourceLanguage: TranslationLanguage(language: "en", name: "English"), translationLanguage: TranslationLanguage(language: "ja", name: "Japanese"), width: UIScreen.main.bounds.width)
+      Text("hoge")
+      //HistoryView(card: , width: UIScreen.main.bounds.width)
         .previewLayout(.sizeThatFits)
     }
 }

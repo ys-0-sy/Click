@@ -35,9 +35,12 @@ final class TranslateViewModel: ObservableObject {
   @Published var showTargetLanguageSelectionView: Bool = false
   
   init(apiService: APIServiceType) {
+    self.cards = []
+    self.hasCards = false
     self.apiService = apiService
     bind()
     apply(inputs: .fetchLanguages)
+
   }
   
   func apply(inputs: Inputs) {
@@ -156,4 +159,14 @@ final class TranslateViewModel: ObservableObject {
     }
   }
 
+  @Published var cards: [Cards]
+  @Published var hasCards: Bool
+
+  func fetchAll() {
+    cards = CoreDataModel.getCards()
+    hasCards = cards.count > 0
+  }
+  func onAppear(){
+    fetchAll()
+  }
 }
