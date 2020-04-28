@@ -22,7 +22,7 @@ struct ButtonView: View {
       .foregroundColor(Color.black)
       .padding(.horizontal)
       .background(backGroundColor)
-      .cornerRadius(30)
+      .cornerRadius(20)
       
   }
 }

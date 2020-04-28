@@ -18,15 +18,16 @@ struct MultilineTextFieldView: View {
   let boarderColor: Color = Color("BaseColor")
   var body: some View {
     MultilineTextField(text: $rawText, onEditingChanged: update)
-          .lineLimit(nil)
-          .padding(.all)
-          .frame(width: width, height: height, alignment: alignment)
-          .background(Color.white)
+      .lineLimit(nil)
+      .padding(.all)
+      .frame(width: width, height: height, alignment: alignment)
+      .cornerRadius(6)
+      .background(Color(UIColor.systemGray))
           .overlay(
-              RoundedRectangle(cornerRadius: 6)
-                  .stroke(boarderColor, lineWidth: 4)
+              RoundedRectangle(cornerRadius: 10)
+                  .stroke(boarderColor, lineWidth: 2)
           ) 
-          .background(Color.white)
+          
     
   }
   

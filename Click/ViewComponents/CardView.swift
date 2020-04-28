@@ -25,7 +25,7 @@ struct CardView: View {
         .cornerRadius(6)
         .overlay(
             RoundedRectangle(cornerRadius: 6)
-                .stroke(boarderColor, lineWidth: 4)
+                .stroke(boarderColor, lineWidth: 2)
         )
 
   }

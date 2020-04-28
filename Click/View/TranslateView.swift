@@ -14,9 +14,12 @@ struct TranslateView: View {
   
   var body: some View {
       ScrollView(showsIndicators: false) {
-        VStack(alignment: .center, spacing: 30) {
+        VStack(alignment: .center, spacing: 10) {
+          VStack(alignment: .center, spacing: 10) {
+          VStack(alignment: .leading, spacing: 20) {
           Text("Translation")
-            .font(.title)
+            .font(.largeTitle)
+            .padding()
           HStack(alignment: .center, spacing: 23) {
             ButtonView(buttonAction: {
               self.viewModel.showSourceLanguageSelectionView = true
@@ -31,7 +34,8 @@ struct TranslateView: View {
                   ButtonView(buttonAction: {self.viewModel.showSourceLanguageSelectionView = false},
                     backGroundColor: Color("SubColor"),
                     text: "Back")
-                }
+                }.padding()
+                Divider()
                 List {
                   Button(action: {
                     self.viewModel.apply(inputs: .tappedSourceLanguageSelection(language: nil))
@@ -64,7 +68,8 @@ struct TranslateView: View {
                     ButtonView(buttonAction: {self.viewModel.showTargetLanguageSelectionView = false},
                       backGroundColor: Color("SecondSubColor"),
                       text: "Back")
-                  }
+                  }.padding()
+                  Divider()
                   List {
                     ForEach(self.viewModel.surpportedLanguages, id: \.self) { language in
                       Button(action: { self.viewModel.apply(inputs: .tappedDetectedLanguageSelection(language: language)) }) {
@@ -74,49 +79,45 @@ struct TranslateView: View {
                   }
                 }
               }
-
-          }.frame(width:UIScreen.main.bounds.width * 0.9)
+            }.frame(width: UIScreen.main.bounds.width * 0.9)
+          }.frame(alignment: .leading)
           
           MultilineTextField(text: $viewModel.sourceText, onEditingChanged: update)
             .padding()
             .frame(
-              width: UIScreen.main.bounds.width * 0.9,
-              height: UIScreen.main.bounds.height * 0.2,
+              width: UIScreen.main.bounds.width * 0.85,
+              height: UIScreen.main.bounds.height * 0.15,
               alignment: .topLeading
             )
+            
             .background(Color(UIColor.systemBackground))
+            .cornerRadius(6)
             .overlay(
                 RoundedRectangle(cornerRadius: 6)
-                  .stroke(Color("BaseColor"), lineWidth: 4)
+                  .stroke(Color("SubColor"), lineWidth: 2)
             )
-
+            Spacer()
           CardView(
             text: viewModel.translatedText,
-            width: UIScreen.main.bounds.width * 0.9,
-            height: UIScreen.main.bounds.height * 0.2,
+            width: UIScreen.main.bounds.width * 0.85,
+            height: UIScreen.main.bounds.height * 0.15,
             alignment: .topLeading,
-            boarderColor: Color("SecondBaseColor")
+            boarderColor: Color("SecondSubColor")
           )
-
-          Spacer()
-          
-          CardView(
-            text: viewModel.sourceText,
-            width: UIScreen.main.bounds.width * 0.9,
-            height: 200,
-            alignment: .topLeading, boarderColor: .white
-          )
-            .shadow(color: Color("shade"), radius: 20, x: 0, y: 5)
-            .background(Color.white)
-         
-          Rectangle()
-            .foregroundColor(Color("SubColor"))
-            .frame( height: 50)
+            Rectangle()
+              .foregroundColor(Color(.systemGray6))
+              .frame(height: 10)
+          }
+          .frame(width: UIScreen.main.bounds.width * 0.95)
+          .background(Color(UIColor.systemGray6))
+          .cornerRadius(20)
            
         }
-        .background(Color(UIColor.systemBackground))
+          
+
+        .frame(maxWidth: .infinity)
       }
-      .frame(maxWidth: .infinity)
+      
       .onTapGesture {
         UIApplication.shared.closeKeyboard()
         self.viewModel.apply(inputs: .onCommitText(text: self.viewModel.sourceText))
