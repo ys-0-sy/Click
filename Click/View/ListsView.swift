@@ -17,18 +17,21 @@ struct ListsView: View {
   }
   
   var body: some View {
-    VStack{
-      if self.model.hasCards {
-        ForEach(self.model.cards, id: \.self) { card in
-          VStack {
-            HistoryView(card: card, width: 200)
-          Text("\(card.sourceText)")
+    GeometryReader { geometry in
+      ScrollView {
+        if self.model.hasCards {
+          ForEach(self.model.cards, id: \.self) { card in
+            HistoryView(card: card, width: UIScreen.main.bounds.width * 0.95)
           }
+        } else {
+          Text("NO Data")
+            .frame(width: UIScreen.main.bounds.width)
         }
-      } else {
-        Text("NO Data")
       }
-    }.onAppear(perform: self.model.onAppear)
+      .frame(width: 200)
+      .onAppear(perform: self.model.onAppear)
+    }
+
   }
 
 }
