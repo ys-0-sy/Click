@@ -37,7 +37,7 @@ extension NSPersistentCloudKitContainer {
 
 class CoreDataModel {
     
-  private static var persistentContainer: NSPersistentCloudKitContainer! = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer as? NSPersistentCloudKitContainer
+  private static var persistentContainer: NSPersistentCloudKitContainer! = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     
   private init() {
   }

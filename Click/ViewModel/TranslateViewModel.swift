@@ -151,7 +151,7 @@ final class TranslateViewModel: ObservableObject {
       newCard.sourceText = self.sourceText
       newCard.translateLanguage = self.targetLanguageSelection.name
       newCard.translateText = self.translatedText
-      newCard.date = Date()
+      newCard.id = UUID()
       CoreDataModel.save()
     }
   }

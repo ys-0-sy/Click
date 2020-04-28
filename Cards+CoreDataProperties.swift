@@ -17,14 +17,10 @@ extension Cards {
         return NSFetchRequest<Cards>(entityName: "Cards")
     }
 
-    @NSManaged public var date: Date
+    @NSManaged public var id: UUID
     @NSManaged public var sourceLanguage: String
     @NSManaged public var sourceText: String
     @NSManaged public var translateLanguage: String
     @NSManaged public var translateText: String
 
-}
-
-extension Cards: Identifiable {
-  
 }

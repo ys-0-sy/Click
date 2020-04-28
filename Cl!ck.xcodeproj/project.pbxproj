@@ -23,7 +23,6 @@
 		5B312DB324510C9400B36DF4 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DB224510C9400B36DF4 /* Translate.swift */; };
 		5B42363C2457D6A9008BFABF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B42363B2457D6A9008BFABF /* HistoryView.swift */; };
 		5B64174E24430C13003DCAAF /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64174D24430C13003DCAAF /* APIService.swift */; };
-		5B64175024430C4A003DCAAF /* CardsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B64174F24430C4A003DCAAF /* CardsModel.swift */; };
 		5B6417522443393B003DCAAF /* TranslateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6417512443393B003DCAAF /* TranslateViewModel.swift */; };
 		5B6E3914243DDE6300120F33 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6E3913243DDE6300120F33 /* ButtonView.swift */; };
 		5B9156BF24445291003EFA2C /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B9156BE24445291003EFA2C /* keys.plist */; };
@@ -85,7 +84,6 @@
 		5B312DB224510C9400B36DF4 /* Translate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translate.swift; sourceTree = "<group>"; };
 		5B42363B2457D6A9008BFABF /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		5B64174D24430C13003DCAAF /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
-		5B64174F24430C4A003DCAAF /* CardsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsModel.swift; sourceTree = "<group>"; };
 		5B6417512443393B003DCAAF /* TranslateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewModel.swift; sourceTree = "<group>"; };
 		5B6E3913243DDE6300120F33 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		5B9156BE24445291003EFA2C /* keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
@@ -214,7 +212,6 @@
 				5B312DAE24509B8700B36DF4 /* DetectionLanguage.swift */,
 				5B312DAC24509B4E00B36DF4 /* TranslatedLanguage.swift */,
 				5BBCB476244DD79B008107C4 /* TranslationLanguage.swift */,
-				5B64174F24430C4A003DCAAF /* CardsModel.swift */,
 				5B312DB024509C9900B36DF4 /* Keys.swift */,
 				5B312DB224510C9400B36DF4 /* Translate.swift */,
 				5BEB19AD245816C8000AC426 /* CoreDataModel.swift */,
@@ -435,7 +432,6 @@
 				5B6E3914243DDE6300120F33 /* ButtonView.swift in Sources */,
 				5BE2EE65242DBAA6007BC85F /* TranslateView.swift in Sources */,
 				5B312DAD24509B4E00B36DF4 /* TranslatedLanguage.swift in Sources */,
-				5B64175024430C4A003DCAAF /* CardsModel.swift in Sources */,
 				5B6417522443393B003DCAAF /* TranslateViewModel.swift in Sources */,
 				5BBCB47B244DD7E1008107C4 /* Response.swift in Sources */,
 				5B312DB324510C9400B36DF4 /* Translate.swift in Sources */,
@@ -620,7 +616,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 597;
+				CURRENT_PROJECT_VERSION = 602;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -645,7 +641,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 597;
+				CURRENT_PROJECT_VERSION = 602;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;

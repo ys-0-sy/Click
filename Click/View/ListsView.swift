@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ListsView: View {
   @ObservedObject var model: ListViewModel
@@ -15,11 +16,11 @@ struct ListsView: View {
     self.model = ListViewModel()
   }
     var body: some View {
-      List {
-        ForEach(self.model.cards) { card in
-          Text(card.sourceText)
+      ForEach(self.model.cards, id: \.self) { card in
+          HistoryView(sourceText: card.sourceText, translationText: card.translateText, sourceLanguage: card.sourceLanguage, translationLanguage: card.translateLanguage, width: 200)
         }
-      }.onAppear(perform: self.model.onApper)
+        
+      .onAppear(perform: self.model.onAppear)
     }
 }
 
@@ -32,7 +33,7 @@ class ListViewModel: ObservableObject {
   func fetchAll() {
     cards = CoreDataModel.getCards()
   }
-  func onApper() {
+  func onAppear() {
     fetchAll()
   }
 }
