@@ -39,6 +39,34 @@
                ReferencedContainer = "container:Cl!ck.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5B171696242CF8110081D603"
+               BuildableName = "Cl!ckTests.xctest"
+               BlueprintName = "Cl!ckTests"
+               ReferencedContainer = "container:Cl!ck.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5B1716A1242CF8110081D603"
+               BuildableName = "Cl!ckUITests.xctest"
+               BlueprintName = "Cl!ckUITests"
+               ReferencedContainer = "container:Cl!ck.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -47,6 +75,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5B171696242CF8110081D603"
+               BuildableName = "Cl!ckTests.xctest"
+               BlueprintName = "Cl!ckTests"
+               ReferencedContainer = "container:Cl!ck.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5B1716A1242CF8110081D603"
+               BuildableName = "Cl!ckUITests.xctest"
+               BlueprintName = "Cl!ckUITests"
+               ReferencedContainer = "container:Cl!ck.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
