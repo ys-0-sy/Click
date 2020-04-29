@@ -22,13 +22,11 @@ struct ListsView: View {
         .font(.largeTitle)
         .padding()
         List {
-          ScrollView {
           if self.model.hasCards {
             ForEach(self.model.cards, id: \.self) { card in
               ListView(card: card)
             }
             .onDelete(perform: self.model.onDelete)
-          }
           }
         }
         .frame(width: UIScreen.main.bounds.width)
@@ -36,28 +34,6 @@ struct ListsView: View {
     }
   }
 
-}
-
-
-class ListViewModel: ObservableObject {
-  @Published var cards: [Cards]
-  @Published var hasCards: Bool
-  init() {
-    self.cards = []
-    self.hasCards = false
-  }
-  func fetchAll() {
-    cards = CoreDataModel.getCards()
-    hasCards = cards.count > 0
-  }
-  func onAppear(){
-    fetchAll()
-  }
-  func onDelete(offsets: IndexSet) {
-    CoreDataModel.delete(card: self.cards[offsets.first!])
-    CoreDataModel.save()
-    fetchAll()
-  }
 }
 
 struct ListsView_Previews: PreviewProvider {

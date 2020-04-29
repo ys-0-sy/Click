@@ -14,5 +14,5 @@ struct TranslatedLanguages: Decodable {
 
 struct TranslatedLanguage: Decodable, Hashable {
   var translatedText: String
-  var detectedSourceLanguage: String
+  var detectedSourceLanguage: String?
 }

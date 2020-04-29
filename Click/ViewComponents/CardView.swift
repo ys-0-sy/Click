@@ -24,8 +24,8 @@ struct CardView: View {
         .background(Color(UIColor.systemBackground))
         .cornerRadius(6)
         .overlay(
-            RoundedRectangle(cornerRadius: 6)
-                .stroke(boarderColor, lineWidth: 2)
+          RoundedRectangle(cornerRadius: 6)
+            .stroke(boarderColor, lineWidth: 2)
         )
 
   }

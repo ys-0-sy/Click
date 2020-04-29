@@ -42,6 +42,7 @@
 		5BEB19B424581950000AC426 /* NSPersistentCloudKitContainer+Extensionswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB19B324581950000AC426 /* NSPersistentCloudKitContainer+Extensionswift.swift */; };
 		5BEB19B8245826CE000AC426 /* ListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB19B7245826CE000AC426 /* ListsView.swift */; };
 		5BF23E82245917A500724557 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF23E81245917A500724557 /* ListView.swift */; };
+		5BF23E842459318A00724557 /* ListsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF23E832459318A00724557 /* ListsViewModel.swift */; };
 		5BF263962438A30D0047B426 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF263952438A30D0047B426 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,7 @@
 		5BEB19B324581950000AC426 /* NSPersistentCloudKitContainer+Extensionswift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPersistentCloudKitContainer+Extensionswift.swift"; sourceTree = SOURCE_ROOT; };
 		5BEB19B7245826CE000AC426 /* ListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsView.swift; sourceTree = "<group>"; };
 		5BF23E81245917A500724557 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		5BF23E832459318A00724557 /* ListsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListsViewModel.swift; path = Click/ViewModel/ListsViewModel.swift; sourceTree = SOURCE_ROOT; };
 		5BF263952438A30D0047B426 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		5BF26398243B800E0047B426 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -235,6 +237,7 @@
 				5B171688242CF80E0081D603 /* ContentView.swift */,
 				5BE2EE64242DBAA6007BC85F /* TranslateView.swift */,
 				5BEB19B7245826CE000AC426 /* ListsView.swift */,
+				5BF23E832459318A00724557 /* ListsViewModel.swift */,
 				5BF263952438A30D0047B426 /* Settings.swift */,
 			);
 			path = View;
@@ -447,6 +450,7 @@
 				5BEB19AB24581651000AC426 /* Cards+CoreDataClass.swift in Sources */,
 				5BBCB47E244DD893008107C4 /* FetchSupportedLanguageRequest.swift in Sources */,
 				5B64174E24430C13003DCAAF /* APIService.swift in Sources */,
+				5BF23E842459318A00724557 /* ListsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,7 +624,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 706;
+				CURRENT_PROJECT_VERSION = 712;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -645,7 +649,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 706;
+				CURRENT_PROJECT_VERSION = 712;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
