@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct HistoryView: View {
-  let card: Cards
+  let card: CardsHistory
   let width: CGFloat
     var body: some View {
         HStack(alignment: .center, spacing: 0) {

@@ -37,6 +37,7 @@ class CommonViewModel: ObservableObject {
   }
   func onAppear(){
     fetchAll()
+
   }
   func onDelete(offsets: IndexSet) {
     if offsets.first != nil {

@@ -12,7 +12,6 @@ import Combine
 struct TranslateView: View {
   @ObservedObject var viewModel: TranslateViewModel
   @ObservedObject var common: CommonViewModel
-  @State private var history: [Cards] = []
   
   init() {
     self.viewModel = TranslateViewModel()
@@ -122,9 +121,9 @@ struct TranslateView: View {
             Text("History")
             .font(.title)
               .padding(.top)
-            if self.common.hasCards {
-              ForEach(self.common.History()) { history in
-                HistoryView(card: history, width: UIScreen.main.bounds.width * 0.85)
+            if self.viewModel.cardsHistory.count != 0 {
+              ForEach(0 ..< self.viewModel.cardsHistory.count) { i in
+                HistoryView(card: self.viewModel.cardsHistory[i], width: UIScreen.main.bounds.width * 0.85)
                   .background(Color(UIColor.systemBackground))
                   .cornerRadius(8)
               }
@@ -144,9 +143,9 @@ struct TranslateView: View {
         .frame(maxWidth: .infinity)
       }
       .onTapGesture {
-        self.common.onAppear()
-        UIApplication.shared.closeKeyboard()
         self.viewModel.apply(inputs: .onCommitText(text: self.viewModel.sourceText))
+        UIApplication.shared.closeKeyboard()
+        
       }
   }
   

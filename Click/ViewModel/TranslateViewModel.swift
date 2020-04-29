@@ -10,6 +10,14 @@ import Foundation
 import Combine
 import UIKit
 
+struct CardsHistory: Equatable {
+  var sourceLanguage: String
+  var sourceText: String
+  var translateLanguage: String
+  var translateText: String
+  var index: String
+}
+
 final class TranslateViewModel: ObservableObject {
   // MARK: - Inputs
   
@@ -33,9 +41,7 @@ final class TranslateViewModel: ObservableObject {
   @Published var sourceLanguageSelection: TranslationLanguage? = nil
   @Published var showSourceLanguageSelectionView: Bool = false
   @Published var showTargetLanguageSelectionView: Bool = false
-  @Published var history: [Cards] = []
-
-
+  @Published var cardsHistory: [CardsHistory] = []
 
   
   init() {
@@ -58,8 +64,10 @@ final class TranslateViewModel: ObservableObject {
       self.showSourceLanguageSelectionView = false
       self.sourceLanguageSelection = language
     case .onCommitText(let text):
-      onCheckLanguageSubject.send(text)
-      translateLanguageSubject.send(Translate(query: text, sourceLanguage: self.sourceLanguageSelection, targetLanguage: self.targetLanguageSelection))
+      if text != "" {
+        onCheckLanguageSubject.send(text)
+        translateLanguageSubject.send(Translate(query: text, sourceLanguage: self.sourceLanguageSelection, targetLanguage: self.targetLanguageSelection))
+      }
     }
   }
   
@@ -73,7 +81,14 @@ final class TranslateViewModel: ObservableObject {
   private let errorSubject = PassthroughSubject<APIServiceError, Never>()
   private var cancellables: [AnyCancellable] = []
 
-
+  
+  private func addHistory(card: CardsHistory) {
+    self.cardsHistory.append(card)
+    if self.cardsHistory.count > 5 {
+      self.cardsHistory.removeFirst()
+    }
+  }
+  
   private func bind() {
       let tappedResponseSubscriber = onTappedSubject
           .flatMap { [apiService] (query) in
@@ -107,7 +122,33 @@ final class TranslateViewModel: ObservableObject {
           if languages[0].detectedSourceLanguage != nil {
             detectedLanguage = self.surpportedLanguages.filter({ $0.language == languages[0].detectedSourceLanguage }).first
           }
-          self.addnewCard(sourceLanguage: detectedLanguage?.name ?? self.sourceLanguageSelection?.name )
+          
+          let index = "\(self.sourceText)+\(languages[0].translatedText)"
+          if !CoreDataModel.getCards().contains(where: { card in card.index == index}) {
+            print(CoreDataModel.getCards())
+            print(index)
+            self.addnewCard(sourceLanguage: detectedLanguage?.name ?? self.sourceLanguageSelection?.name, index: index)
+          }
+
+          if !self.cardsHistory.contains(where: { card in card.index == index}) {
+
+          
+            // なんとかする
+            if ((detectedLanguage?.name ?? self.sourceLanguageSelection?.name) != nil) {
+              if detectedLanguage?.name != nil {
+                let sourceLanguage = detectedLanguage!.name
+                let card = CardsHistory(sourceLanguage: sourceLanguage, sourceText: self.sourceText, translateLanguage: self.targetLanguageSelection.name, translateText: languages[0].translatedText, index: index)
+                self.addHistory(card: card)
+                
+              } else {
+                let sourceLanguage = self.sourceLanguageSelection!.name
+                let card = CardsHistory(sourceLanguage: sourceLanguage, sourceText: self.sourceText, translateLanguage: self.targetLanguageSelection.name, translateText: languages[0].translatedText, index: index)
+                self.addHistory(card: card)
+              }
+            }
+
+          }
+
           self.isLoading = false
         })
     
@@ -153,13 +194,15 @@ final class TranslateViewModel: ObservableObject {
       }
   }
   
-  private func addnewCard(sourceLanguage: String?) {
+  private func addnewCard(sourceLanguage: String?, index: String) {
+    
     if sourceLanguage != nil && self.sourceText != "" {
       let newCard = CoreDataModel.newCards()
       newCard.sourceLanguage = sourceLanguage!
       newCard.sourceText = self.sourceText
       newCard.translateLanguage = self.targetLanguageSelection.name
       newCard.translateText = self.translatedText
+      newCard.index = index
       newCard.id = UUID()
       CoreDataModel.save()
     }

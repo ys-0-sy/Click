@@ -12,6 +12,7 @@ import CoreData
 struct ListsView: View {
   @ObservedObject var model: ListViewModel
   @ObservedObject var common: CommonViewModel
+  
   init() {
     self.model = ListViewModel()
     self.common = CommonViewModel()

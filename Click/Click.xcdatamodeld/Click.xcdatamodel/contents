@@ -2,12 +2,13 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Cards" representedClassName="Cards" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="index" optional="YES" attributeType="String"/>
         <attribute name="sourceLanguage" optional="YES" attributeType="String"/>
         <attribute name="sourceText" optional="YES" attributeType="String"/>
         <attribute name="translateLanguage" optional="YES" attributeType="String"/>
         <attribute name="translateText" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Cards" positionX="-54" positionY="-9" width="128" height="118"/>
+        <element name="Cards" positionX="-54" positionY="-9" width="128" height="133"/>
     </elements>
 </model>
