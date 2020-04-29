@@ -41,6 +41,7 @@
 		5BEB19B224581781000AC426 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BEB19B124581781000AC426 /* CloudKit.framework */; };
 		5BEB19B424581950000AC426 /* NSPersistentCloudKitContainer+Extensionswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB19B324581950000AC426 /* NSPersistentCloudKitContainer+Extensionswift.swift */; };
 		5BEB19B8245826CE000AC426 /* ListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB19B7245826CE000AC426 /* ListsView.swift */; };
+		5BF23E82245917A500724557 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF23E81245917A500724557 /* ListView.swift */; };
 		5BF263962438A30D0047B426 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF263952438A30D0047B426 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +105,7 @@
 		5BEB19B124581781000AC426 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		5BEB19B324581950000AC426 /* NSPersistentCloudKitContainer+Extensionswift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPersistentCloudKitContainer+Extensionswift.swift"; sourceTree = SOURCE_ROOT; };
 		5BEB19B7245826CE000AC426 /* ListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsView.swift; sourceTree = "<group>"; };
+		5BF23E81245917A500724557 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		5BF263952438A30D0047B426 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		5BF26398243B800E0047B426 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,8 +234,8 @@
 			children = (
 				5B171688242CF80E0081D603 /* ContentView.swift */,
 				5BE2EE64242DBAA6007BC85F /* TranslateView.swift */,
-				5BF263952438A30D0047B426 /* Settings.swift */,
 				5BEB19B7245826CE000AC426 /* ListsView.swift */,
+				5BF263952438A30D0047B426 /* Settings.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -266,6 +268,7 @@
 				5BE2EE6A242DC1FE007BC85F /* MultilineTextField.swift */,
 				5B6E3913243DDE6300120F33 /* ButtonView.swift */,
 				5B42363B2457D6A9008BFABF /* HistoryView.swift */,
+				5BF23E81245917A500724557 /* ListView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				5B171689242CF80E0081D603 /* ContentView.swift in Sources */,
 				5B171684242CF80E0081D603 /* SceneDelegate.swift in Sources */,
 				5BE2EE6B242DC1FE007BC85F /* MultilineTextField.swift in Sources */,
+				5BF23E82245917A500724557 /* ListView.swift in Sources */,
 				5BEB19AB24581651000AC426 /* Cards+CoreDataClass.swift in Sources */,
 				5BBCB47E244DD893008107C4 /* FetchSupportedLanguageRequest.swift in Sources */,
 				5B64174E24430C13003DCAAF /* APIService.swift in Sources */,
@@ -616,7 +620,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 630;
+				CURRENT_PROJECT_VERSION = 706;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -641,7 +645,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 630;
+				CURRENT_PROJECT_VERSION = 706;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;

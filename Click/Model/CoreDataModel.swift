@@ -80,4 +80,8 @@ extension CoreDataModel {
           fatalError()
       }
   }
+  static func delete(card: Cards) {
+      let context = persistentContainer.viewContext
+      context.delete(card)
+  }
 }

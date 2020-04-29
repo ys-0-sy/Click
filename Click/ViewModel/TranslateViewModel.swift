@@ -33,6 +33,10 @@ final class TranslateViewModel: ObservableObject {
   @Published var sourceLanguageSelection: TranslationLanguage? = nil
   @Published var showSourceLanguageSelectionView: Bool = false
   @Published var showTargetLanguageSelectionView: Bool = false
+  @Published var cards: [Cards]
+  @Published var hasCards: Bool
+
+
   
   init(apiService: APIServiceType) {
     self.cards = []
@@ -41,6 +45,14 @@ final class TranslateViewModel: ObservableObject {
     bind()
     apply(inputs: .fetchLanguages)
 
+  }
+  
+  func fetchAll() {
+    cards = CoreDataModel.getCards()
+    hasCards = cards.count > 0
+  }
+  func onAppear(){
+    fetchAll()
   }
   
   func apply(inputs: Inputs) {
@@ -58,7 +70,6 @@ final class TranslateViewModel: ObservableObject {
     case .onCommitText(let text):
       onCheckLanguageSubject.send(text)
       translateLanguageSubject.send(Translate(query: text, sourceLanguage: self.sourceLanguageSelection, targetLanguage: self.targetLanguageSelection))
-      addnewCard(sourceLanguage: self.sourceLanguageSelection ?? self.detectionLanguage)
     }
   }
   
@@ -102,6 +113,11 @@ final class TranslateViewModel: ObservableObject {
         .sink(receiveValue: { [weak self] (languages) in
           guard let self = self else { return }
           self.translatedText = languages[0].translatedText
+          var detectedLanguage: TranslationLanguage? = nil
+          if languages[0].detectedSourceLanguage != nil {
+            detectedLanguage = self.surpportedLanguages.filter({ $0.language == languages[0].detectedSourceLanguage }).first
+          }
+          self.addnewCard(sourceLanguage: detectedLanguage?.name ?? self.sourceLanguageSelection?.name )
           self.isLoading = false
         })
     
@@ -147,10 +163,10 @@ final class TranslateViewModel: ObservableObject {
       }
   }
   
-  private func addnewCard(sourceLanguage: TranslationLanguage?) {
-    if sourceLanguage != nil {
+  private func addnewCard(sourceLanguage: String?) {
+    if sourceLanguage != nil && self.sourceText != "" {
       let newCard = CoreDataModel.newCards()
-      newCard.sourceLanguage = sourceLanguage!.name
+      newCard.sourceLanguage = sourceLanguage!
       newCard.sourceText = self.sourceText
       newCard.translateLanguage = self.targetLanguageSelection.name
       newCard.translateText = self.translatedText
@@ -159,14 +175,5 @@ final class TranslateViewModel: ObservableObject {
     }
   }
 
-  @Published var cards: [Cards]
-  @Published var hasCards: Bool
 
-  func fetchAll() {
-    cards = CoreDataModel.getCards()
-    hasCards = cards.count > 0
-  }
-  func onAppear(){
-    fetchAll()
-  }
 }

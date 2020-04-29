@@ -17,21 +17,23 @@ struct ListsView: View {
   }
   
   var body: some View {
-    GeometryReader { geometry in
-      ScrollView {
-        if self.model.hasCards {
-          ForEach(self.model.cards, id: \.self) { card in
-            HistoryView(card: card, width: UIScreen.main.bounds.width * 0.95)
+    VStack(alignment: .leading, spacing: 0) {
+      Text("Words List")
+        .font(.largeTitle)
+        .padding()
+        List {
+          ScrollView {
+          if self.model.hasCards {
+            ForEach(self.model.cards, id: \.self) { card in
+              ListView(card: card)
+            }
+            .onDelete(perform: self.model.onDelete)
           }
-        } else {
-          Text("NO Data")
-            .frame(width: UIScreen.main.bounds.width)
+          }
         }
-      }
-      .frame(width: 200)
-      .onAppear(perform: self.model.onAppear)
+        .frame(width: UIScreen.main.bounds.width)
+        .onAppear(perform: self.model.onAppear)
     }
-
   }
 
 }
@@ -49,6 +51,11 @@ class ListViewModel: ObservableObject {
     hasCards = cards.count > 0
   }
   func onAppear(){
+    fetchAll()
+  }
+  func onDelete(offsets: IndexSet) {
+    CoreDataModel.delete(card: self.cards[offsets.first!])
+    CoreDataModel.save()
     fetchAll()
   }
 }
