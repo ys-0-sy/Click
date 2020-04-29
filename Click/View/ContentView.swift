@@ -12,7 +12,7 @@ struct ContentView: View {
 
   var body: some View {
     TabView {
-      TranslateView(viewModel: .init(apiService: APIService()))
+      TranslateView()
         .tabItem {
           VStack {
             Image("translation")

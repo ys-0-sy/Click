@@ -40,8 +40,8 @@ final class APIService: APIServiceType {
     decorder.keyDecodingStrategy = .convertFromSnakeCase
     return URLSession.shared.dataTaskPublisher(for: request)
       .map { data, urlResponse in
-//        let str: String? = String(data: data, encoding: .utf8)
-//        print(str!)
+//         let str: String? = String(data: data, encoding: .utf8)
+//         print(str!)
         return data
         
     }

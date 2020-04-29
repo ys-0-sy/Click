@@ -11,9 +11,10 @@ import CoreData
 
 struct ListsView: View {
   @ObservedObject var model: ListViewModel
-  
+  @ObservedObject var common: CommonViewModel
   init() {
     self.model = ListViewModel()
+    self.common = CommonViewModel()
   }
   
   var body: some View {
@@ -22,15 +23,15 @@ struct ListsView: View {
         .font(.largeTitle)
         .padding()
         List {
-          if self.model.hasCards {
-            ForEach(self.model.cards, id: \.self) { card in
+          if self.common.hasCards {
+            ForEach(self.common.cards, id: \.self) { card in
               ListView(card: card)
             }
-            .onDelete(perform: self.model.onDelete)
+            .onDelete(perform: self.common.onDelete)
           }
         }
         .frame(width: UIScreen.main.bounds.width)
-        .onAppear(perform: self.model.onAppear)
+        .onAppear(perform: self.common.onAppear)
     }
   }
 

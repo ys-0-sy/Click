@@ -11,6 +11,13 @@ import Combine
 
 struct TranslateView: View {
   @ObservedObject var viewModel: TranslateViewModel
+  @ObservedObject var common: CommonViewModel
+  @State private var history: [Cards] = []
+  
+  init() {
+    self.viewModel = TranslateViewModel()
+    self.common = CommonViewModel()
+  }
   
   var body: some View {
       ScrollView(showsIndicators: false) {
@@ -115,26 +122,19 @@ struct TranslateView: View {
             Text("History")
             .font(.title)
               .padding(.top)
-            if self.viewModel.hasCards {
-              if self.viewModel.cards.count <= 5 {
-                ForEach(self.viewModel.cards) { card in
-                  HistoryView(card: card, width: UIScreen.main.bounds.width * 0.85)
-                    .background(Color(UIColor.systemBackground))
+            if self.common.hasCards {
+              ForEach(self.common.History()) { history in
+                HistoryView(card: history, width: UIScreen.main.bounds.width * 0.85)
+                  .background(Color(UIColor.systemBackground))
                   .cornerRadius(8)
-                }
-              } else {
-                ForEach(0 ..< 5) { index in
-                  HistoryView(card: self.viewModel.cards[index], width: UIScreen.main.bounds.width * 0.85)
-                    .background(Color(UIColor.systemBackground))
-                  .cornerRadius(8)
-                }
               }
 
-
             }
+            
             Spacer()
               .frame(height: 30)
           }
+          
            .frame(width: UIScreen.main.bounds.width * 0.95)
            .background(Color(UIColor.systemGray6))
            .cornerRadius(20)
@@ -143,9 +143,8 @@ struct TranslateView: View {
 
         .frame(maxWidth: .infinity)
       }
-      .onAppear(perform: self.viewModel.onAppear)
       .onTapGesture {
-        self.viewModel.onAppear()
+        self.common.onAppear()
         UIApplication.shared.closeKeyboard()
         self.viewModel.apply(inputs: .onCommitText(text: self.viewModel.sourceText))
       }
@@ -164,6 +163,6 @@ extension UIApplication {
 }
 struct TranslateView_Previews: PreviewProvider {
     static var previews: some View {
-      TranslateView(viewModel: .init(apiService: APIService()))
+      TranslateView()
     }
 }
