@@ -10,8 +10,8 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "# Type a script or drag a script file from your workspace to insert its path.&#10;cd ${PROJECT_DIR}&#10;xcrun agvtool next-version -all&#10;"
-               shellToInvoke = "/bin/sh">
+               scriptText = "&#10;# Type a script or drag a script file from your workspace to insert its path.&#10;cd ${PROJECT_DIR}&#10;xcrun agvtool next-version -all&#10;"
+               shellToInvoke = "/bin/zsh">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
@@ -47,26 +47,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5B171696242CF8110081D603"
-               BuildableName = "Cl!ckTests.xctest"
-               BlueprintName = "Cl!ckTests"
-               ReferencedContainer = "container:Cl!ck.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5B1716A1242CF8110081D603"
-               BuildableName = "Cl!ckUITests.xctest"
-               BlueprintName = "Cl!ckUITests"
-               ReferencedContainer = "container:Cl!ck.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
