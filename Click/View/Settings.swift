@@ -9,25 +9,18 @@
 import SwiftUI
 
 struct SettingsView: View {
+  static var version: String? = { return InfoPlistUtil.getProperty(.version) }()
+  static var shortVersion: String? = { return InfoPlistUtil.getProperty(.shortVersion) }()
     var body: some View {
-        Settings()
+      NavigationView {
+        List {
+          Text("Version: \(SettingsView.self.shortVersion ?? "") (\(SettingsView.self.version ?? ""))")
+        }
+      }
     }
 }
-
-struct About: View {
-  var body: some View {
-    Text("about")
-  }
-}
-
-struct Settings: View {
-  var body: some View {
-    Text("about")
-  }
-}
-
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        Settings()
+        SettingsView()
     }
 }

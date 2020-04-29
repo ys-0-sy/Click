@@ -36,7 +36,7 @@ struct ContentView: View {
           }
         }
       .tag(2)
-      Text("Settings")
+      SettingsView()
         .tabItem {
           VStack {
             Image("settings")
