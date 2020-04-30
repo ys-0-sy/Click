@@ -88,7 +88,10 @@ struct TranslateView: View {
             }.frame(width: UIScreen.main.bounds.width * 0.9)
           }.frame(alignment: .leading)
           
-          MultilineTextField(text: $viewModel.sourceText, onEditingChanged: update)
+            MultilineTextField(text: $viewModel.sourceText, onCommit: {
+              self.viewModel.apply(inputs: .onCommitText(text: self.viewModel.sourceText))
+              print(self.viewModel.sourceText)
+            })
             .padding()
             .frame(
               width: UIScreen.main.bounds.width * 0.85,
@@ -142,17 +145,8 @@ struct TranslateView: View {
 
         .frame(maxWidth: .infinity)
       }
-      .onTapGesture {
-        self.viewModel.apply(inputs: .onCommitText(text: self.viewModel.sourceText))
-        UIApplication.shared.closeKeyboard()
-        
-      }
   }
   
-  func update(changed: Bool) {
-    guard !changed else { return }
-  }
-
 }
 
 extension UIApplication {
