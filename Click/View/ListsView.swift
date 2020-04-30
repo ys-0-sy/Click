@@ -20,19 +20,18 @@ struct ListsView: View {
   
   var body: some View {
     VStack(alignment: .leading, spacing: 0) {
-      Text("Words List")
-        .font(.largeTitle)
-        .padding()
+      NavigationView {
         List {
-          if self.common.hasCards {
-            ForEach(self.common.cards, id: \.self) { card in
-              ListView(card: card)
-            }
-            .onDelete(perform: self.common.onDelete)
+          ForEach(self.common.cards, id: \.self) { card in
+            ListView(card: card)
           }
+          .onDelete(perform: self.common.onDelete)
         }
         .frame(width: UIScreen.main.bounds.width)
         .onAppear(perform: self.common.onAppear)
+      }
+      .navigationBarHidden(false)
+      .navigationBarTitle(Text("Landmarks"))
     }
   }
 

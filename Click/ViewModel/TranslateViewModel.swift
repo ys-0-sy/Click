@@ -83,9 +83,9 @@ final class TranslateViewModel: ObservableObject {
 
   
   private func addHistory(card: CardsHistory) {
-    self.cardsHistory.append(card)
+    self.cardsHistory.insert(card, at: 0)
     if self.cardsHistory.count > 5 {
-      self.cardsHistory.removeFirst()
+      self.cardsHistory.removeLast()
     }
   }
   
@@ -125,14 +125,10 @@ final class TranslateViewModel: ObservableObject {
           
           let index = "\(self.sourceText)+\(languages[0].translatedText)"
           if !CoreDataModel.getCards().contains(where: { card in card.index == index}) {
-            print(CoreDataModel.getCards())
-            print(index)
             self.addnewCard(sourceLanguage: detectedLanguage?.name ?? self.sourceLanguageSelection?.name, index: index)
           }
 
           if !self.cardsHistory.contains(where: { card in card.index == index}) {
-
-          
             // なんとかする
             if ((detectedLanguage?.name ?? self.sourceLanguageSelection?.name) != nil) {
               if detectedLanguage?.name != nil {

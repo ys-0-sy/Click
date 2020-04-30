@@ -27,6 +27,7 @@ struct ListView: View {
         VStack {
           Text(card.sourceLanguage)
             .font(.subheadline)
+            .lineLimit(nil)
             .fixedSize()
             .padding(.leading)
             .padding(.trailing)
@@ -35,6 +36,7 @@ struct ListView: View {
           Spacer()
           Text(card.translateLanguage)
             .font(.subheadline)
+            .lineLimit(nil)
             .fixedSize()
             .padding(.leading)
             .padding(.trailing)
