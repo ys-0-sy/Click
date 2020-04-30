@@ -10,7 +10,7 @@ import Foundation
 import Combine
 import UIKit
 
-struct CardsHistory: Equatable {
+struct CardsHistory: Equatable, Hashable {
   var sourceLanguage: String
   var sourceText: String
   var translateLanguage: String

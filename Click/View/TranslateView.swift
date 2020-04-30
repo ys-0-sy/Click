@@ -102,8 +102,28 @@ struct TranslateView: View {
             .background(Color(UIColor.systemBackground))
             .cornerRadius(6)
             .overlay(
+              ZStack(alignment: .topTrailing) {
                 RoundedRectangle(cornerRadius: 6)
                   .stroke(Color("SubColor"), lineWidth: 2)
+                Group {
+                  if self.viewModel.sourceText != "" {
+                  Button(action: {
+                    self.viewModel.sourceText = ""
+                  }) {
+                    Image(systemName: "xmark")
+                    .padding()
+                  }
+                  } else {
+                    Button(action: {
+                      self.viewModel.sourceText = UIPasteboard.general.string ?? ""
+                    }) {
+                      Image(systemName: "doc.on.clipboard")
+                      .padding()
+                    }
+                  }
+                }
+
+              }
             )
           CardView(
             text: viewModel.translatedText,
@@ -124,14 +144,11 @@ struct TranslateView: View {
             Text("History")
             .font(.title)
               .padding(.top)
-            if self.viewModel.cardsHistory.count != 0 {
-              ForEach(0 ..< self.viewModel.cardsHistory.count) { i in
-                HistoryView(card: self.viewModel.cardsHistory[i], width: UIScreen.main.bounds.width * 0.85)
+            ForEach(self.viewModel.cardsHistory, id: \.self) { card in
+                HistoryView(card: card, width: UIScreen.main.bounds.width * 0.85)
                   .background(Color(UIColor.systemBackground))
                   .cornerRadius(8)
               }
-
-            }
             
             Spacer()
               .frame(height: 30)
