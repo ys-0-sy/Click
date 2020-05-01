@@ -8,7 +8,7 @@
 
 import SwiftUI
 struct ContentView: View {
-  @State private var selection = 0
+  @State private var selection = 1
 
   var body: some View {
     TabView {
@@ -20,7 +20,9 @@ struct ContentView: View {
           }
         }
       .tag(0)
+      NavigationView {
       CardsView()
+      }
         .tabItem {
           VStack {
         Image("cards")

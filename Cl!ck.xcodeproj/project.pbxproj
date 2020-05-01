@@ -15,6 +15,7 @@
 		5B171691242CF8110081D603 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B17168F242CF8110081D603 /* LaunchScreen.storyboard */; };
 		5B17169C242CF8110081D603 /* ClickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B17169B242CF8110081D603 /* ClickTests.swift */; };
 		5B1716A7242CF8110081D603 /* ClickUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716A6242CF8110081D603 /* ClickUITests.swift */; };
+		5B1C5034245BFFCE00F47F45 /* ClickCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1C5033245BFFCE00F47F45 /* ClickCard.swift */; };
 		5B312DA924509AF300B36DF4 /* DetectionLanguageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DA824509AF300B36DF4 /* DetectionLanguageRequest.swift */; };
 		5B312DAB24509B2300B36DF4 /* TranslationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DAA24509B2300B36DF4 /* TranslationRequest.swift */; };
 		5B312DAD24509B4E00B36DF4 /* TranslatedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DAC24509B4E00B36DF4 /* TranslatedLanguage.swift */; };
@@ -81,6 +82,7 @@
 		5B1716A2242CF8110081D603 /* Cl!ckUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cl!ckUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B1716A6242CF8110081D603 /* ClickUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickUITests.swift; sourceTree = "<group>"; };
 		5B1716A8242CF8110081D603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B1C5033245BFFCE00F47F45 /* ClickCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickCard.swift; sourceTree = "<group>"; };
 		5B312DA824509AF300B36DF4 /* DetectionLanguageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionLanguageRequest.swift; sourceTree = "<group>"; };
 		5B312DAA24509B2300B36DF4 /* TranslationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationRequest.swift; sourceTree = "<group>"; };
 		5B312DAC24509B4E00B36DF4 /* TranslatedLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedLanguage.swift; sourceTree = "<group>"; };
@@ -245,9 +247,9 @@
 			children = (
 				5B171688242CF80E0081D603 /* ContentView.swift */,
 				5BE2EE64242DBAA6007BC85F /* TranslateView.swift */,
+				5BB7A56E245BBDC40020B47B /* CardsView.swift */,
 				5BEB19B7245826CE000AC426 /* ListsView.swift */,
 				5BF263952438A30D0047B426 /* Settings.swift */,
-				5BB7A56E245BBDC40020B47B /* CardsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,6 +283,7 @@
 				5B6E3913243DDE6300120F33 /* ButtonView.swift */,
 				5B42363B2457D6A9008BFABF /* HistoryView.swift */,
 				5BF23E81245917A500724557 /* ListView.swift */,
+				5B1C5033245BFFCE00F47F45 /* ClickCard.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				5BF23E8624595B8200724557 /* CommonViewModel.swift in Sources */,
 				5BEB19AE245816C8000AC426 /* CoreDataModel.swift in Sources */,
 				5BEB19AC24581651000AC426 /* Cards+CoreDataProperties.swift in Sources */,
+				5B1C5034245BFFCE00F47F45 /* ClickCard.swift in Sources */,
 				5B171689242CF80E0081D603 /* ContentView.swift in Sources */,
 				5B171684242CF80E0081D603 /* SceneDelegate.swift in Sources */,
 				5BE2EE6B242DC1FE007BC85F /* MultilineTextField.swift in Sources */,
@@ -636,7 +640,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 860;
+				CURRENT_PROJECT_VERSION = 907;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -661,7 +665,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 860;
+				CURRENT_PROJECT_VERSION = 907;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;

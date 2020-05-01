@@ -9,8 +9,23 @@
 import SwiftUI
 
 struct CardsView: View {
+  @ObservedObject var common: CommonViewModel
+  init() {
+    self.common = CommonViewModel()
+  }
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+      
+      List {
+        ForEach(self.common.cards) { card in
+          ClickCard(card: card)
+          .animation(.easeInOut)
+        }
+      }
+      .padding()
+      .frame(width: UIScreen.main.bounds.width * 0.95)
+      .background(Color(.systemGray6))
+      .cornerRadius(8)
+      .navigationBarTitle("Click")
     }
 }
 
