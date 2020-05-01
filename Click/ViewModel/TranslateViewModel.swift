@@ -26,6 +26,7 @@ final class TranslateViewModel: ObservableObject {
     case tappedDetectedLanguageSelection(language: TranslationLanguage)
     case tappedSourceLanguageSelection(language: TranslationLanguage?)
     case onCommitText(text: String)
+    case tappedLanguageSwitcher
   }
   
   // MARK: -  Outputs
@@ -57,6 +58,8 @@ final class TranslateViewModel: ObservableObject {
       if surpportedLanguages == [] {
         onTappedSubject.send()
       }
+    case .tappedLanguageSwitcher:
+      switchLanguage()
     case .tappedDetectedLanguageSelection(let language):
       self.showTargetLanguageSelectionView = false
       self.targetLanguageSelection = language
@@ -81,6 +84,14 @@ final class TranslateViewModel: ObservableObject {
   private let errorSubject = PassthroughSubject<APIServiceError, Never>()
   private var cancellables: [AnyCancellable] = []
 
+  
+  private func switchLanguage() {
+    if sourceLanguageSelection != nil {
+      let tmpSelection = self.sourceLanguageSelection!
+      self.sourceLanguageSelection = self.targetLanguageSelection
+      self.targetLanguageSelection = tmpSelection
+    }
+  }
   
   private func addHistory(card: CardsHistory) {
     self.cardsHistory.insert(card, at: 0)

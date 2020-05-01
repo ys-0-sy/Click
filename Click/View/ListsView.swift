@@ -31,7 +31,7 @@ struct ListsView: View {
         .onAppear(perform: self.common.onAppear)
       }
       .navigationBarHidden(false)
-      .navigationBarTitle(Text("Landmarks"))
+      .navigationBarTitle(Text("List"))
     }
   }
 

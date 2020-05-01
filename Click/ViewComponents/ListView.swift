@@ -18,12 +18,15 @@ struct ListView: View {
         VStack(alignment: .leading) {
           Text(card.sourceText)
           .fixedSize()
+          .lineLimit(2)
+           .truncationMode(.middle)
           Text(card.translateText)
           .fixedSize()
+            .lineLimit(2)
+           .truncationMode(.middle)
         }
         Spacer()
         Divider()
-
         VStack {
           Text(card.sourceLanguage)
             .font(.subheadline)

@@ -59,8 +59,18 @@ struct TranslateView: View {
                 }
               }
             }
-
-            Image(systemName: "arrow.right.arrow.left")
+            Group {
+              if self.viewModel.sourceLanguageSelection == nil {
+                Image(systemName: "arrow.right")
+              } else {
+                Button(action: {
+                  self.viewModel.apply(inputs: .tappedLanguageSwitcher)
+                }, label: {Image(systemName: "arrow.right.arrow.left")})
+                
+              }
+              
+            }
+            
             ButtonView(buttonAction: {
                 self.viewModel.showTargetLanguageSelectionView = true
               },
@@ -116,6 +126,7 @@ struct TranslateView: View {
                   } else {
                     Button(action: {
                       self.viewModel.sourceText = UIPasteboard.general.string ?? ""
+                      self.viewModel.apply(inputs: .onCommitText(text: self.viewModel.sourceText))
                     }) {
                       Image(systemName: "doc.on.clipboard")
                       .padding()
