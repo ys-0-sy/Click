@@ -19,22 +19,16 @@ struct ListsView: View {
   }
   
   var body: some View {
-    VStack(alignment: .leading, spacing: 0) {
-      NavigationView {
-        List {
-          ForEach(self.common.cards, id: \.self) { card in
-            ListView(card: card)
-          }
-          .onDelete(perform: self.common.onDelete)
-        }
-        .frame(width: UIScreen.main.bounds.width)
-        .onAppear(perform: self.common.onAppear)
+    List {
+      ForEach(self.common.cards, id: \.self) { card in
+        ListView(card: card)
       }
-      .navigationBarHidden(false)
-      .navigationBarTitle(Text("List"))
+      .onDelete(perform: self.common.onDelete)
     }
+      .navigationBarTitle("Words List")
+      .frame(width: UIScreen.main.bounds.width)
+      .onAppear(perform: self.common.onAppear)
   }
-
 }
 
 struct ListsView_Previews: PreviewProvider {

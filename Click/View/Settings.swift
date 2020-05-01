@@ -12,11 +12,12 @@ struct SettingsView: View {
   static var version: String? = { return InfoPlistUtil.getProperty(.version) }()
   static var shortVersion: String? = { return InfoPlistUtil.getProperty(.shortVersion) }()
     var body: some View {
-      NavigationView {
-        List {
-          Text("Version: \(SettingsView.self.shortVersion ?? "") (\(SettingsView.self.version ?? ""))")
-        }
+      List {
+        Text("Contact us")
+        Text("Twitter")
+        Text("Version: \(SettingsView.self.shortVersion ?? "") (\(SettingsView.self.version ?? ""))")
       }
+    .navigationBarTitle("Settings")
     }
 }
 struct SettingsView_Previews: PreviewProvider {

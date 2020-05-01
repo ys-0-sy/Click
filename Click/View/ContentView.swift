@@ -20,23 +20,27 @@ struct ContentView: View {
           }
         }
       .tag(0)
-      Text("Cards")
+      CardsView()
         .tabItem {
           VStack {
         Image("cards")
-        Text("Cards")
+        Text("Cl!ck")
           }
       }
       .tag(1)
-      ListsView()
+      NavigationView {
+        ListsView()
+      }
         .tabItem {
           VStack {
             Image("list")
-            Text("Lists")
+            Text("List")
           }
         }
       .tag(2)
-      SettingsView()
+      NavigationView {
+        SettingsView()
+      }
         .tabItem {
           VStack {
             Image("settings")
