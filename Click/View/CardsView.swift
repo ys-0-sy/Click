@@ -15,7 +15,7 @@ struct CardsView: View {
   }
     var body: some View {
       
-      List {
+      ZStack {
         ForEach(self.common.cards) { card in
           ClickCard(card: card)
           .animation(.easeInOut)

@@ -20,7 +20,7 @@ protocol APIServiceType {
   func request<Request>(with request: Request) -> AnyPublisher<Request.Response, APIServiceError> where Request: RequestType
 }
 
-final class APIService: APIServiceType {
+class APIService: APIServiceType {
   private let baseURLString: String
   init(baseURLString: String = "https://translation.googleapis.com") {
     self.baseURLString = baseURLString

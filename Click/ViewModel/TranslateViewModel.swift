@@ -10,12 +10,14 @@ import Foundation
 import Combine
 import UIKit
 
-struct CardsHistory: Equatable, Hashable {
-  var sourceLanguage: String
-  var sourceText: String
-  var translateLanguage: String
-  var translateText: String
-  var index: String
+
+protocol TranslateModel{
+  func tappedSourceLanguageSelection(language: TranslationLanguage?) -> AnyPublisher<String, Never>
+  
+  func fetchLanguage()
+  
+  func tappedDetectedLanguageSelection(language: TranslationLanguage) -> AnyPublisher<String, Never>
+  
 }
 
 final class TranslateViewModel: ObservableObject {

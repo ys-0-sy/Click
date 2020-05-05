@@ -16,8 +16,6 @@ struct DetectionLanguageResponse: Decodable {
   var data: DetectionLanguages
 }
 
-
-
 struct TranslationResponse: Decodable {
   var data: TranslatedLanguages
 }
