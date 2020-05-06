@@ -40,6 +40,7 @@
 		5BDEBBA0245ED1E50020F781 /* CardsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEBB9F245ED1E50020F781 /* CardsHistory.swift */; };
 		5BDEBBA8245FBF710020F781 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = 5BDEBBA7245FBF710020F781 /* OHHTTPStubs */; };
 		5BDEBBAA245FBF710020F781 /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5BDEBBA9245FBF710020F781 /* OHHTTPStubsSwift */; };
+		5BDEBBAD2462E1E60020F781 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BDEBBAF2462E1E60020F781 /* Localizable.strings */; };
 		5BE2EE65242DBAA6007BC85F /* TranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE64242DBAA6007BC85F /* TranslateView.swift */; };
 		5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE67242DC0AA007BC85F /* CardView.swift */; };
 		5BE2EE6B242DC1FE007BC85F /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE6A242DC1FE007BC85F /* MultilineTextField.swift */; };
@@ -101,7 +102,6 @@
 		5B6E3913243DDE6300120F33 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		5B9156BE24445291003EFA2C /* keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
 		5BAD993E2459D129006A47B6 /* InfoPlistKeysModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlistKeysModel.swift; sourceTree = "<group>"; };
-		5BB3625D2432D5230065FD5D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5BB362612432DF890065FD5D /* keys.template.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.template.plist; sourceTree = "<group>"; };
 		5BB7A56E245BBDC40020B47B /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		5BBCB476244DD79B008107C4 /* TranslationLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationLanguage.swift; sourceTree = "<group>"; };
@@ -111,6 +111,8 @@
 		5BDEBB9B245EC46F0020F781 /* TranslateViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewModelTest.swift; sourceTree = "<group>"; };
 		5BDEBB9D245EC8870020F781 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		5BDEBB9F245ED1E50020F781 /* CardsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsHistory.swift; sourceTree = "<group>"; };
+		5BDEBBAE2462E1E60020F781 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5BDEBBB02462E2870020F781 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5BE2EE64242DBAA6007BC85F /* TranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateView.swift; sourceTree = "<group>"; };
 		5BE2EE67242DC0AA007BC85F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5BE2EE6A242DC1FE007BC85F /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		5B171680242CF80E0081D603 /* Click */ = {
 			isa = PBXGroup;
 			children = (
+				5BDEBBAF2462E1E60020F781 /* Localizable.strings */,
 				5BEB19B324581950000AC426 /* NSPersistentCloudKitContainer+Extensionswift.swift */,
 				5B6E3912243CC2A900120F33 /* View */,
 				5BBCB47C244DD842008107C4 /* Service */,
@@ -426,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B171691242CF8110081D603 /* LaunchScreen.storyboard in Resources */,
+				5BDEBBAD2462E1E60020F781 /* Localizable.strings in Resources */,
 				5B9156BF24445291003EFA2C /* keys.plist in Resources */,
 				5B17168E242CF8110081D603 /* Preview Assets.xcassets in Resources */,
 				5B17168B242CF8110081D603 /* Assets.xcassets in Resources */,
@@ -529,10 +533,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				5B171690242CF8110081D603 /* Base */,
-				5BB3625D2432D5230065FD5D /* ja */,
 				5BF26398243B800E0047B426 /* en */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5BDEBBAF2462E1E60020F781 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5BDEBBAE2462E1E60020F781 /* en */,
+				5BDEBBB02462E2870020F781 /* ja */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -663,7 +675,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 963;
+				CURRENT_PROJECT_VERSION = 967;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -688,7 +700,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 963;
+				CURRENT_PROJECT_VERSION = 967;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
