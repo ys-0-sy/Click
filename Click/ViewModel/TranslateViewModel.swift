@@ -117,6 +117,10 @@ final class TranslateViewModel: ObservableObject {
               guard let self = self else { return }
               self.surpportedLanguages = self.convertInput(languages: languages)
               self.isLoading = false
+            if Locale.current.languageCode != nil {
+              self.targetLanguageSelection = self.surpportedLanguages.filter({ $0.language == Locale.current.languageCode! }).first!
+            }
+
           })
     let translationResponseSubscriber = translateLanguageSubject
         .flatMap { [apiService] (query) in
