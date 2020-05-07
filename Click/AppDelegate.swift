@@ -8,12 +8,27 @@
 
 import UIKit
 import CoreData
+import SwiftyStoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
+      for purchase in purchases {
+        switch purchase.transaction.transactionState {
+        case .purchased, .restored:
+          if purchase.needsFinishTransaction {
+            SwiftyStoreKit.finishTransaction(purchase.transaction)
+          }
+        case .failed, .purchasing, .deferred:
+          break
+        @unknown default:
+          break
+        }
+      }
+    }
     return true
   }
 

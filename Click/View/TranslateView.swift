@@ -27,19 +27,41 @@ struct TranslateView: View {
             .font(.largeTitle)
             .padding()
           HStack(alignment: .center, spacing: 23) {
-            ButtonView(buttonAction: {
+            Button(action: {
               self.viewModel.showSourceLanguageSelectionView = true
-            },
-               backGroundColor: Color("SubColor"),
-               text: viewModel.sourceLanguageSelection?.name ?? "Auto Detect\n\(viewModel.detectionLanguage?.name ?? "")"
-            )
-              .sheet(isPresented:  self.$viewModel.showSourceLanguageSelectionView) {
+            }) {
+              Group {
+                if viewModel.sourceLanguageSelection?.name != nil {
+                  Text(self.viewModel.sourceLanguageSelection!.name)
+                } else {
+                  if self.viewModel.detectionLanguage?.name != nil {
+                    VStack {
+                    Text("Auto Detect")
+                    Text("\(self.viewModel.detectionLanguage!.name)")
+                    }
+                  } else {
+                    Text("Auto Detect")
+                  }
+                }
+              }
+                .padding(.horizontal)
+                .multilineTextAlignment(.center)
+                .accentColor(.black)
+              .background(Capsule()
+                .foregroundColor(Color("SubColor")))
+            }
+              .sheet(isPresented: self.$viewModel.showSourceLanguageSelectionView) {
               VStack {
                 HStack {
-                  Text("Source Language")
-                  ButtonView(buttonAction: {self.viewModel.showSourceLanguageSelectionView = false},
-                    backGroundColor: Color("SubColor"),
-                    text: "Back")
+                  Spacer()
+                  Text("Translate From")
+                  .foregroundColor(Color("BaseColor"))
+
+                  Spacer()
+                  Button(action: {self.viewModel.showSourceLanguageSelectionView = false}) {
+                    Image(systemName: "xmark")
+                      .foregroundColor(Color("BaseColor"))
+                  }
                 }.padding()
                 Divider()
                 List {
@@ -71,19 +93,28 @@ struct TranslateView: View {
               
             }
             
-            ButtonView(buttonAction: {
-                self.viewModel.showTargetLanguageSelectionView = true
-              },
-                         backGroundColor: Color("SecondSubColor"),
-                         text: viewModel.targetLanguageSelection.name
-              )
+            Button(action: { self.viewModel.showTargetLanguageSelectionView = true } ) {
+                Text(viewModel.targetLanguageSelection.name)
+                  .foregroundColor(.black)
+                  .padding(.horizontal)
+                  .background(
+                    Capsule()
+                    .foregroundColor(Color("SecondSubColor"))
+                  )
+
+            }
               .sheet(isPresented: self.$viewModel.showTargetLanguageSelectionView) {
                 VStack {
                   HStack {
-                    Text("Target Language")
-                    ButtonView(buttonAction: {self.viewModel.showTargetLanguageSelectionView = false},
-                      backGroundColor: Color("SecondSubColor"),
-                      text: "Back")
+                    Spacer()
+                    Text("Translate To")
+                    .foregroundColor(Color("SecondSubColor"))
+
+                    Spacer()
+                    Button(action: {self.viewModel.showTargetLanguageSelectionView = false}) {
+                      Image(systemName: "xmark")
+                        .foregroundColor(Color("SecondSubColor"))
+                    }
                   }.padding()
                   Divider()
                   List {

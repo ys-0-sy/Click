@@ -50,7 +50,6 @@ struct MultilineTextField: View {
 
     var body: some View {
         UITextViewWrapper(text: self.internalText, calculatedHeight: $viewHeight, onDone: onCommit)
-            .frame(minHeight: viewHeight, maxHeight: viewHeight)
             .background(placeholderView, alignment: .topLeading)
     }
 

@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CardsView: View {
+  @Environment(\.managedObjectContext) var viewContext
   @ObservedObject var common: CommonViewModel
   init() {
     self.common = CommonViewModel()
