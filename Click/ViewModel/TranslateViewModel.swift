@@ -141,9 +141,9 @@ final class TranslateViewModel: ObservableObject {
           }
           
           let index = "\(self.sourceText)+\(languages[0].translatedText)"
-          if !CoreDataModel.getCards().contains(where: { card in card.index == index}) {
-            self.addnewCard(sourceLanguage: detectedLanguage?.name ?? self.sourceLanguageSelection?.name, index: index)
-          }
+//          if !CoreDataModel.getCards().contains(where: { card in card.index == index}) {
+//            self.addnewCard(sourceLanguage: detectedLanguage?.name ?? self.sourceLanguageSelection?.name, index: index)
+//          }
 
           if !self.cardsHistory.contains(where: { card in card.index == index}) {
             // なんとかする
@@ -210,14 +210,13 @@ final class TranslateViewModel: ObservableObject {
   private func addnewCard(sourceLanguage: String?, index: String) {
     
     if sourceLanguage != nil && self.sourceText != "" {
-      let newCard = CoreDataModel.newCards()
+      let newCard: NSManagedObjectContext
       newCard.sourceLanguage = sourceLanguage!
       newCard.sourceText = self.sourceText
       newCard.translateLanguage = self.targetLanguageSelection.name
       newCard.translateText = self.translatedText
       newCard.index = index
-      newCard.id = UUID()
-      CoreDataModel.save()
+      Card.create(in: newCard)
     }
   }
 

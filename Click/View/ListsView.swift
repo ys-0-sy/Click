@@ -10,24 +10,27 @@ import SwiftUI
 import CoreData
 
 struct ListsView: View {
+  @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Card.id, ascending: true)], animation: .default) var cards: FetchedResults<Card>
+  @Environment(\.managedObjectContext) var viewContext
+  
   @ObservedObject var model: ListViewModel
-  @ObservedObject var common: CommonViewModel
   
   init() {
     self.model = ListViewModel()
-    self.common = CommonViewModel()
   }
   
   var body: some View {
     List {
-      ForEach(self.common.cards, id: \.self) { card in
+      ForEach(cards, id: \.self) { card in
         ListView(card: card)
       }
-      .onDelete(perform: self.common.onDelete)
+      .onDelete { indeces in
+        self.cards.delete(at: indeces, from: self.viewContext)
+      }
     }
       .navigationBarTitle("Words List")
       .frame(width: UIScreen.main.bounds.width)
-      .onAppear(perform: self.common.onAppear)
+//      .onAppear(perform: self.common.onAppear)
   }
 }
 

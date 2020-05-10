@@ -72,16 +72,34 @@ struct MultilineTextField: View {
 
 }
 
+class EditedUIMenuTextView: UITextView {
+
+  override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+//    OperationQueue.main.addOperation({
+//        UIMenuController.shared.hideMenu(from: <#T##UIView#>)
+//    })
+//    return super.canPerformAction(action, withSender: sender)
+    UIMenuController.shared.hideMenu()
+
+    if action == #selector(UIResponderStandardEditActions.paste) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+}
 
 private struct UITextViewWrapper: UIViewRepresentable {
-    typealias UIViewType = UITextView
+  
+    typealias UIViewType = EditedUIMenuTextView
 
     @Binding var text: String
     @Binding var calculatedHeight: CGFloat
     var onDone: (() -> Void)?
 
-    func makeUIView(context: UIViewRepresentableContext<UITextViewWrapper>) -> UITextView {
-        let textField = UITextView()
+    func makeUIView(context: UIViewRepresentableContext<UITextViewWrapper>) -> EditedUIMenuTextView {
+        let textField = EditedUIMenuTextView()
         textField.delegate = context.coordinator
 
         textField.isEditable = true
@@ -101,7 +119,7 @@ private struct UITextViewWrapper: UIViewRepresentable {
         return textField
     }
 
-    func updateUIView(_ uiView: UITextView, context: UIViewRepresentableContext<UITextViewWrapper>) {
+    func updateUIView(_ uiView: EditedUIMenuTextView, context: UIViewRepresentableContext<UITextViewWrapper>) {
         if uiView.text != self.text {
             uiView.text = self.text
         }
@@ -110,7 +128,6 @@ private struct UITextViewWrapper: UIViewRepresentable {
     func makeCoordinator() -> Coordinator {
         return Coordinator(text: $text, height: $calculatedHeight, onDone: onDone)
     }
-
     final class Coordinator: NSObject, UITextViewDelegate {
         var text: Binding<String>
         var calculatedHeight: Binding<CGFloat>
@@ -134,11 +151,15 @@ private struct UITextViewWrapper: UIViewRepresentable {
                 onDone()
                 return false
             }
+          
             return true
         }
+
     }
 
 }
+
+
 extension UIApplication {
   func endEditing() {
     sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)

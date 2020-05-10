@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct ListView: View {
-  @ObservedObject var card: Cards
+  @ObservedObject var card: Card
     var body: some View {
       HStack {
         Spacer()

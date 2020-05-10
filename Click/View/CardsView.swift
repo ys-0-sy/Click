@@ -9,15 +9,13 @@
 import SwiftUI
 
 struct CardsView: View {
+  @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Card.id,
+                                                   ascending: true)], animation: .default) var card: FetchedResults<Card>
   @Environment(\.managedObjectContext) var viewContext
-  @ObservedObject var common: CommonViewModel
-  init() {
-    self.common = CommonViewModel()
-  }
     var body: some View {
       
       ZStack {
-        ForEach(self.common.cards) { card in
+        ForEach(card) { card in
           ClickCard(card: card)
           .animation(.easeInOut)
         }

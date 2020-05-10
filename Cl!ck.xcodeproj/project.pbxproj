@@ -28,6 +28,9 @@
 		5B6417522443393B003DCAAF /* TranslateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6417512443393B003DCAAF /* TranslateViewModel.swift */; };
 		5B6E3914243DDE6300120F33 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6E3913243DDE6300120F33 /* ButtonView.swift */; };
 		5B9156BF24445291003EFA2C /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B9156BE24445291003EFA2C /* keys.plist */; };
+		5B9698F02468001F00A68E71 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9698EF2468001F00A68E71 /* Card.swift */; };
+		5B9698F32468260800A68E71 /* Card+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9698F12468260800A68E71 /* Card+CoreDataClass.swift */; };
+		5B9698F42468260800A68E71 /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9698F22468260800A68E71 /* Card+CoreDataProperties.swift */; };
 		5BAD993F2459D129006A47B6 /* InfoPlistKeysModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD993E2459D129006A47B6 /* InfoPlistKeysModel.swift */; };
 		5BB362622432DF890065FD5D /* keys.template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB362612432DF890065FD5D /* keys.template.plist */; };
 		5BB7A56F245BBDC40020B47B /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7A56E245BBDC40020B47B /* CardsView.swift */; };
@@ -45,15 +48,11 @@
 		5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE67242DC0AA007BC85F /* CardView.swift */; };
 		5BE2EE6B242DC1FE007BC85F /* MultilineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE2EE6A242DC1FE007BC85F /* MultilineTextField.swift */; };
 		5BEB19A8245813D8000AC426 /* Click.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB19A6245813D8000AC426 /* Click.xcdatamodeld */; };
-		5BEB19AB24581651000AC426 /* Cards+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB19A924581651000AC426 /* Cards+CoreDataClass.swift */; };
-		5BEB19AC24581651000AC426 /* Cards+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB19AA24581651000AC426 /* Cards+CoreDataProperties.swift */; };
-		5BEB19AE245816C8000AC426 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB19AD245816C8000AC426 /* CoreDataModel.swift */; };
 		5BEB19B224581781000AC426 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BEB19B124581781000AC426 /* CloudKit.framework */; };
 		5BEB19B424581950000AC426 /* NSPersistentCloudKitContainer+Extensionswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB19B324581950000AC426 /* NSPersistentCloudKitContainer+Extensionswift.swift */; };
 		5BEB19B8245826CE000AC426 /* ListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEB19B7245826CE000AC426 /* ListsView.swift */; };
 		5BF23E82245917A500724557 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF23E81245917A500724557 /* ListView.swift */; };
 		5BF23E842459318A00724557 /* ListsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF23E832459318A00724557 /* ListsViewModel.swift */; };
-		5BF23E8624595B8200724557 /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF23E8524595B8200724557 /* CommonViewModel.swift */; };
 		5BF263962438A30D0047B426 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF263952438A30D0047B426 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +100,10 @@
 		5B6417512443393B003DCAAF /* TranslateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewModel.swift; sourceTree = "<group>"; };
 		5B6E3913243DDE6300120F33 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		5B9156BE24445291003EFA2C /* keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
+		5B9698EF2468001F00A68E71 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5B9698F12468260800A68E71 /* Card+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B9698F22468260800A68E71 /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		5B9698F52468353300A68E71 /* Click 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Click 2.xcdatamodel"; sourceTree = "<group>"; };
 		5BAD993E2459D129006A47B6 /* InfoPlistKeysModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlistKeysModel.swift; sourceTree = "<group>"; };
 		5BB362612432DF890065FD5D /* keys.template.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.template.plist; sourceTree = "<group>"; };
 		5BB7A56E245BBDC40020B47B /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
@@ -117,16 +120,12 @@
 		5BE2EE67242DC0AA007BC85F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		5BE2EE6A242DC1FE007BC85F /* MultilineTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextField.swift; sourceTree = "<group>"; };
 		5BEB19A7245813D8000AC426 /* Click.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Click.xcdatamodel; sourceTree = "<group>"; };
-		5BEB19A924581651000AC426 /* Cards+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cards+CoreDataClass.swift"; sourceTree = "<group>"; };
-		5BEB19AA24581651000AC426 /* Cards+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cards+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		5BEB19AD245816C8000AC426 /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		5BEB19AF2458177F000AC426 /* Cl!ck.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Cl!ck.entitlements"; sourceTree = "<group>"; };
 		5BEB19B124581781000AC426 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		5BEB19B324581950000AC426 /* NSPersistentCloudKitContainer+Extensionswift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPersistentCloudKitContainer+Extensionswift.swift"; sourceTree = SOURCE_ROOT; };
 		5BEB19B7245826CE000AC426 /* ListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsView.swift; sourceTree = "<group>"; };
 		5BF23E81245917A500724557 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		5BF23E832459318A00724557 /* ListsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListsViewModel.swift; path = Click/ViewModel/ListsViewModel.swift; sourceTree = SOURCE_ROOT; };
-		5BF23E8524595B8200724557 /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewModel.swift; sourceTree = "<group>"; };
 		5BF263952438A30D0047B426 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		5BF26398243B800E0047B426 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,9 +162,9 @@
 		5B171675242CF80E0081D603 = {
 			isa = PBXGroup;
 			children = (
+				5B9698F12468260800A68E71 /* Card+CoreDataClass.swift */,
+				5B9698F22468260800A68E71 /* Card+CoreDataProperties.swift */,
 				5BEB19AF2458177F000AC426 /* Cl!ck.entitlements */,
-				5BEB19A924581651000AC426 /* Cards+CoreDataClass.swift */,
-				5BEB19AA24581651000AC426 /* Cards+CoreDataProperties.swift */,
 				5B171680242CF80E0081D603 /* Click */,
 				5B17169A242CF8110081D603 /* ClickTests */,
 				5B1716A5242CF8110081D603 /* ClickUITests */,
@@ -243,9 +242,9 @@
 				5BBCB476244DD79B008107C4 /* TranslationLanguage.swift */,
 				5B312DB024509C9900B36DF4 /* Keys.swift */,
 				5B312DB224510C9400B36DF4 /* Translate.swift */,
-				5BEB19AD245816C8000AC426 /* CoreDataModel.swift */,
 				5BAD993E2459D129006A47B6 /* InfoPlistKeysModel.swift */,
 				5BDEBB9F245ED1E50020F781 /* CardsHistory.swift */,
+				5B9698EF2468001F00A68E71 /* Card.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -255,7 +254,6 @@
 			children = (
 				5B6417512443393B003DCAAF /* TranslateViewModel.swift */,
 				5BF23E832459318A00724557 /* ListsViewModel.swift */,
-				5BF23E8524595B8200724557 /* CommonViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -459,13 +457,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BEB19A8245813D8000AC426 /* Click.xcdatamodeld in Sources */,
+				5B9698F42468260800A68E71 /* Card+CoreDataProperties.swift in Sources */,
 				5BBCB480244DD8E4008107C4 /* APIServiceError.swift in Sources */,
+				5B9698F02468001F00A68E71 /* Card.swift in Sources */,
 				5B312DAF24509B8700B36DF4 /* DetectionLanguage.swift in Sources */,
 				5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */,
 				5BEB19B424581950000AC426 /* NSPersistentCloudKitContainer+Extensionswift.swift in Sources */,
 				5BF263962438A30D0047B426 /* Settings.swift in Sources */,
 				5B312DB124509C9900B36DF4 /* Keys.swift in Sources */,
 				5B171682242CF80E0081D603 /* AppDelegate.swift in Sources */,
+				5B9698F32468260800A68E71 /* Card+CoreDataClass.swift in Sources */,
 				5BAD993F2459D129006A47B6 /* InfoPlistKeysModel.swift in Sources */,
 				5BEB19B8245826CE000AC426 /* ListsView.swift in Sources */,
 				5B42363C2457D6A9008BFABF /* HistoryView.swift in Sources */,
@@ -479,15 +480,11 @@
 				5BB7A56F245BBDC40020B47B /* CardsView.swift in Sources */,
 				5BBCB47B244DD7E1008107C4 /* Response.swift in Sources */,
 				5B312DB324510C9400B36DF4 /* Translate.swift in Sources */,
-				5BF23E8624595B8200724557 /* CommonViewModel.swift in Sources */,
-				5BEB19AE245816C8000AC426 /* CoreDataModel.swift in Sources */,
-				5BEB19AC24581651000AC426 /* Cards+CoreDataProperties.swift in Sources */,
 				5B1C5034245BFFCE00F47F45 /* ClickCard.swift in Sources */,
 				5B171689242CF80E0081D603 /* ContentView.swift in Sources */,
 				5B171684242CF80E0081D603 /* SceneDelegate.swift in Sources */,
 				5BE2EE6B242DC1FE007BC85F /* MultilineTextField.swift in Sources */,
 				5BF23E82245917A500724557 /* ListView.swift in Sources */,
-				5BEB19AB24581651000AC426 /* Cards+CoreDataClass.swift in Sources */,
 				5BDEBBA0245ED1E50020F781 /* CardsHistory.swift in Sources */,
 				5BBCB47E244DD893008107C4 /* FetchSupportedLanguageRequest.swift in Sources */,
 				5B64174E24430C13003DCAAF /* APIService.swift in Sources */,
@@ -675,7 +672,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1024;
+				CURRENT_PROJECT_VERSION = 1050;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -700,7 +697,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1024;
+				CURRENT_PROJECT_VERSION = 1050;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -884,6 +881,7 @@
 		5BEB19A6245813D8000AC426 /* Click.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				5B9698F52468353300A68E71 /* Click 2.xcdatamodel */,
 				5BEB19A7245813D8000AC426 /* Click.xcdatamodel */,
 			);
 			currentVersion = 5BEB19A7245813D8000AC426 /* Click.xcdatamodel */;

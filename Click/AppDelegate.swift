@@ -101,21 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       let context = self.persistentContainer.newBackgroundContext()
       context.performAndWait {
         // get list items out of store
-        var items: [Cards]
-        do {
-          try items = context.fetch(Cards.getCardsFetchRequiest())
-        } catch {
-          let nserror = error as NSError
-          fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-        }
         // reorder items
-        items.enumerated().forEach { index, item in
-          // if item.sourceText == item[index-1] {
-//          if items.contains(item) {
-//            items.remove(at: index)
-//          }
-          //}
-        }
         
         // save if we need to save
          if context.hasChanges {

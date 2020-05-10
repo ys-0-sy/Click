@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ClickCard: View {
-  @ObservedObject var card: Cards
+  @ObservedObject var card: Card
   @State private var onCard = true
   @State private var dragOffset = CGSize.zero
   @State private var degreeOffset:Double = 0
@@ -79,6 +79,6 @@ struct ClickCard: View {
 
 struct ClickCard_Previews: PreviewProvider {
     static var previews: some View {
-      ClickCard(card: Cards.init())
+      ClickCard(card: Card.init())
     }
 }

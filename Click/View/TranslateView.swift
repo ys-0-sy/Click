@@ -11,11 +11,9 @@ import Combine
 
 struct TranslateView: View {
   @ObservedObject var viewModel: TranslateViewModel
-  @ObservedObject var common: CommonViewModel
   
   init() {
     self.viewModel = TranslateViewModel()
-    self.common = CommonViewModel()
   }
   
   var body: some View {
