@@ -63,25 +63,29 @@ struct TranslateView: View {
                 }.padding()
                 Divider()
                 List {
-                  ForEach(self.viewModel.languageHistory, id: \.self) { language in
-                    Button(action: { self.viewModel.apply(inputs: .tappedSourceLanguageSelection(language: language)) }) {
-                       Text(language.name)
-                     }
-                  }
-                  Button(action: {
-                    self.viewModel.apply(inputs: .tappedSourceLanguageSelection(language: nil))
-
-                  }) {
-                    Text("Auto Detect")
-                  }
-                  ForEach(self.viewModel.surpportedLanguages, id: \.self) { language in
-                    Button(action: {
-                      print("tapped")
-                      self.viewModel.apply(inputs: .tappedSourceLanguageSelection(language: language)) }) {
-                      Text(language.name)
+                  Section(header: Text("Recently")) {
+                    ForEach(self.viewModel.languageHistory, id: \.self) { language in
+                      Button(action: { self.viewModel.apply(inputs: .tappedSourceLanguageSelection(language: language)) }) {
+                         Text(language.name)
+                       }
                     }
                   }
-                }
+                  Section(header: Text("All Languages")) {
+                    Button(action: {
+                      self.viewModel.apply(inputs: .tappedSourceLanguageSelection(language: nil))
+
+                    }) {
+                      Text("Auto Detect")
+                    }
+                    ForEach(self.viewModel.surpportedLanguages, id: \.self) { language in
+                      Button(action: {
+                        print("tapped")
+                        self.viewModel.apply(inputs: .tappedSourceLanguageSelection(language: language)) }) {
+                        Text(language.name)
+                      }
+                    }
+                  }
+                }.listStyle(GroupedListStyle())
               }
             }
             Group {
@@ -121,17 +125,22 @@ struct TranslateView: View {
                   }.padding()
                   Divider()
                   List {
-                    ForEach(self.viewModel.languageHistory, id: \.self) { language in
-                      Button(action: { self.viewModel.apply(inputs: .tappedDetectedLanguageSelection(language: language)) }) {
-                         Text(language.name)
-                       }
-                    }
-                    ForEach(self.viewModel.surpportedLanguages, id: \.self) { language in
-                      Button(action: { self.viewModel.apply(inputs: .tappedDetectedLanguageSelection(language: language)) }) {
-                        Text(language.name)
+                    Section(header: Text("Recently")) {
+                      ForEach(self.viewModel.languageHistory, id: \.self) { language in
+                        Button(action: { self.viewModel.apply(inputs: .tappedDetectedLanguageSelection(language: language)) }) {
+                           Text(language.name)
+                         }
                       }
                     }
-                  }
+                    Section(header: Text("All Languages")) {
+                      ForEach(self.viewModel.surpportedLanguages, id: \.self) { language in
+                        Button(action: { self.viewModel.apply(inputs: .tappedDetectedLanguageSelection(language: language)) }) {
+                          Text(language.name)
+                        }
+                      }
+                    }
+                  }.listStyle(GroupedListStyle())
+                  .accentColor(Color("SecondSubColor"))
                 }
               }
             }.frame(width: UIScreen.main.bounds.width * 0.9)
