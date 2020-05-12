@@ -63,6 +63,11 @@ struct TranslateView: View {
                 }.padding()
                 Divider()
                 List {
+                  ForEach(self.viewModel.languageHistory, id: \.self) { language in
+                    Button(action: { self.viewModel.apply(inputs: .tappedSourceLanguageSelection(language: language)) }) {
+                       Text(language.name)
+                     }
+                  }
                   Button(action: {
                     self.viewModel.apply(inputs: .tappedSourceLanguageSelection(language: nil))
 
@@ -116,6 +121,11 @@ struct TranslateView: View {
                   }.padding()
                   Divider()
                   List {
+                    ForEach(self.viewModel.languageHistory, id: \.self) { language in
+                      Button(action: { self.viewModel.apply(inputs: .tappedDetectedLanguageSelection(language: language)) }) {
+                         Text(language.name)
+                       }
+                    }
                     ForEach(self.viewModel.surpportedLanguages, id: \.self) { language in
                       Button(action: { self.viewModel.apply(inputs: .tappedDetectedLanguageSelection(language: language)) }) {
                         Text(language.name)

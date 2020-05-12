@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Card" representedClassName="Card" syncable="YES">
-        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="index" optional="YES" attributeType="String"/>
-        <attribute name="isRemembered" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="sourceLanguage" attributeType="String"/>
-        <attribute name="sourceText" attributeType="String"/>
-        <attribute name="timestamp" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="translateLanguage" attributeType="String"/>
-        <attribute name="translateText" attributeType="String"/>
+        <attribute name="id" attributeType="String" defaultValueString=""/>
+        <attribute name="index" attributeType="String" defaultValueString=""/>
+        <attribute name="isRemembered" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="sourceLanguage" attributeType="String" defaultValueString=""/>
+        <attribute name="sourceText" attributeType="String" defaultValueString=""/>
+        <attribute name="timestamp" attributeType="Date" defaultDateTimeInterval="610812300" usesScalarValueType="NO"/>
+        <attribute name="translateLanguage" attributeType="String" defaultValueString=""/>
+        <attribute name="translateText" attributeType="String" defaultValueString=""/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="index"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <elements>
         <element name="Card" positionX="-54" positionY="-9" width="128" height="163"/>

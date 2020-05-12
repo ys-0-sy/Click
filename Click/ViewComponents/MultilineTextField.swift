@@ -75,10 +75,6 @@ struct MultilineTextField: View {
 class EditedUIMenuTextView: UITextView {
 
   override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-//    OperationQueue.main.addOperation({
-//        UIMenuController.shared.hideMenu(from: <#T##UIView#>)
-//    })
-//    return super.canPerformAction(action, withSender: sender)
     UIMenuController.shared.hideMenu()
 
     if action == #selector(UIResponderStandardEditActions.paste) {

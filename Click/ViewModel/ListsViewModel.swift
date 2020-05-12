@@ -9,25 +9,5 @@
 import Foundation
 
 class ListViewModel: ObservableObject {
-  @Published var cards: [Cards]
-  @Published var hasCards: Bool
-  
-  init() {
-    self.cards = []
-    self.hasCards = false
-  }
-  func fetchAll() {
-    cards = CoreDataModel.getCards()
-    hasCards = cards.count > 0
-  }
-  func onAppear(){
-    fetchAll()
-  }
-  func onDelete(offsets: IndexSet) {
-    if offsets.first != nil {
-      CoreDataModel.delete(card: self.cards[offsets.first!])
-      CoreDataModel.save()
-    }
-    fetchAll()
-  }
+
 }

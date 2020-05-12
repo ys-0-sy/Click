@@ -12,13 +12,10 @@ import UIKit
 import CoreData
 
 
-protocol TranslateModel{
+protocol TranslateModel {
   func tappedSourceLanguageSelection(language: TranslationLanguage?) -> AnyPublisher<String, Never>
-  
   func fetchLanguage()
-  
   func tappedDetectedLanguageSelection(language: TranslationLanguage) -> AnyPublisher<String, Never>
-  
 }
 
 final class TranslateViewModel: ObservableObject {
@@ -46,11 +43,12 @@ final class TranslateViewModel: ObservableObject {
   @Published var showSourceLanguageSelectionView: Bool = false
   @Published var showTargetLanguageSelectionView: Bool = false
   @Published var cardsHistory: [CardsHistory] = []
+  @Published var languageHistory: [TranslationLanguage] = []
 
   
   init() {
     self.apiService = APIService()
-    loadHistory(key: "history")
+    loadUserdata()
     bind()
     apply(inputs: .fetchLanguages)
 
@@ -67,9 +65,13 @@ final class TranslateViewModel: ObservableObject {
     case .tappedDetectedLanguageSelection(let language):
       self.showTargetLanguageSelectionView = false
       self.targetLanguageSelection = language
+      self.addTranslateHistory(language: language)
     case .tappedSourceLanguageSelection(let language):
       self.showSourceLanguageSelectionView = false
       self.sourceLanguageSelection = language
+      if language != nil {
+        self.addTranslateHistory(language: language!)
+      }
     case .onCommitText(let text):
       if text != "" {
         onCheckLanguageSubject.send(text)
@@ -105,11 +107,38 @@ final class TranslateViewModel: ObservableObject {
     UserDefaults.standard.set(self.cardsHistory, forKey: "history")
   }
   
-  private func loadHistory(key: String) {
-    guard let history: [CardsHistory]? = UserDefaults.standard.codable(forKey: key) else {
+  private func addTranslateHistory(language: TranslationLanguage) {
+    print("add")
+    if (self.languageHistory.firstIndex(where: {$0 == language}) == nil) {
+      self.languageHistory.insert(language, at: 0)
+      print("insert")
+    } else {
+      print("duplicate")
+    }
+    if self.languageHistory.count > 5 {
+      self.languageHistory.removeLast()
+    }
+    UserDefaults.standard.set(self.languageHistory, forKey: "targetLanguage")
+  }
+  
+  private func loadUserdata() {
+    guard let history: [CardsHistory]? = UserDefaults.standard.codable(forKey: "history") else {
       return
     }
     self.cardsHistory = history ?? []
+    guard let translateLanguageHistory: [TranslationLanguage]? = UserDefaults.standard.codable(forKey: "targetLanguage") else {
+      return
+    }
+    self.languageHistory = translateLanguageHistory ?? []
+    if let targetLanguage: TranslationLanguage? = UserDefaults.standard.codable(forKey: "targetLanguage") {
+      self.targetLanguageSelection = targetLanguage!
+    } else {
+      if Locale.current.languageCode != nil {
+        if self.surpportedLanguages.count != 0 {
+          self.targetLanguageSelection = self.surpportedLanguages.filter({ $0.language == Locale.current.languageCode! }).first!
+        }
+      }
+    }
   }
   
   private func bind() {
@@ -127,9 +156,6 @@ final class TranslateViewModel: ObservableObject {
               guard let self = self else { return }
               self.surpportedLanguages = self.convertInput(languages: languages)
               self.isLoading = false
-            if Locale.current.languageCode != nil {
-              self.targetLanguageSelection = self.surpportedLanguages.filter({ $0.language == Locale.current.languageCode! }).first!
-            }
 
           })
     let translationResponseSubscriber = translateLanguageSubject

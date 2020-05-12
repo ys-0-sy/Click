@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TranslationLanguage: Decodable, Hashable {
+struct TranslationLanguage: Codable, Hashable {
   var language: String
   var name: String
 }
