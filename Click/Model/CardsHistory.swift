@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CardsHistory: Equatable, Hashable {
+struct CardsHistory: Equatable, Hashable, Codable {
   var sourceLanguage: String
   var sourceText: String
   var translateLanguage: String

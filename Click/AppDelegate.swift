@@ -53,9 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     guard let description = container.persistentStoreDescriptions.first else {
       fatalError("No Descriptions found")
     }
-    description.setOption(true as NSObject, forKey:       NSPersistentStoreRemoteChangeNotificationPostOptionKey)
-
-    
+    description.setOption(true as NSObject, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
     container.loadPersistentStores(completionHandler: { (_, error) in
       if let error = error as NSError? {
               // Replace this implementation with code to handle the error appropriately.
@@ -75,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     container.viewContext.automaticallyMergesChangesFromParent = true
     container.viewContext.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
     
-    NotificationCenter.default.addObserver(self, selector: #selector(self.prosessUpload), name: .NSPersistentStoreRemoteChange, object: nil)
+    //NotificationCenter.default.addObserver(self, selector: #selector(self.prosessUpload), name: .NSPersistentStoreRemoteChange, object: nil)
     return container
   }()
 

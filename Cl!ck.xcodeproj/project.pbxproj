@@ -28,9 +28,10 @@
 		5B6417522443393B003DCAAF /* TranslateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6417512443393B003DCAAF /* TranslateViewModel.swift */; };
 		5B6E3914243DDE6300120F33 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6E3913243DDE6300120F33 /* ButtonView.swift */; };
 		5B9156BF24445291003EFA2C /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B9156BE24445291003EFA2C /* keys.plist */; };
-		5B9698F02468001F00A68E71 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9698EF2468001F00A68E71 /* Card.swift */; };
+		5B9698F02468001F00A68E71 /* CardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9698EF2468001F00A68E71 /* CardEntry.swift */; };
 		5B9698F32468260800A68E71 /* Card+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9698F12468260800A68E71 /* Card+CoreDataClass.swift */; };
 		5B9698F42468260800A68E71 /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9698F22468260800A68E71 /* Card+CoreDataProperties.swift */; };
+		5B9698F7246A693200A68E71 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9698F6246A693200A68E71 /* Extensions.swift */; };
 		5BAD993F2459D129006A47B6 /* InfoPlistKeysModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD993E2459D129006A47B6 /* InfoPlistKeysModel.swift */; };
 		5BB362622432DF890065FD5D /* keys.template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB362612432DF890065FD5D /* keys.template.plist */; };
 		5BB7A56F245BBDC40020B47B /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7A56E245BBDC40020B47B /* CardsView.swift */; };
@@ -100,10 +101,11 @@
 		5B6417512443393B003DCAAF /* TranslateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewModel.swift; sourceTree = "<group>"; };
 		5B6E3913243DDE6300120F33 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		5B9156BE24445291003EFA2C /* keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
-		5B9698EF2468001F00A68E71 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5B9698EF2468001F00A68E71 /* CardEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEntry.swift; sourceTree = "<group>"; };
 		5B9698F12468260800A68E71 /* Card+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5B9698F22468260800A68E71 /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5B9698F52468353300A68E71 /* Click 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Click 2.xcdatamodel"; sourceTree = "<group>"; };
+		5B9698F6246A693200A68E71 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		5BAD993E2459D129006A47B6 /* InfoPlistKeysModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlistKeysModel.swift; sourceTree = "<group>"; };
 		5BB362612432DF890065FD5D /* keys.template.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.template.plist; sourceTree = "<group>"; };
 		5BB7A56E245BBDC40020B47B /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
@@ -244,7 +246,8 @@
 				5B312DB224510C9400B36DF4 /* Translate.swift */,
 				5BAD993E2459D129006A47B6 /* InfoPlistKeysModel.swift */,
 				5BDEBB9F245ED1E50020F781 /* CardsHistory.swift */,
-				5B9698EF2468001F00A68E71 /* Card.swift */,
+				5B9698EF2468001F00A68E71 /* CardEntry.swift */,
+				5B9698F6246A693200A68E71 /* Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -459,7 +462,7 @@
 				5BEB19A8245813D8000AC426 /* Click.xcdatamodeld in Sources */,
 				5B9698F42468260800A68E71 /* Card+CoreDataProperties.swift in Sources */,
 				5BBCB480244DD8E4008107C4 /* APIServiceError.swift in Sources */,
-				5B9698F02468001F00A68E71 /* Card.swift in Sources */,
+				5B9698F02468001F00A68E71 /* CardEntry.swift in Sources */,
 				5B312DAF24509B8700B36DF4 /* DetectionLanguage.swift in Sources */,
 				5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */,
 				5BEB19B424581950000AC426 /* NSPersistentCloudKitContainer+Extensionswift.swift in Sources */,
@@ -487,6 +490,7 @@
 				5BF23E82245917A500724557 /* ListView.swift in Sources */,
 				5BDEBBA0245ED1E50020F781 /* CardsHistory.swift in Sources */,
 				5BBCB47E244DD893008107C4 /* FetchSupportedLanguageRequest.swift in Sources */,
+				5B9698F7246A693200A68E71 /* Extensions.swift in Sources */,
 				5B64174E24430C13003DCAAF /* APIService.swift in Sources */,
 				5BF23E842459318A00724557 /* ListsViewModel.swift in Sources */,
 			);
@@ -672,7 +676,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1050;
+				CURRENT_PROJECT_VERSION = 1084;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -697,7 +701,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1050;
+				CURRENT_PROJECT_VERSION = 1084;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;

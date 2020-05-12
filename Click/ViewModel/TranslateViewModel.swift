@@ -9,6 +9,7 @@
 import Foundation
 import Combine
 import UIKit
+import CoreData
 
 
 protocol TranslateModel{
@@ -49,6 +50,7 @@ final class TranslateViewModel: ObservableObject {
   
   init() {
     self.apiService = APIService()
+    loadHistory(key: "history")
     bind()
     apply(inputs: .fetchLanguages)
 
@@ -100,6 +102,14 @@ final class TranslateViewModel: ObservableObject {
     if self.cardsHistory.count > 5 {
       self.cardsHistory.removeLast()
     }
+    UserDefaults.standard.set(self.cardsHistory, forKey: "history")
+  }
+  
+  private func loadHistory(key: String) {
+    guard let history: [CardsHistory]? = UserDefaults.standard.codable(forKey: key) else {
+      return
+    }
+    self.cardsHistory = history ?? []
   }
   
   private func bind() {
@@ -141,10 +151,6 @@ final class TranslateViewModel: ObservableObject {
           }
           
           let index = "\(self.sourceText)+\(languages[0].translatedText)"
-//          if !CoreDataModel.getCards().contains(where: { card in card.index == index}) {
-//            self.addnewCard(sourceLanguage: detectedLanguage?.name ?? self.sourceLanguageSelection?.name, index: index)
-//          }
-
           if !self.cardsHistory.contains(where: { card in card.index == index}) {
             // なんとかする
             if ((detectedLanguage?.name ?? self.sourceLanguageSelection?.name) != nil) {
@@ -152,11 +158,15 @@ final class TranslateViewModel: ObservableObject {
                 let sourceLanguage = detectedLanguage!.name
                 let card = CardsHistory(sourceLanguage: sourceLanguage, sourceText: self.sourceText, translateLanguage: self.targetLanguageSelection.name, translateText: languages[0].translatedText, index: index)
                 self.addHistory(card: card)
+                Card.create(sourceLanguage: detectedLanguage!, sourceText: self.sourceText ,targetLanguage: self.targetLanguageSelection, translateText: self.translatedText)
+
                 
               } else {
                 let sourceLanguage = self.sourceLanguageSelection!.name
                 let card = CardsHistory(sourceLanguage: sourceLanguage, sourceText: self.sourceText, translateLanguage: self.targetLanguageSelection.name, translateText: languages[0].translatedText, index: index)
                 self.addHistory(card: card)
+                Card.create(sourceLanguage: self.sourceLanguageSelection!, sourceText: self.sourceText ,targetLanguage: self.targetLanguageSelection, translateText: self.translatedText)
+
               }
             }
 
@@ -207,18 +217,7 @@ final class TranslateViewModel: ObservableObject {
       }
   }
   
-  private func addnewCard(sourceLanguage: String?, index: String) {
-    
-    if sourceLanguage != nil && self.sourceText != "" {
-      let newCard: NSManagedObjectContext
-      newCard.sourceLanguage = sourceLanguage!
-      newCard.sourceText = self.sourceText
-      newCard.translateLanguage = self.targetLanguageSelection.name
-      newCard.translateText = self.translatedText
-      newCard.index = index
-      Card.create(in: newCard)
-    }
-  }
+
 
 
 }

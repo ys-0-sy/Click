@@ -17,13 +17,13 @@ extension Card {
         return NSFetchRequest<Card>(entityName: "Card")
     }
 
-    @NSManaged public var id: UUID?
-    @NSManaged public var index: String?
-    @NSManaged public var sourceLanguage: String?
-    @NSManaged public var sourceText: String?
-    @NSManaged public var translateLanguage: String?
-    @NSManaged public var translateText: String?
+    @NSManaged public var id: String
+    @NSManaged public var index: String
     @NSManaged public var isRemembered: Bool
-    @NSManaged public var timestamp: Date?
+    @NSManaged public var sourceLanguage: String
+    @NSManaged public var sourceText: String
+    @NSManaged public var timestamp: Date
+    @NSManaged public var translateLanguage: String
+    @NSManaged public var translateText: String
 
 }
