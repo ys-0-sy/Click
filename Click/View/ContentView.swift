@@ -12,7 +12,9 @@ struct ContentView: View {
 
   var body: some View {
     TabView {
-      TranslateView()
+      NavigationView {
+        TranslateView()
+      }
         .tabItem {
           VStack {
             Image("translation")

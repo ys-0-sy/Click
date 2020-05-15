@@ -21,9 +21,8 @@ struct TranslateView: View {
         VStack(alignment: .center, spacing: 10) {
           VStack(alignment: .center, spacing: 20) {
           VStack(alignment: .leading, spacing: 20) {
-          Text("Translation")
-            .font(.largeTitle)
-            .padding()
+            Spacer()
+              .frame(height: 1)
           HStack(alignment: .center, spacing: 23) {
             Button(action: {
               self.viewModel.showSourceLanguageSelectionView = true
@@ -199,9 +198,10 @@ struct TranslateView: View {
           .background(Color(UIColor.systemGray6))
           .cornerRadius(20)
           
-          VStack(alignment: .leading){
+          VStack(alignment: .leading, spacing: 20) {
             Text("History")
-            .font(.title)
+              .font(.title)
+              .fontWeight(.bold)
               .padding(.top)
             ForEach(self.viewModel.cardsHistory, id: \.self) { card in
                 HistoryView(card: card, width: UIScreen.main.bounds.width * 0.85)
@@ -220,7 +220,7 @@ struct TranslateView: View {
 
 
         .frame(maxWidth: .infinity)
-      }
+    }.navigationBarTitle("Translation")
   }
   
 }

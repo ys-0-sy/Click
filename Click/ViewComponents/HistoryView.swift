@@ -12,8 +12,10 @@ struct HistoryView: View {
   let card: CardsHistory
   let width: CGFloat
     var body: some View {
-        HStack(alignment: .center, spacing: 0) {
+      HStack(alignment: .top, spacing: 0) {
           VStack(alignment: .center, spacing: 0) {
+            Spacer()
+              .frame(height: 10)
             Text(card.sourceLanguage)
               .font(.subheadline)
             .fixedSize()
@@ -22,19 +24,21 @@ struct HistoryView: View {
               .background(Color("SubColor"))
               .cornerRadius(10)
             Spacer()
-              .frame(height: 20)
+              .frame(height: 10)
             Text(card.sourceText)
             .fixedSize(horizontal: false, vertical: true)
-              .multilineTextAlignment(.center)
             .lineLimit(nil)
             Spacer()
               .frame(height: 10)
           }
           .padding()
           .frame(width: self.width/2)
-          Divider()
-            .frame(height: 80)
+        
+           Divider()
+            .padding(.vertical)
           VStack(alignment: .center, spacing: 0) {
+            Spacer()
+              .frame(height: 10)
             Text(card.translateLanguage)
               .font(.subheadline)
             .fixedSize()
@@ -43,7 +47,7 @@ struct HistoryView: View {
               .background(Color("SecondSubColor"))
               .cornerRadius(10)
             Spacer()
-              .frame(height: 20)
+              .frame(height: 10)
             Text(card.translateText)
               .fixedSize(horizontal: false, vertical: true)
             .lineLimit(nil)
@@ -53,7 +57,7 @@ struct HistoryView: View {
           .padding()
           .frame(width: self.width/2)
         }
-        .frame(minHeight: 100)
+        //.frame(minHeight: 100)
       .frame(width: self.width, alignment: .center)
       .cornerRadius(6)
   }
