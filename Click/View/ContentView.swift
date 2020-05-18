@@ -15,6 +15,8 @@ struct ContentView: View {
       NavigationView {
         TranslateView()
       }
+        .navigationViewStyle(StackNavigationViewStyle())
+
         .tabItem {
           VStack {
             Image("translation")
@@ -25,6 +27,7 @@ struct ContentView: View {
       NavigationView {
       CardsView()
       }
+        .navigationViewStyle(StackNavigationViewStyle())
         .tabItem {
           VStack {
         Image("cards")
@@ -35,6 +38,8 @@ struct ContentView: View {
       NavigationView {
         ListsView()
       }
+        .navigationViewStyle(StackNavigationViewStyle())
+
         .tabItem {
           VStack {
             Image("list")
@@ -45,6 +50,7 @@ struct ContentView: View {
       NavigationView {
         SettingsView()
       }
+      .navigationViewStyle(StackNavigationViewStyle())
         .tabItem {
           VStack {
             Image("settings")

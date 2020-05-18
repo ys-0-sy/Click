@@ -20,17 +20,39 @@ struct ListsView: View {
   }
   
   var body: some View {
-    List {
-      ForEach(cards, id: \.self) { card in
-        ListView(card: card)
+    VStack {
+      RoundedRectangle(cornerRadius: 8)
+
+        .frame(width: UIScreen.main.bounds.width * 0.9, height: 30)
+        .border(Color("SubColor"), width: 3)
+        .foregroundColor(Color.clear)
+        .cornerRadius(8)
+      VStack(spacing: 10) {
+        HStack {
+          Text("English")
+          Text("Japanese")
+        }
+        VStack(spacing: 20) {
+          ForEach(cards, id: \.self) { card in
+            VStack {
+            ListView(card: card, width: UIScreen.main.bounds.width * 0.9)
+              .background(Color(UIColor.systemBackground))
+              .cornerRadius(8)
+            }
+          }
+          .onDelete { indeces in
+            self.cards.delete(at: indeces, from: self.viewContext)
+          }
+        }
+        .frame(width: UIScreen.main.bounds.width * 0.95)
+        .cornerRadius(8)
+        Spacer()
       }
-      .onDelete { indeces in
-        self.cards.delete(at: indeces, from: self.viewContext)
-      }
+      .background(Color(UIColor.systemGray6))
+      .cornerRadius(8)
     }
+
       .navigationBarTitle("Words List")
-      .frame(width: UIScreen.main.bounds.width)
-//      .onAppear(perform: self.common.onAppear)
   }
 }
 

@@ -10,46 +10,57 @@ import SwiftUI
 
 
 struct ListView: View {
-  @ObservedObject var card: Card
+  let card: Card
+  let width: CGFloat
     var body: some View {
-      HStack {
-        Spacer()
-          .frame(width: 10)
-        VStack(alignment: .leading) {
-          Text(card.sourceText)
-          .fixedSize()
-          .lineLimit(2)
-           .truncationMode(.middle)
-          Text(card.translateText)
-          .fixedSize()
-            .lineLimit(2)
-           .truncationMode(.middle)
-        }
-        Spacer()
-        Divider()
-        VStack {
-          Text(card.sourceLanguage)
-            .font(.subheadline)
-            .lineLimit(nil)
+      HStack(alignment: .top, spacing: 0) {
+          VStack(alignment: .center, spacing: 0) {
+            Spacer()
+              .frame(height: 10)
+            Text(card.sourceLanguage)
+              .font(.subheadline)
             .fixedSize()
-            .padding(.leading)
-            .padding(.trailing)
-            .background(Color("SubColor"))
-            .cornerRadius(10)
-          Spacer()
-          Text(card.translateLanguage)
-            .font(.subheadline)
+              .padding(.leading)
+              .padding(.trailing)
+              .background(Color("SubColor"))
+              .cornerRadius(10)
+            Spacer()
+              .frame(height: 10)
+            Text(card.sourceText)
+            .fixedSize(horizontal: false, vertical: true)
             .lineLimit(nil)
+            Spacer()
+              .frame(height: 10)
+          }
+          .padding()
+          .frame(width: self.width/2)
+        
+           Divider()
+            .padding(.vertical)
+          VStack(alignment: .center, spacing: 0) {
+            Spacer()
+              .frame(height: 10)
+            Text(card.translateLanguage)
+              .font(.subheadline)
             .fixedSize()
-            .padding(.leading)
-            .padding(.trailing)
-            .background(Color("SecondSubColor"))
-            .cornerRadius(10)
+              .padding(.leading)
+              .padding(.trailing)
+              .background(Color("SecondSubColor"))
+              .cornerRadius(10)
+            Spacer()
+              .frame(height: 10)
+            Text(card.translateText)
+              .fixedSize(horizontal: false, vertical: true)
+            .lineLimit(nil)
+            Spacer()
+              .frame(height: 10)
+          }
+          .padding()
+          .frame(width: self.width/2)
         }
-        .padding(.horizontal)
-        .frame(width: 100)
-      }
-       
+        //.frame(minHeight: 100)
+      .frame(width: self.width, alignment: .center)
+      .cornerRadius(6)
     }
 }
 
