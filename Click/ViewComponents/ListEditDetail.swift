@@ -1,20 +1,20 @@
 //
-//  ListView.swift
+//  EditDetail.swift
 //  Cl!ck
 //
-//  Created by saito on 2020/04/29.
+//  Created by saito on 2020/05/26.
 //  Copyright © 2020 ys-0-sy. All rights reserved.
 //
 
 import SwiftUI
 
-
-struct ListView: View {
+struct ListEditDetail: View {
   let card: Card
   let width: CGFloat
+  @Binding var sourceText: String
     var body: some View {
       ZStack {
-      HStack(alignment: .top, spacing: 0) {
+        HStack(alignment: .top, spacing: 0) {
           VStack(alignment: .center, spacing: 0) {
             Spacer()
               .frame(height: 10)
@@ -27,7 +27,7 @@ struct ListView: View {
               .cornerRadius(10)
             Spacer()
               .frame(height: 10)
-            Text(card.sourceText)
+            TextField(card.sourceText, text: $sourceText)
             .fixedSize(horizontal: false, vertical: true)
             .lineLimit(nil)
             Spacer()
@@ -73,13 +73,20 @@ struct ListView: View {
           }
         }
       }
-      .frame(width: self.width, alignment: .center)
-      .cornerRadius(6)
-    }
+  }
 }
 
-struct ListView_Previews: PreviewProvider {
+struct ListEditDetail_Previews: PreviewProvider {
+  @State var text = "text"
     static var previews: some View {
-     Text("Sample")
+      let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+      let newCard = Card(context: context)
+      newCard.isRemembered = false
+      newCard.sourceLanguage = "English"
+      newCard.sourceText = "Text"
+      newCard.translateText = "テキスト"
+      newCard.translateLanguage = "Japanese"
+      return ListEditDetail(card: newCard, width: UIScreen.main.bounds.width, sourceText: .constant("text"))
+        .previewLayout(.fixed(width: UIScreen.main.bounds.width * 0.9, height: 100))
     }
 }

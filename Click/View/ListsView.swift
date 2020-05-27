@@ -12,47 +12,84 @@ import CoreData
 struct ListsView: View {
   @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Card.id, ascending: true)], animation: .default) var cards: FetchedResults<Card>
   @Environment(\.managedObjectContext) var viewContext
-  
+  @State var isEditMode: EditMode = .inactive
   @ObservedObject var model: ListViewModel
+  @State private var searchText : String = ""
+  @State private var onEdit = false
+  private static var persistentContainer: NSPersistentCloudKitContainer! = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
   
   init() {
     self.model = ListViewModel()
+    UITableView.appearance().backgroundColor = .systemGray6
+    UITableView.appearance().showsVerticalScrollIndicator = false
+    UITableView.appearance().tableFooterView = UIView()
   }
   
   var body: some View {
-    VStack {
-      RoundedRectangle(cornerRadius: 8)
+    
+    ZStack(alignment: .bottomTrailing) {
+      VStack {
+        SearchBar(text: $searchText)
+        VStack(alignment: .center, spacing: 10) {
+          HStack {
+            Text("English")
+            Text("Japanese")
+          }
+          List {
+            ForEach(cards.filter {
+              self.searchText.isEmpty ? true : $0.sourceText.lowercased().contains(self.searchText) || $0.translateText.lowercased().contains(self.searchText)
 
-        .frame(width: UIScreen.main.bounds.width * 0.9, height: 30)
-        .border(Color("SubColor"), width: 3)
-        .foregroundColor(Color.clear)
-        .cornerRadius(8)
-      VStack(spacing: 10) {
-        HStack {
-          Text("English")
-          Text("Japanese")
-        }
-        VStack(spacing: 20) {
-          ForEach(cards, id: \.self) { card in
-            VStack {
-            ListView(card: card, width: UIScreen.main.bounds.width * 0.9)
-              .background(Color(UIColor.systemBackground))
-              .cornerRadius(8)
+            }, id: \.self) { card in
+//              Group {
+//                if (self.isEditMode == .active) {
+//                  ListView(card: card, width: UIScreen.main.bounds.width * 0.87)
+//                  .background(Color(.systemBackground))
+//                  .listRowInsets(EdgeInsets())
+//                  .listRowBackground(Color(.systemGray6))
+//                  .cornerRadius(8)
+//                  .padding()
+//                } else  {
+                  ListView(card: card, width: UIScreen.main.bounds.width * 0.87)
+                    .background(Color(.systemBackground))
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(Color(.systemGray6))
+                    .cornerRadius(8)
+                    .padding()
+//                }
+//              }
             }
+            .onDelete { indeces in
+              self.cards.delete(at: indeces, from: self.viewContext)
+            }
+            
           }
-          .onDelete { indeces in
-            self.cards.delete(at: indeces, from: self.viewContext)
-          }
-        }
-        .frame(width: UIScreen.main.bounds.width * 0.95)
-        .cornerRadius(8)
-        Spacer()
-      }
-      .background(Color(UIColor.systemGray6))
-      .cornerRadius(8)
-    }
 
-      .navigationBarTitle("Words List")
+          .background(Color.yellow)
+          .frame(width: UIScreen.main.bounds.width * 0.95)
+          .background(Color(UIColor.systemGray6))
+          .cornerRadius(8)
+        }
+        .background(Color(UIColor.systemGray6))
+        .cornerRadius(8)
+      }
+      ZStack {
+        Circle()
+        .frame(width: 55, height: 55)
+          .foregroundColor(.white)
+        Image(systemName: "plus.circle.fill")
+        .resizable()
+        .frame(width: 55, height: 55)
+        .foregroundColor(Color("SubColor"))
+        .padding()
+      }
+
+    }
+      
+    .onAppear { UITableView.appearance().separatorStyle = .none }
+    .onDisappear { UITableView.appearance().separatorStyle = .singleLine }
+    .navigationBarTitle("Words List", displayMode: .inline)
+    .navigationBarItems(trailing: EditButton())
+//    .environment(\.editMode, self.$isEditMode)
   }
 }
 
