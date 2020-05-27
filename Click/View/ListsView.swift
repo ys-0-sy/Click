@@ -16,10 +16,15 @@ struct ListsView: View {
   @ObservedObject var model: ListViewModel
   @State private var searchText : String = ""
   @State private var onEdit = false
+  @State private var sourceLanguageSelection = ""
+  @State private var targetLanguageSelection = ""
+  @ObservedObject var viewModel: TranslateViewModel
+  
   private static var persistentContainer: NSPersistentCloudKitContainer! = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
   
   init() {
     self.model = ListViewModel()
+    self.viewModel = TranslateViewModel()
     UITableView.appearance().backgroundColor = .systemGray6
     UITableView.appearance().showsVerticalScrollIndicator = false
     UITableView.appearance().tableFooterView = UIView()
@@ -31,14 +36,127 @@ struct ListsView: View {
       VStack {
         SearchBar(text: $searchText)
         VStack(alignment: .center, spacing: 10) {
+          Spacer()
           HStack {
-            Text("English")
-            Text("Japanese")
+            Button(action: {self.viewModel.showSourceLanguageSelectionView = true}) {
+              if sourceLanguageSelection == "" {
+                Text("All Languages")
+              } else {
+                Text(sourceLanguageSelection)
+              }
+            }
+            .sheet(isPresented: self.$viewModel.showSourceLanguageSelectionView) {
+              VStack {
+                HStack {
+                  Spacer()
+                  Text("Translate From")
+                  .foregroundColor(Color("BaseColor"))
+
+                  Spacer()
+                  Button(action: {self.viewModel.showSourceLanguageSelectionView = false}) {
+                    Image(systemName: "xmark")
+                      .foregroundColor(Color("BaseColor"))
+                  }
+                }.padding()
+                Divider()
+                List {
+                  Section(header: Text("Recently")) {
+                    ForEach(self.viewModel.languageHistory, id: \.self) { language in
+                      Button(action: {
+                        self.sourceLanguageSelection = language.name
+                        self.viewModel.showSourceLanguageSelectionView = false
+                      }) {
+                         Text(language.name)
+                       }
+                    }
+                  }
+                  Section(header: Text("All Languages")) {
+                    Button(action: {
+                      self.sourceLanguageSelection = ""
+                      self.viewModel.showSourceLanguageSelectionView = false
+                    }) {
+                      Text("All Languages")
+                    }
+                    ForEach(Array(Set(self.cards)), id: \.self) { language in
+                      Button(action: {
+                        self.sourceLanguageSelection = language.sourceLanguage
+                        self.viewModel.showSourceLanguageSelectionView = false
+                      }) {
+                        Text(language.sourceLanguage)
+                      }
+                    }
+                  }
+                }.listStyle(GroupedListStyle())
+              }
+            }
+            .accentColor(.black)
+            .padding(.horizontal)
+            .background(Color("SubColor"))
+            .cornerRadius(10)
+            Spacer()
+              .frame(width: 15)
+            Button(action: {self.viewModel.showTargetLanguageSelectionView = true}) {
+              if self.targetLanguageSelection == "" {
+                Text("All Languages")
+              } else {
+                Text(self.targetLanguageSelection)
+              }
+            }
+              .sheet(isPresented: self.$viewModel.showTargetLanguageSelectionView) {
+                 VStack {
+                   HStack {
+                     Spacer()
+                     Text("Translate To")
+                     .foregroundColor(Color("BaseColor"))
+
+                     Spacer()
+                     Button(action: {self.viewModel.showTargetLanguageSelectionView = false}) {
+                       Image(systemName: "xmark")
+                         .foregroundColor(Color("BaseColor"))
+                     }
+                   }.padding()
+                   Divider()
+                   List {
+                     Section(header: Text("Recently")) {
+                       ForEach(self.viewModel.languageHistory, id: \.self) { language in
+                         Button(action: {
+                           self.targetLanguageSelection = language.name
+                           self.viewModel.showTargetLanguageSelectionView = false
+                         }) {
+                            Text(language.name)
+                          }
+                       }
+                     }
+                     Section(header: Text("All Languages")) {
+                       Button(action: {
+                         self.targetLanguageSelection = ""
+                         self.viewModel.showTargetLanguageSelectionView = false
+                       }) {
+                         Text("All Languages")
+                       }
+                      ForEach(self.cards, id: \.self) { card in
+                         Button(action: {
+                          self.targetLanguageSelection = card.translateLanguage
+                           self.viewModel.showTargetLanguageSelectionView = false
+                         }) {
+                          Text(card.translateLanguage)
+                         }
+                       }
+                     }
+                   }.listStyle(GroupedListStyle())
+                 }
+            }
+            .accentColor(.black)
+            .padding(.horizontal)
+            .background(Color("SecondSubColor"))
+            .cornerRadius(10)
           }
           List {
-            ForEach(cards.filter {
-              self.searchText.isEmpty ? true : $0.sourceText.lowercased().contains(self.searchText) || $0.translateText.lowercased().contains(self.searchText)
-
+            ForEach(
+              cards.filter { self.sourceLanguageSelection.isEmpty ? true : $0.sourceLanguage == self.sourceLanguageSelection }
+                    .filter { self.targetLanguageSelection.isEmpty ? true : $0.translateLanguage == self.targetLanguageSelection }
+                    .filter { self.searchText.isEmpty ? true : $0.sourceText.lowercased().contains(self.searchText) || $0.translateText.lowercased().contains(self.searchText)
+                
             }, id: \.self) { card in
 //              Group {
 //                if (self.isEditMode == .active) {

@@ -44,7 +44,7 @@ struct TranslateView: View {
                 .padding(.horizontal)
                 .multilineTextAlignment(.center)
                 .accentColor(.black)
-              .background(Capsule()
+                .background(Capsule()
                 .foregroundColor(Color("SubColor")))
             }
               .sheet(isPresented: self.$viewModel.showSourceLanguageSelectionView) {
@@ -183,13 +183,13 @@ struct TranslateView: View {
 
               }
             )
-          CardView(
-            text: viewModel.translatedText,
-            width: UIScreen.main.bounds.width * 0.85,
-            height: UIScreen.main.bounds.height * 0.15,
-            alignment: .topLeading,
-            boarderColor: Color("SecondSubColor")
-          )
+            CardView(
+              text: viewModel.translatedText,
+              width: UIScreen.main.bounds.width * 0.85,
+              height: UIScreen.main.bounds.height * 0.15,
+              alignment: .topLeading,
+              boarderColor: Color("SecondSubColor")
+            )
             Rectangle()
               .foregroundColor(Color(.systemGray6))
               .frame(height: 10)
