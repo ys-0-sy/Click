@@ -17,6 +17,7 @@
 		5B1716A7242CF8110081D603 /* ClickUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1716A6242CF8110081D603 /* ClickUITests.swift */; };
 		5B1C5034245BFFCE00F47F45 /* ClickCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1C5033245BFFCE00F47F45 /* ClickCard.swift */; };
 		5B1C5037245C673F00F47F45 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5B1C5036245C673F00F47F45 /* SwiftyStoreKit */; };
+		5B27DC372480E4C0001E2250 /* AddNewCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DC362480E4C0001E2250 /* AddNewCardView.swift */; };
 		5B312DA924509AF300B36DF4 /* DetectionLanguageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DA824509AF300B36DF4 /* DetectionLanguageRequest.swift */; };
 		5B312DAB24509B2300B36DF4 /* TranslationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DAA24509B2300B36DF4 /* TranslationRequest.swift */; };
 		5B312DAD24509B4E00B36DF4 /* TranslatedLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DAC24509B4E00B36DF4 /* TranslatedLanguage.swift */; };
@@ -92,6 +93,7 @@
 		5B1716A6242CF8110081D603 /* ClickUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickUITests.swift; sourceTree = "<group>"; };
 		5B1716A8242CF8110081D603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B1C5033245BFFCE00F47F45 /* ClickCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClickCard.swift; sourceTree = "<group>"; };
+		5B27DC362480E4C0001E2250 /* AddNewCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCardView.swift; sourceTree = "<group>"; };
 		5B312DA824509AF300B36DF4 /* DetectionLanguageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionLanguageRequest.swift; sourceTree = "<group>"; };
 		5B312DAA24509B2300B36DF4 /* TranslationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationRequest.swift; sourceTree = "<group>"; };
 		5B312DAC24509B4E00B36DF4 /* TranslatedLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatedLanguage.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				5B1C5033245BFFCE00F47F45 /* ClickCard.swift */,
 				5B617E982472C3A60014D79E /* SerchBar.swift */,
 				5B6CA769247D5E840027C92E /* ListEditDetail.swift */,
+				5B27DC362480E4C0001E2250 /* AddNewCardView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -474,6 +477,7 @@
 				5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */,
 				5BEB19B424581950000AC426 /* NSPersistentCloudKitContainer+Extensionswift.swift in Sources */,
 				5BF263962438A30D0047B426 /* Settings.swift in Sources */,
+				5B27DC372480E4C0001E2250 /* AddNewCardView.swift in Sources */,
 				5B312DB124509C9900B36DF4 /* Keys.swift in Sources */,
 				5B171682242CF80E0081D603 /* AppDelegate.swift in Sources */,
 				5B9698F32468260800A68E71 /* Card+CoreDataClass.swift in Sources */,
@@ -684,7 +688,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1473;
+				CURRENT_PROJECT_VERSION = 1565;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -709,7 +713,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1473;
+				CURRENT_PROJECT_VERSION = 1565;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;

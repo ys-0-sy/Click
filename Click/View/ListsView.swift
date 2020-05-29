@@ -190,17 +190,20 @@ struct ListsView: View {
         .background(Color(UIColor.systemGray6))
         .cornerRadius(8)
       }
-      ZStack {
-        Circle()
-        .frame(width: 55, height: 55)
-          .foregroundColor(.white)
-        Image(systemName: "plus.circle.fill")
-        .resizable()
-        .frame(width: 55, height: 55)
-        .foregroundColor(Color("SubColor"))
-        .padding()
+      NavigationLink(destination:
+      AddNewCardView()
+      ) {
+        ZStack {
+          Circle()
+          .frame(width: 55, height: 55)
+            .foregroundColor(.white)
+          Image(systemName: "plus.circle.fill")
+          .resizable()
+          .frame(width: 55, height: 55)
+          .foregroundColor(Color("SubColor"))
+          .padding()
+        }
       }
-
     }
       
     .onAppear { UITableView.appearance().separatorStyle = .none }

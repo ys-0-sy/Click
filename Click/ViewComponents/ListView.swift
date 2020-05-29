@@ -63,8 +63,6 @@ struct ListView: View {
         Group {
           if self.card.isRemembered {
             Text("Clicked")
-          } else {
-            Text("Clicked")
               .font(.caption)
               .frame(width: 100)
               .background(Color("SubColor"))

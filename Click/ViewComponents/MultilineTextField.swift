@@ -11,7 +11,7 @@ import Combine
 import UIKit
 
 struct MultilineTextFieldView: View {
-  @State private var rawText: String = "Sample Text"
+  @State private var rawText: String = ""
   let width: CGFloat = 200
   let height: CGFloat = 200
   let alignment: Alignment = .top
@@ -24,7 +24,7 @@ struct MultilineTextFieldView: View {
     .padding(.all)
     .frame(width: width, height: height, alignment: alignment)
     .cornerRadius(6)
-    .background(Color(UIColor.systemGray))
+    .background(Color(UIColor.systemBackground))
         .overlay(
             RoundedRectangle(cornerRadius: 10)
                 .stroke(boarderColor, lineWidth: 2)
@@ -57,8 +57,6 @@ struct MultilineTextField: View {
         Group {
             if shouldShowPlaceholder {
                 Text(placeholder).foregroundColor(.gray)
-                    .padding(.leading, 4)
-                    .padding(.top, 8)
             }
         }
     }
@@ -165,6 +163,7 @@ extension UIApplication {
 struct MultilineTextField_Previews: PreviewProvider {
     static var previews: some View {
       MultilineTextFieldView()
+        .background(Color(UIColor.systemBackground))
       .previewLayout(.sizeThatFits)
     }
 }
