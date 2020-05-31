@@ -28,9 +28,13 @@ struct AddNewCardView: View {
         HStack {
           Button(action: {self.viewModel.showSourceLanguageSelectionView = true}) {
             if sourceLanguageSelection.name == "" {
-              Text("Select Languages")
+              Text("Select Language")
+                .fontWeight(.bold)
+              .fixedSize()
             } else {
               Text(sourceLanguageSelection.name)
+              .fontWeight(.bold)
+
             }
           }
           .sheet(isPresented: self.$viewModel.showSourceLanguageSelectionView) {
@@ -59,12 +63,6 @@ struct AddNewCardView: View {
                   }
                 }
                 Section(header: Text("All Languages")) {
-                  Button(action: {
-                    self.sourceLanguageSelection.name = ""
-                    self.viewModel.showSourceLanguageSelectionView = false
-                  }) {
-                    Text("All Languages")
-                  }
                   ForEach(self.viewModel.surpportedLanguages, id: \.self) { language in
                     Button(action: {
                       self.sourceLanguageSelection = language
@@ -77,18 +75,22 @@ struct AddNewCardView: View {
               }.listStyle(GroupedListStyle())
             }
           }
-          .accentColor(.black)
-          .fixedSize()
-          .padding(.horizontal)
+          .accentColor(Color(.white))
+          .padding(.vertical, 8)
+          .frame(width: UIScreen.main.bounds.width * 0.85 / 2.2)
           .background(Color("SubColor"))
           .cornerRadius(10)
           Spacer()
-            .frame(width: 40)
           Button(action: {self.viewModel.showTargetLanguageSelectionView = true}) {
             if self.targetLanguageSelection.name == "" {
-              Text("Select Languages")
+              Text("Select Language")
+                .fontWeight(.bold)
+
+              .fixedSize()
             } else {
               Text(self.targetLanguageSelection.name)
+              .fontWeight(.bold)
+
             }
           }
             .sheet(isPresented: self.$viewModel.showTargetLanguageSelectionView) {
@@ -117,12 +119,6 @@ struct AddNewCardView: View {
                      }
                    }
                    Section(header: Text("All Languages")) {
-                     Button(action: {
-                      self.targetLanguageSelection.name = ""
-                       self.viewModel.showTargetLanguageSelectionView = false
-                     }) {
-                       Text("All Languages")
-                     }
                     ForEach(self.viewModel.surpportedLanguages, id: \.self) { language in
                        Button(action: {
                         self.targetLanguageSelection = language
@@ -135,12 +131,15 @@ struct AddNewCardView: View {
                  }.listStyle(GroupedListStyle())
                }
           }
-          .accentColor(.black)
-          .padding(.horizontal)
+          
+          .accentColor(Color(.white))
+          .padding(.vertical, 8)
+          .frame(width: UIScreen.main.bounds.width * 0.85 / 2.2)
           .background(Color("SecondSubColor"))
           .cornerRadius(10)
         }
-        .padding(.vertical)
+        .padding(.top, UIScreen.main.bounds.width * 0.05)
+        .frame(width:UIScreen.main.bounds.width * 0.85)
         MultilineTextField("Translate from", text: $sourceText)
           .padding()
           .frame(
@@ -214,16 +213,16 @@ struct AddNewCardView: View {
           Button(action: {
             if !self.sourceLanguageSelection.name.isEmpty && !self.targetLanguageSelection.name.isEmpty &&
               !self.sourceText.isEmpty && !self.targetText.isEmpty {
-              print("hey")
               Card.create(sourceLanguage: self.sourceLanguageSelection, sourceText: self.sourceText, targetLanguage: self.targetLanguageSelection, translateText: self.targetText)
               self.sourceText = ""
               self.targetText = ""
             }
           }) {
             Text("Add Others")
-              .foregroundColor(.black)
+              .fontWeight(.bold)
+              .foregroundColor(Color(.white))
             .padding()
-              .frame(width: UIScreen.main.bounds.width * 1/2.9)
+              .frame(width: UIScreen.main.bounds.width * 1/2.7)
             .background(
             RoundedRectangle(cornerRadius: 6)
               .foregroundColor(Color("SubColor"))
@@ -231,25 +230,25 @@ struct AddNewCardView: View {
             )
           }
           Spacer()
-          .frame(width: UIScreen.main.bounds.width * 0.1)
           Button(action: {
             if !self.sourceLanguageSelection.name.isEmpty && !self.targetLanguageSelection.name.isEmpty &&
               !self.sourceText.isEmpty && !self.targetText.isEmpty {
-              print("hey")
               Card.create(sourceLanguage: self.sourceLanguageSelection, sourceText: self.sourceText, targetLanguage: self.targetLanguageSelection, translateText: self.targetText)
               self.mode.wrappedValue.dismiss()
             }
           }) {
             Text("Create")
-              .foregroundColor(.black)
+              .fontWeight(.bold)
+              .foregroundColor(Color(.white))
               .padding()
-              .frame(width: UIScreen.main.bounds.width * 1/2.9)
+              .frame(width: UIScreen.main.bounds.width * 1/2.7)
               .background(
                 RoundedRectangle(cornerRadius: 6)
                 .foregroundColor(Color("SubColor"))
               )
             
           }
+        .disabled(true)
         }
         .frame(width: UIScreen.main.bounds.width * 0.85)
 

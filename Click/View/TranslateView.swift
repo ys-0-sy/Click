@@ -43,7 +43,7 @@ struct TranslateView: View {
               }
                 .padding(.horizontal)
                 .multilineTextAlignment(.center)
-                .accentColor(.black)
+              .accentColor(Color(.label))
                 .background(Capsule()
                 .foregroundColor(Color("SubColor")))
             }
@@ -101,7 +101,7 @@ struct TranslateView: View {
             
             Button(action: { self.viewModel.showTargetLanguageSelectionView = true } ) {
                 Text(viewModel.targetLanguageSelection.name)
-                  .foregroundColor(.black)
+                  .foregroundColor(Color(.label))
                   .padding(.horizontal)
                   .background(
                     Capsule()

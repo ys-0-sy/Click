@@ -89,12 +89,11 @@ struct ListsView: View {
                 }.listStyle(GroupedListStyle())
               }
             }
-            .accentColor(.black)
+            .accentColor(Color(.label))
             .padding(.horizontal)
             .background(Color("SubColor"))
             .cornerRadius(10)
             Spacer()
-              .frame(width: 15)
             Button(action: {self.viewModel.showTargetLanguageSelectionView = true}) {
               if self.targetLanguageSelection == "" {
                 Text("All Languages")
@@ -146,11 +145,12 @@ struct ListsView: View {
                    }.listStyle(GroupedListStyle())
                  }
             }
-            .accentColor(.black)
+            .accentColor(Color(.label))
             .padding(.horizontal)
             .background(Color("SecondSubColor"))
             .cornerRadius(10)
           }
+          .frame(width: UIScreen.main.bounds.width * 0.8)
           List {
             ForEach(
               cards.filter { self.sourceLanguageSelection.isEmpty ? true : $0.sourceLanguage == self.sourceLanguageSelection }
@@ -205,13 +205,21 @@ struct ListsView: View {
         }
       }
     }
-      
+    .onTapGesture {
+      UIApplication.shared.CloseKeyboard()
+    }
     .onAppear { UITableView.appearance().separatorStyle = .none }
     .onDisappear { UITableView.appearance().separatorStyle = .singleLine }
     .navigationBarTitle("Words List", displayMode: .inline)
     .navigationBarItems(trailing: EditButton())
 //    .environment(\.editMode, self.$isEditMode)
   }
+}
+
+extension UIApplication {
+    func CloseKeyboard() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }
 
 struct ListsView_Previews: PreviewProvider {

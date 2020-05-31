@@ -23,7 +23,14 @@ struct SearchBar: UIViewRepresentable {
 
         func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
             text = searchText
+          if searchText == "" {
+              print("UISearchBar.text cleared!")
+          }
         }
+        
+      func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        text = ""
+      }
     }
 
     func makeCoordinator() -> SearchBar.Coordinator {
@@ -33,7 +40,7 @@ struct SearchBar: UIViewRepresentable {
     func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
         let searchBar = UISearchBar(frame: .zero)
         searchBar.delegate = context.coordinator
-        searchBar.searchBarStyle = .minimal
+        //searchBar.searchBarStyle = .minimal
         searchBar.autocapitalizationType = .none
 
         return searchBar
