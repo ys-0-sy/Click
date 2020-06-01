@@ -37,7 +37,22 @@ extension Card: Identifiable {
       fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
     }
   }
+  
+  static func fetchCards() -> [Card] {
+      let context = persistentContainer.viewContext
+      let cardsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Card")
+
+      do {
+          let fetchedCards = try context.fetch(cardsFetch) as! [Card]
+          return fetchedCards
+      } catch {
+          fatalError("Failed to fetch employees: \(error)")
+      }
+
+      return []
+  }
 }
+
 
 extension Collection where Element == Card, Index == Int {
   func delete(at indicies: IndexSet, from managedObjectContext: NSManagedObjectContext) {

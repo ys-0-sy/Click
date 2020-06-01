@@ -220,8 +220,9 @@ struct TranslateView: View {
 
 
         .frame(maxWidth: .infinity)
-    }.navigationBarTitle("Translation")
-    .navigationViewStyle(StackNavigationViewStyle())
+    }
+      .navigationBarTitle("Translation")
+      .navigationViewStyle(StackNavigationViewStyle())
 
   }
   

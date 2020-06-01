@@ -9,5 +9,6 @@
 import Foundation
 
 struct Keys: Codable {
-    var googleAPIKey: String
+  var googleAPIKey: String
+  var purchaseSecretKey: String
 }

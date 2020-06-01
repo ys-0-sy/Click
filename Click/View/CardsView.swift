@@ -13,17 +13,17 @@ struct CardsView: View {
                                                    ascending: true)], animation: .default) var card: FetchedResults<Card>
   @Environment(\.managedObjectContext) var viewContext
     var body: some View {
-      
-      ZStack {
-        ForEach(card) { card in
-          ClickCard(card: card)
-          .animation(.easeInOut)
-        }
-      }
-      .padding()
-      .frame(width: UIScreen.main.bounds.width * 0.95)
-      .background(Color(.systemGray6))
-      .cornerRadius(8)
+      PurchaseView()
+//      ZStack {
+//        ForEach(card) { card in
+//          ClickCard(card: card)
+//          .animation(.easeInOut)
+//        }
+//      }
+//      .padding()
+//      .frame(width: UIScreen.main.bounds.width * 0.95)
+//      .background(Color(.systemGray6))
+//      .cornerRadius(8)
       .navigationBarTitle("Click")
     }
 }

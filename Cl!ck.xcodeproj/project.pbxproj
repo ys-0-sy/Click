@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B0C97392484FA7B00C6852A /* InAppPurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0C97382484FA7B00C6852A /* InAppPurchaseView.swift */; };
+		5B0C973B24850AB600C6852A /* PurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B0C973A24850AB600C6852A /* PurchaseView.swift */; };
 		5B171682242CF80E0081D603 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B171681242CF80E0081D603 /* AppDelegate.swift */; };
 		5B171684242CF80E0081D603 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B171683242CF80E0081D603 /* SceneDelegate.swift */; };
 		5B171689242CF80E0081D603 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B171688242CF80E0081D603 /* ContentView.swift */; };
@@ -78,6 +80,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B0C97382484FA7B00C6852A /* InAppPurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchaseView.swift; sourceTree = "<group>"; };
+		5B0C973A24850AB600C6852A /* PurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseView.swift; sourceTree = "<group>"; };
 		5B17167E242CF80E0081D603 /* Cl!ck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cl!ck.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B171681242CF80E0081D603 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B171683242CF80E0081D603 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -254,6 +258,7 @@
 				5BDEBB9F245ED1E50020F781 /* CardsHistory.swift */,
 				5B9698EF2468001F00A68E71 /* CardEntry.swift */,
 				5B9698F6246A693200A68E71 /* Extensions.swift */,
+				5B0C97382484FA7B00C6852A /* InAppPurchaseView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 			children = (
 				5B171688242CF80E0081D603 /* ContentView.swift */,
 				5BE2EE64242DBAA6007BC85F /* TranslateView.swift */,
+				5B0C973A24850AB600C6852A /* PurchaseView.swift */,
 				5BB7A56E245BBDC40020B47B /* CardsView.swift */,
 				5BEB19B7245826CE000AC426 /* ListsView.swift */,
 				5BF263952438A30D0047B426 /* Settings.swift */,
@@ -474,8 +480,10 @@
 				5B9698F02468001F00A68E71 /* CardEntry.swift in Sources */,
 				5B617E992472C3A60014D79E /* SerchBar.swift in Sources */,
 				5B312DAF24509B8700B36DF4 /* DetectionLanguage.swift in Sources */,
+				5B0C97392484FA7B00C6852A /* InAppPurchaseView.swift in Sources */,
 				5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */,
 				5BEB19B424581950000AC426 /* NSPersistentCloudKitContainer+Extensionswift.swift in Sources */,
+				5B0C973B24850AB600C6852A /* PurchaseView.swift in Sources */,
 				5BF263962438A30D0047B426 /* Settings.swift in Sources */,
 				5B27DC372480E4C0001E2250 /* AddNewCardView.swift in Sources */,
 				5B312DB124509C9900B36DF4 /* Keys.swift in Sources */,
@@ -688,7 +696,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1623;
+				CURRENT_PROJECT_VERSION = 1634;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -713,7 +721,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1623;
+				CURRENT_PROJECT_VERSION = 1634;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;

@@ -2,7 +2,7 @@
 //  Card+CoreDataProperties.swift
 //  Cl!ck
 //
-//  Created by saito on 2020/05/10.
+//  Created by saito on 2020/05/31.
 //  Copyright © 2020 ys-0-sy. All rights reserved.
 //
 //
