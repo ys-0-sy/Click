@@ -35,6 +35,9 @@
 		5B6CA76A247D5E840027C92E /* ListEditDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6CA769247D5E840027C92E /* ListEditDetail.swift */; };
 		5B6E3914243DDE6300120F33 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6E3913243DDE6300120F33 /* ButtonView.swift */; };
 		5B9156BF24445291003EFA2C /* keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B9156BE24445291003EFA2C /* keys.plist */; };
+		5B93C57F2487DA3E0084BB22 /* CardCount+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B93C57D2487DA3E0084BB22 /* CardCount+CoreDataClass.swift */; };
+		5B93C5802487DA3E0084BB22 /* CardCount+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B93C57E2487DA3E0084BB22 /* CardCount+CoreDataProperties.swift */; };
+		5B93C5832487E8CF0084BB22 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 5B93C5822487E8CF0084BB22 /* SwiftDate */; };
 		5B9698F02468001F00A68E71 /* CardEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9698EF2468001F00A68E71 /* CardEntry.swift */; };
 		5B9698F32468260800A68E71 /* Card+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9698F12468260800A68E71 /* Card+CoreDataClass.swift */; };
 		5B9698F42468260800A68E71 /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9698F22468260800A68E71 /* Card+CoreDataProperties.swift */; };
@@ -112,6 +115,8 @@
 		5B6CA769247D5E840027C92E /* ListEditDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEditDetail.swift; sourceTree = "<group>"; };
 		5B6E3913243DDE6300120F33 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		5B9156BE24445291003EFA2C /* keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.plist; sourceTree = "<group>"; };
+		5B93C57D2487DA3E0084BB22 /* CardCount+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardCount+CoreDataClass.swift"; sourceTree = "<group>"; };
+		5B93C57E2487DA3E0084BB22 /* CardCount+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CardCount+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5B9698EF2468001F00A68E71 /* CardEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardEntry.swift; sourceTree = "<group>"; };
 		5B9698F12468260800A68E71 /* Card+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataClass.swift"; sourceTree = "<group>"; };
 		5B9698F22468260800A68E71 /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -152,6 +157,7 @@
 				5BEB19B224581781000AC426 /* CloudKit.framework in Frameworks */,
 				5BDEBBAA245FBF710020F781 /* OHHTTPStubsSwift in Frameworks */,
 				5BDEBBA8245FBF710020F781 /* OHHTTPStubs in Frameworks */,
+				5B93C5832487E8CF0084BB22 /* SwiftDate in Frameworks */,
 				5B38972524867CCF00AB52C5 /* SwiftUIX in Frameworks */,
 				5B1C5037245C673F00F47F45 /* SwiftyStoreKit in Frameworks */,
 				5B38972224867ADF00AB52C5 /* KeyboardObserving in Frameworks */,
@@ -178,6 +184,8 @@
 		5B171675242CF80E0081D603 = {
 			isa = PBXGroup;
 			children = (
+				5B93C57D2487DA3E0084BB22 /* CardCount+CoreDataClass.swift */,
+				5B93C57E2487DA3E0084BB22 /* CardCount+CoreDataProperties.swift */,
 				5B9698F12468260800A68E71 /* Card+CoreDataClass.swift */,
 				5B9698F22468260800A68E71 /* Card+CoreDataProperties.swift */,
 				5BEB19AF2458177F000AC426 /* Cl!ck.entitlements */,
@@ -356,6 +364,7 @@
 				5B38972124867ADF00AB52C5 /* KeyboardObserving */,
 				5B38972424867CCF00AB52C5 /* SwiftUIX */,
 				5B3897272486A06A00AB52C5 /* PartialSheet */,
+				5B93C5822487E8CF0084BB22 /* SwiftDate */,
 			);
 			productName = Memolation;
 			productReference = 5B17167E242CF80E0081D603 /* Cl!ck.app */;
@@ -436,6 +445,7 @@
 				5B38972024867ADF00AB52C5 /* XCRemoteSwiftPackageReference "KeyboardObserving" */,
 				5B38972324867CCF00AB52C5 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 				5B3897262486A06A00AB52C5 /* XCRemoteSwiftPackageReference "PartialSheet" */,
+				5B93C5812487E8CF0084BB22 /* XCRemoteSwiftPackageReference "SwiftDate" */,
 			);
 			productRefGroup = 5B17167F242CF80E0081D603 /* Products */;
 			projectDirPath = "";
@@ -486,9 +496,11 @@
 				5BEB19A8245813D8000AC426 /* Click.xcdatamodeld in Sources */,
 				5B9698F42468260800A68E71 /* Card+CoreDataProperties.swift in Sources */,
 				5BBCB480244DD8E4008107C4 /* APIServiceError.swift in Sources */,
+				5B93C57F2487DA3E0084BB22 /* CardCount+CoreDataClass.swift in Sources */,
 				5B9698F02468001F00A68E71 /* CardEntry.swift in Sources */,
 				5B312DAF24509B8700B36DF4 /* DetectionLanguage.swift in Sources */,
 				5B0C97392484FA7B00C6852A /* InAppPurchaseView.swift in Sources */,
+				5B93C5802487DA3E0084BB22 /* CardCount+CoreDataProperties.swift in Sources */,
 				5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */,
 				5BEB19B424581950000AC426 /* NSPersistentCloudKitContainer+Extensionswift.swift in Sources */,
 				5B0C973B24850AB600C6852A /* PurchaseView.swift in Sources */,
@@ -704,7 +716,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1679;
+				CURRENT_PROJECT_VERSION = 1688;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -729,7 +741,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1679;
+				CURRENT_PROJECT_VERSION = 1688;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -905,6 +917,14 @@
 				minimumVersion = 2.1.4;
 			};
 		};
+		5B93C5812487E8CF0084BB22 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
 		5BDEBBA6245FBF710020F781 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AliSoftware/OHHTTPStubs.git";
@@ -935,6 +955,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5B3897262486A06A00AB52C5 /* XCRemoteSwiftPackageReference "PartialSheet" */;
 			productName = PartialSheet;
+		};
+		5B93C5822487E8CF0084BB22 /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5B93C5812487E8CF0084BB22 /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
 		};
 		5BDEBBA7245FBF710020F781 /* OHHTTPStubs */ = {
 			isa = XCSwiftPackageProductDependency;

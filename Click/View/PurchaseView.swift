@@ -8,9 +8,11 @@
 
 import SwiftUI
 import SwiftyStoreKit
+import PartialSheet
 
 struct PurchaseView: View {
-  @State private var stateInAppPurchaseFlag = false
+  @EnvironmentObject var partialSheetManager : PartialSheetManager
+  @Binding var stateInAppPurchaseFlag: Bool
   @State var priceString: String = ""
   @State var productInfo = ""
   
@@ -25,6 +27,8 @@ struct PurchaseView: View {
       .padding(.bottom)
       Button(action: {
         purchase(with: "com.ys_0_sy.click")
+        self.partialSheetManager.closePartialSheet()
+
       }) {
         HStack {
           Text(productInfo)
@@ -37,7 +41,27 @@ struct PurchaseView: View {
           .foregroundColor(Color("SubColor"))
         )
       }
-      Button(action: {verifyPurchase(with: "com.ys_0_sy.click")}) {
+      Button(action: {
+        verifyPurchase(with: "com.ys_0_sy.click")
+        if UserDefaults.standard.object(forKey: "buy") != nil {
+          let count = UserDefaults.standard.object(forKey: "buy") as! Int
+          if count == 1 {
+            inAppPurchaseFlag = true
+          }
+        } else {
+          inAppPurchaseFlag = false
+        }
+        guard inAppPurchaseFlag else {
+          purchase(with: "com.ys_0_sy.click")
+          return
+        }
+        
+        print("InAppPurchase is exist. inAppPurchaseFlag: \(inAppPurchaseFlag)")
+        
+        self.stateInAppPurchaseFlag = inAppPurchaseFlag
+        self.partialSheetManager.closePartialSheet()
+
+      }) {
         Text("Already a subscriber? Restore your purches.")
           .font(.caption)
       }
@@ -58,30 +82,13 @@ struct PurchaseView: View {
               print("Error: \(result.error ?? "" as! Error)")
             }
         }
-        verifyPurchase(with: "com.ys_0_sy.click")
-        if UserDefaults.standard.object(forKey: "buy") != nil {
-          let count = UserDefaults.standard.object(forKey: "buy") as! Int
-          if count == 1 {
-            inAppPurchaseFlag = true
-          }
-        } else {
-          inAppPurchaseFlag = false
-        }
-        guard inAppPurchaseFlag else {
-          purchase(with: "com.ys_0_sy.click")
-          return
-        }
-        
-        print("InAppPurchase is exist. inAppPurchaseFlag: \(inAppPurchaseFlag)")
-        
-        self.stateInAppPurchaseFlag = inAppPurchaseFlag
     }
   }
 }
 
 struct PurchaseView_Previews: PreviewProvider {
   static var previews: some View {
-    PurchaseView()
+    PurchaseView(stateInAppPurchaseFlag: .constant(false))
       .previewLayout(.sizeThatFits)
   }
 }

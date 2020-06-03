@@ -28,7 +28,7 @@ extension Card: Identifiable {
     newCard.id = UUID().uuidString
     newCard.timestamp = Date()
     newCard.isRemembered = false
-    
+        
     do {
       managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
       try managedObjectContext.save()
@@ -47,11 +47,47 @@ extension Card: Identifiable {
           return fetchedCards
       } catch {
         fatalError("Failed to fetch employees: \(error)")
-        return []
       }
   }
 }
 
+extension CardCount {
+  private static var persistentContainer: NSPersistentCloudKitContainer! = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+  static func create(in managedObjectContext: NSManagedObjectContext = persistentContainer.viewContext) {
+    let addCard = self.init(context: managedObjectContext)
+    addCard.cardNum = addCard.cardNum + 1
+    addCard.date = Date()
+    do {
+      managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+      try managedObjectContext.save()
+    } catch {
+      let nserror = error as NSError
+      fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+    }
+  }
+  
+  static func addCount(in managedObjectContext: NSManagedObjectContext = persistentContainer.viewContext) {
+    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CardCount")
+    fetchRequest.returnsObjectsAsFaults = false
+    if let argDate = date {
+      let predicate = NSPredicate(format: "self.date BETWEEN {%@ , %@}", argDate as NSDate, NSDate(timeInterval: 24*60*60-1, since: argDate))
+      fetchRequest.predicate = predicate
+    }
+
+    do {
+    let fetchResults = try managedObjectContext.fetch(fetchRequest) as! [CardCount]
+    print(fetchResults)
+      for fetchResult in fetchResults {
+        let managedObject = fetchResult as NSManagedObject
+        managedObject.setValue(fetchResult.cardNum + 1, forKey: "cardNum")
+          try managedObjectContext.save()
+      }
+    } catch {
+      let nserror = error as NSError
+      fatalError("Update Error \(nserror),  \(nserror.userInfo)")
+    }
+  }
+}
 
 extension Collection where Element == Card, Index == Int {
   func delete(at indicies: IndexSet, from managedObjectContext: NSManagedObjectContext) {
