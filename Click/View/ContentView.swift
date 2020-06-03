@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import PartialSheet
+
 struct ContentView: View {
   @State private var selection = 1
 
@@ -58,7 +60,9 @@ struct ContentView: View {
           }
       }
     .tag(3)
-    }.accentColor(Color("SecondBaseColor"))
+    }
+    .accentColor(Color("SecondBaseColor"))
+    .addPartialSheet(style: PartialSheetStyle.defaultStyle())
   }
 }
 

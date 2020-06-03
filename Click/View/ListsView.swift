@@ -8,6 +8,7 @@
 
 import SwiftUI
 import CoreData
+import SwiftUIX
 
 struct ListsView: View {
   @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Card.id, ascending: true)], animation: .default) var cards: FetchedResults<Card>
@@ -206,7 +207,7 @@ struct ListsView: View {
       }
     }
     .onTapGesture {
-      UIApplication.shared.CloseKeyboard()
+      UIApplication.shared.closeKeyboard()
     }
     .onAppear { UITableView.appearance().separatorStyle = .none }
     .onDisappear { UITableView.appearance().separatorStyle = .singleLine }
@@ -216,11 +217,7 @@ struct ListsView: View {
   }
 }
 
-extension UIApplication {
-    func CloseKeyboard() {
-        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
+
 
 struct ListsView_Previews: PreviewProvider {
     static var previews: some View {

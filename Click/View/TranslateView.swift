@@ -8,9 +8,12 @@
 
 import SwiftUI
 import Combine
+import PartialSheet
 
 struct TranslateView: View {
   @ObservedObject var viewModel: TranslateViewModel
+  @EnvironmentObject var partialSheetManager: PartialSheetManager
+
   
   init() {
     self.viewModel = TranslateViewModel()
@@ -43,7 +46,7 @@ struct TranslateView: View {
               }
                 .padding(.horizontal)
                 .multilineTextAlignment(.center)
-              .accentColor(Color(.label))
+                .accentColor(Color(.label))
                 .background(Capsule()
                 .foregroundColor(Color("SubColor")))
             }
@@ -146,8 +149,14 @@ struct TranslateView: View {
           }.frame(alignment: .leading)
           
             MultilineTextField(text: $viewModel.sourceText, onCommit: {
-              self.viewModel.apply(inputs: .onCommitText(text: self.viewModel.sourceText))
-              print(self.viewModel.sourceText)
+              self.viewModel.apply(inputs:
+              .onCommitText(text: self.viewModel.sourceText))
+              self.partialSheetManager.showPartialSheet({
+                print("Partial sheet dismissed")
+              }) {
+                PurchaseView()
+                Spacer()
+              }
             })
             .padding()
             .frame(
@@ -212,7 +221,6 @@ struct TranslateView: View {
             Spacer()
               .frame(height: 30)
           }
-          
            .frame(width: UIScreen.main.bounds.width * 0.95)
            .background(Color(UIColor.systemGray6))
            .cornerRadius(20)
@@ -221,6 +229,9 @@ struct TranslateView: View {
 
         .frame(maxWidth: .infinity)
     }
+      .onTapGesture {
+        UIApplication.shared.closeKeyboard()
+      }
       .navigationBarTitle("Translation")
       .navigationViewStyle(StackNavigationViewStyle())
 
@@ -228,11 +239,6 @@ struct TranslateView: View {
   
 }
 
-extension UIApplication {
-    func closeKeyboard() {
-        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
 struct TranslateView_Previews: PreviewProvider {
     static var previews: some View {
       TranslateView()

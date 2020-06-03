@@ -46,10 +46,9 @@ extension Card: Identifiable {
           let fetchedCards = try context.fetch(cardsFetch) as! [Card]
           return fetchedCards
       } catch {
-          fatalError("Failed to fetch employees: \(error)")
+        fatalError("Failed to fetch employees: \(error)")
+        return []
       }
-
-      return []
   }
 }
 

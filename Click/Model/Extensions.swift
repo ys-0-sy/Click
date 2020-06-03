@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import SwiftUI
 public extension Collection {
     subscript(safe index: Index) -> Element? {
         startIndex <= index && index < endIndex ? self[index] : nil
@@ -43,5 +43,11 @@ extension UserDefaults {
         let data = self.data(forKey: key)
         let object = T.decode(json: data)
         return object
+    }
+}
+
+extension UIApplication {
+    func closeKeyboard() {
+      sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
