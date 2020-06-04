@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import UIKit
+import SwiftDate
 
 extension Card: Identifiable {
   private static var persistentContainer: NSPersistentCloudKitContainer! = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
@@ -55,8 +56,8 @@ extension CardCount {
   private static var persistentContainer: NSPersistentCloudKitContainer! = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
   static func create(in managedObjectContext: NSManagedObjectContext = persistentContainer.viewContext) {
     let addCard = self.init(context: managedObjectContext)
-    addCard.cardNum = addCard.cardNum + 1
-    addCard.date = Date()
+    addCard.cardNum = 1
+    addCard.addDate = Date()
     do {
       managedObjectContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
       try managedObjectContext.save()
@@ -69,23 +70,45 @@ extension CardCount {
   static func addCount(in managedObjectContext: NSManagedObjectContext = persistentContainer.viewContext) {
     let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CardCount")
     fetchRequest.returnsObjectsAsFaults = false
-    if let argDate = date {
-      let predicate = NSPredicate(format: "self.date BETWEEN {%@ , %@}", argDate as NSDate, NSDate(timeInterval: 24*60*60-1, since: argDate))
-      fetchRequest.predicate = predicate
-    }
-
+    let argDate = Date() - 3.days
+    let sinceDate = Date() + 3.days
+    let datePredicate = NSPredicate(format: "self.addDate BETWEEN {%@ , %@}", argDate as NSDate, sinceDate as NSDate)
+    fetchRequest.predicate = datePredicate
     do {
-    let fetchResults = try managedObjectContext.fetch(fetchRequest) as! [CardCount]
-    print(fetchResults)
-      for fetchResult in fetchResults {
-        let managedObject = fetchResult as NSManagedObject
-        managedObject.setValue(fetchResult.cardNum + 1, forKey: "cardNum")
-          try managedObjectContext.save()
+      let fetchResults = try managedObjectContext.fetch(fetchRequest) as! [CardCount]
+      print("Results: \(fetchResults)")
+      if fetchResults.count > 0 {
+        for fetchResult in fetchResults {
+          if let addDate = fetchResult.value(forKey: "addDate") as! Date? {
+            if addDate.compare(.isToday) {
+              let managedObject = fetchResult as NSManagedObject
+              managedObject.setValue(fetchResult.value(forKey: "cardNum") as! Int + 1, forKey: "cardNum")
+                try managedObjectContext.save()
+            } else {
+              create()
+            }
+          }
+
+        }
+      } else {
+        create()
       }
     } catch {
       let nserror = error as NSError
       fatalError("Update Error \(nserror),  \(nserror.userInfo)")
     }
+  }
+  
+  static func fetchCounts() -> [CardCount] {
+      let context = persistentContainer.viewContext
+      let cardsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CardCount")
+
+      do {
+          let fetchedCards = try context.fetch(cardsFetch) as! [CardCount]
+          return fetchedCards
+      } catch {
+        fatalError("Failed to fetch employees: \(error)")
+      }
   }
 }
 

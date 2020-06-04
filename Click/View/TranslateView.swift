@@ -13,7 +13,6 @@ import PartialSheet
 struct TranslateView: View {
   @ObservedObject var viewModel: TranslateViewModel
   @EnvironmentObject var partialSheetManager: PartialSheetManager
-  @State var stateInAppPurchaseFlag = false
   
   init() {
     self.viewModel = TranslateViewModel()
@@ -151,11 +150,13 @@ struct TranslateView: View {
             MultilineTextField(text: $viewModel.sourceText, onCommit: {
               self.viewModel.apply(inputs:
               .onCommitText(text: self.viewModel.sourceText))
-              if !self.stateInAppPurchaseFlag  {
+              print("purchaseFlag: \(self.viewModel.stateInAppPurchaseFlag)")
+              print("isFree: \(self.viewModel.isFree)")
+              if !self.viewModel.stateInAppPurchaseFlag && !self.viewModel.isFree {
                 self.partialSheetManager.showPartialSheet({
                   print("Partial sheet dismissed")
                 }) {
-                  PurchaseView(stateInAppPurchaseFlag: self.$stateInAppPurchaseFlag)
+                  PurchaseView()
                   Spacer()
                 }
               }

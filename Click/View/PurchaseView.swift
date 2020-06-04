@@ -12,9 +12,13 @@ import PartialSheet
 
 struct PurchaseView: View {
   @EnvironmentObject var partialSheetManager : PartialSheetManager
-  @Binding var stateInAppPurchaseFlag: Bool
   @State var priceString: String = ""
   @State var productInfo = ""
+  @ObservedObject var viewModel: TranslateViewModel
+
+  init() {
+    self.viewModel = TranslateViewModel()
+  }
   
   var body: some View {
     VStack {
@@ -27,6 +31,7 @@ struct PurchaseView: View {
       .padding(.bottom)
       Button(action: {
         purchase(with: "com.ys_0_sy.click")
+        self.viewModel.stateInAppPurchaseFlag = inAppPurchaseFlag
         self.partialSheetManager.closePartialSheet()
 
       }) {
@@ -58,7 +63,7 @@ struct PurchaseView: View {
         
         print("InAppPurchase is exist. inAppPurchaseFlag: \(inAppPurchaseFlag)")
         
-        self.stateInAppPurchaseFlag = inAppPurchaseFlag
+        self.viewModel.stateInAppPurchaseFlag = inAppPurchaseFlag
         self.partialSheetManager.closePartialSheet()
 
       }) {
@@ -88,7 +93,7 @@ struct PurchaseView: View {
 
 struct PurchaseView_Previews: PreviewProvider {
   static var previews: some View {
-    PurchaseView(stateInAppPurchaseFlag: .constant(false))
+    PurchaseView()
       .previewLayout(.sizeThatFits)
   }
 }

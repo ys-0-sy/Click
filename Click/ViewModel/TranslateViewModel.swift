@@ -44,6 +44,8 @@ final class TranslateViewModel: ObservableObject {
   @Published var showTargetLanguageSelectionView: Bool = false
   @Published var cardsHistory: [CardsHistory] = []
   @Published var languageHistory: [TranslationLanguage] = []
+  @Published var isFree = true
+  @Published var stateInAppPurchaseFlag = false
 
   
   init() {
@@ -74,8 +76,20 @@ final class TranslateViewModel: ObservableObject {
       }
     case .onCommitText(let text):
       if text != "" {
-        onCheckLanguageSubject.send(text)
-        translateLanguageSubject.send(Translate(query: text, sourceLanguage: self.sourceLanguageSelection, targetLanguage: self.targetLanguageSelection))
+        for count in CardCount.fetchCounts() {
+          if count.addDate.isToday {
+            if count.cardNum >= 10 {
+              self.isFree = false
+            } else {
+              self.isFree = true
+            }
+          }
+        }
+        CardCount.addCount()
+        if self.stateInAppPurchaseFlag || self.isFree {
+          onCheckLanguageSubject.send(text)
+          translateLanguageSubject.send(Translate(query: text, sourceLanguage: self.sourceLanguageSelection, targetLanguage: self.targetLanguageSelection))
+        }
       }
     }
   }

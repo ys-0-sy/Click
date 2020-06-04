@@ -18,6 +18,6 @@ extension CardCount {
     }
 
     @NSManaged public var cardNum: Int64
-    @NSManaged public var date: Date
+    @NSManaged public var addDate: Date
 
 }
