@@ -48,6 +48,7 @@
 		5BBCB47B244DD7E1008107C4 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCB47A244DD7E1008107C4 /* Response.swift */; };
 		5BBCB47E244DD893008107C4 /* FetchSupportedLanguageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCB47D244DD893008107C4 /* FetchSupportedLanguageRequest.swift */; };
 		5BBCB480244DD8E4008107C4 /* APIServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BBCB47F244DD8E4008107C4 /* APIServiceError.swift */; };
+		5BD327CD248A37E600A1E028 /* FlashCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD327CC248A37E600A1E028 /* FlashCardView.swift */; };
 		5BDEBB9C245EC46F0020F781 /* TranslateViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEBB9B245EC46F0020F781 /* TranslateViewModelTest.swift */; };
 		5BDEBB9E245EC8870020F781 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEBB9D245EC8870020F781 /* APIServiceTests.swift */; };
 		5BDEBBA0245ED1E50020F781 /* CardsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDEBB9F245ED1E50020F781 /* CardsHistory.swift */; };
@@ -128,6 +129,7 @@
 		5BBCB47A244DD7E1008107C4 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		5BBCB47D244DD893008107C4 /* FetchSupportedLanguageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchSupportedLanguageRequest.swift; sourceTree = "<group>"; };
 		5BBCB47F244DD8E4008107C4 /* APIServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceError.swift; sourceTree = "<group>"; };
+		5BD327CC248A37E600A1E028 /* FlashCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashCardView.swift; sourceTree = "<group>"; };
 		5BDEBB9B245EC46F0020F781 /* TranslateViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewModelTest.swift; sourceTree = "<group>"; };
 		5BDEBB9D245EC8870020F781 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		5BDEBB9F245ED1E50020F781 /* CardsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsHistory.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				5BE2EE64242DBAA6007BC85F /* TranslateView.swift */,
 				5B0C973A24850AB600C6852A /* PurchaseView.swift */,
 				5BB7A56E245BBDC40020B47B /* CardsView.swift */,
+				5BD327CC248A37E600A1E028 /* FlashCardView.swift */,
 				5BEB19B7245826CE000AC426 /* ListsView.swift */,
 				5BF263952438A30D0047B426 /* Settings.swift */,
 			);
@@ -524,6 +527,7 @@
 				5B6CA76A247D5E840027C92E /* ListEditDetail.swift in Sources */,
 				5BE2EE6B242DC1FE007BC85F /* MultilineTextField.swift in Sources */,
 				5BF23E82245917A500724557 /* ListView.swift in Sources */,
+				5BD327CD248A37E600A1E028 /* FlashCardView.swift in Sources */,
 				5BDEBBA0245ED1E50020F781 /* CardsHistory.swift in Sources */,
 				5BBCB47E244DD893008107C4 /* FetchSupportedLanguageRequest.swift in Sources */,
 				5B9698F7246A693200A68E71 /* Extensions.swift in Sources */,
@@ -712,7 +716,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1784;
+				CURRENT_PROJECT_VERSION = 1824;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -737,7 +741,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1784;
+				CURRENT_PROJECT_VERSION = 1824;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;

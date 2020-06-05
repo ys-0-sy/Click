@@ -10,12 +10,12 @@ import SwiftUI
 
 struct CardsView: View {
   @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Card.id,
-                                                   ascending: true)], animation: .default) var card: FetchedResults<Card>
+                                                   ascending: true)], animation: .default) var cards: FetchedResults<Card>
   @Environment(\.managedObjectContext) var viewContext
   @State private var cardNum = 0
   @State var isClicked = false
     var body: some View {
-      
+      ScrollView {
       VStack {
         VStack{
           HStack {
@@ -48,28 +48,39 @@ struct CardsView: View {
           .frame(width: UIScreen.main.bounds.width * 0.75)
           HStack {
             VStack {
-              Spacer()
+              Image("Write")
+                .resizable()
+                .scaledToFit()
+                .padding()
               Text("Write")
               .padding()
             }
-            .frame(width: 130, height: 250)
+            .frame(width: UIScreen.main.bounds.width * 0.75 / 2.2)
               .background(
                 RoundedRectangle(cornerRadius: 25)
-                .stroke()
-                  .foregroundColor(Color(UIColor.systemGray))
+                .foregroundColor(Color.white)
+                .cornerRadius(25)
+                .shadow(radius: 4, x: 2, y: 2)
               )
             Spacer()
-            VStack {
-              Spacer()
-              Text("Flash")
-              .padding()
+            NavigationLink(destination: FlashCardView()) {
+              VStack {
+                Image("Frame 4")
+                  .resizable()
+                  .scaledToFit()
+                  .padding()
+                Text("Flash")
+                  .padding(.vertical)
+              }
+              .frame(width: UIScreen.main.bounds.width * 0.75 / 2.2)
+                .background(
+                  RoundedRectangle(cornerRadius: 25)
+                    .foregroundColor(Color.white)
+                    .cornerRadius(25)
+                    .shadow(radius: 4, x: 2, y: 2)
+                )
             }
-              .frame(width: 130, height: 250)
-              .background(
-                RoundedRectangle(cornerRadius: 25)
-                .stroke()
-                  .foregroundColor(Color(UIColor.systemGray))
-              )
+            .accentColor(Color(.label))
             
           }
         .frame(width: UIScreen.main.bounds.width * 0.75)
@@ -84,19 +95,22 @@ struct CardsView: View {
           Text("Cards")
             .font(.title)
             .fontWeight(.semibold)
+            .padding()
+          ForEach(cards, id: \.self) { card in
+              ListView(card: card, width: UIScreen.main.bounds.width * 0.87)
+                .background(Color(.systemBackground))
+                .listRowInsets(EdgeInsets())
+                .listRowBackground(Color(.systemGray6))
+                .cornerRadius(8)
+                .padding()
+          }
+          
         }
         .frame(width: UIScreen.main.bounds.width * 0.95)
         .background(Color(.systemGray6))
         .cornerRadius(8)
       }
-//      ZStack {
-//        ForEach(card) { card in
-//          ClickCard(card: card)
-//          .animation(.easeInOut)
-//        }
-//      }
-//      .padding()
-
+      }
       .navigationBarTitle("Click")
     }
 }
