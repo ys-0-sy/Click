@@ -26,7 +26,6 @@
 		5B312DAF24509B8700B36DF4 /* DetectionLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DAE24509B8700B36DF4 /* DetectionLanguage.swift */; };
 		5B312DB124509C9900B36DF4 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DB024509C9900B36DF4 /* Keys.swift */; };
 		5B312DB324510C9400B36DF4 /* Translate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B312DB224510C9400B36DF4 /* Translate.swift */; };
-		5B38972224867ADF00AB52C5 /* KeyboardObserving in Frameworks */ = {isa = PBXBuildFile; productRef = 5B38972124867ADF00AB52C5 /* KeyboardObserving */; };
 		5B38972524867CCF00AB52C5 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 5B38972424867CCF00AB52C5 /* SwiftUIX */; };
 		5B3897282486A06A00AB52C5 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 5B3897272486A06A00AB52C5 /* PartialSheet */; };
 		5B42363C2457D6A9008BFABF /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B42363B2457D6A9008BFABF /* HistoryView.swift */; };
@@ -160,7 +159,6 @@
 				5B93C5832487E8CF0084BB22 /* SwiftDate in Frameworks */,
 				5B38972524867CCF00AB52C5 /* SwiftUIX in Frameworks */,
 				5B1C5037245C673F00F47F45 /* SwiftyStoreKit in Frameworks */,
-				5B38972224867ADF00AB52C5 /* KeyboardObserving in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,7 +359,6 @@
 				5B1C5036245C673F00F47F45 /* SwiftyStoreKit */,
 				5BDEBBA7245FBF710020F781 /* OHHTTPStubs */,
 				5BDEBBA9245FBF710020F781 /* OHHTTPStubsSwift */,
-				5B38972124867ADF00AB52C5 /* KeyboardObserving */,
 				5B38972424867CCF00AB52C5 /* SwiftUIX */,
 				5B3897272486A06A00AB52C5 /* PartialSheet */,
 				5B93C5822487E8CF0084BB22 /* SwiftDate */,
@@ -442,7 +439,6 @@
 			packageReferences = (
 				5B1C5035245C673F00F47F45 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
 				5BDEBBA6245FBF710020F781 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
-				5B38972024867ADF00AB52C5 /* XCRemoteSwiftPackageReference "KeyboardObserving" */,
 				5B38972324867CCF00AB52C5 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 				5B3897262486A06A00AB52C5 /* XCRemoteSwiftPackageReference "PartialSheet" */,
 				5B93C5812487E8CF0084BB22 /* XCRemoteSwiftPackageReference "SwiftDate" */,
@@ -716,7 +712,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1723;
+				CURRENT_PROJECT_VERSION = 1753;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -741,7 +737,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1723;
+				CURRENT_PROJECT_VERSION = 1753;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -893,14 +889,6 @@
 				minimumVersion = 0.15.1;
 			};
 		};
-		5B38972024867ADF00AB52C5 /* XCRemoteSwiftPackageReference "KeyboardObserving" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/nickffox/KeyboardObserving.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.3.0;
-			};
-		};
 		5B38972324867CCF00AB52C5 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX.git";
@@ -940,11 +928,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5B1C5035245C673F00F47F45 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
 			productName = SwiftyStoreKit;
-		};
-		5B38972124867ADF00AB52C5 /* KeyboardObserving */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5B38972024867ADF00AB52C5 /* XCRemoteSwiftPackageReference "KeyboardObserving" */;
-			productName = KeyboardObserving;
 		};
 		5B38972424867CCF00AB52C5 /* SwiftUIX */ = {
 			isa = XCSwiftPackageProductDependency;

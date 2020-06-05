@@ -77,7 +77,7 @@ final class TranslateViewModel: ObservableObject {
     case .onCommitText(let text):
       if text != "" {
         for count in CardCount.fetchCounts() {
-          if count.addDate.isToday {
+          if count.addDate.compare(.isThisMonth) {
             if count.cardNum >= 10 {
               self.isFree = false
             } else {

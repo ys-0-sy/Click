@@ -70,8 +70,8 @@ extension CardCount {
   static func addCount(in managedObjectContext: NSManagedObjectContext = persistentContainer.viewContext) {
     let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "CardCount")
     fetchRequest.returnsObjectsAsFaults = false
-    let argDate = Date() - 3.days
-    let sinceDate = Date() + 3.days
+    let argDate = Date() - 1.months
+    let sinceDate = Date() + 1.months
     let datePredicate = NSPredicate(format: "self.addDate BETWEEN {%@ , %@}", argDate as NSDate, sinceDate as NSDate)
     fetchRequest.predicate = datePredicate
     do {
@@ -80,7 +80,7 @@ extension CardCount {
       if fetchResults.count > 0 {
         for fetchResult in fetchResults {
           if let addDate = fetchResult.value(forKey: "addDate") as! Date? {
-            if addDate.compare(.isToday) {
+            if addDate.compare(.isThisMonth) {
               let managedObject = fetchResult as NSManagedObject
               managedObject.setValue(fetchResult.value(forKey: "cardNum") as! Int + 1, forKey: "cardNum")
                 try managedObjectContext.save()

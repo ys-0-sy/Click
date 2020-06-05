@@ -80,7 +80,6 @@ struct TranslateView: View {
                     }
                     ForEach(self.viewModel.surpportedLanguages, id: \.self) { language in
                       Button(action: {
-                        print("tapped")
                         self.viewModel.apply(inputs: .tappedSourceLanguageSelection(language: language)) }) {
                         Text(language.name)
                       }
