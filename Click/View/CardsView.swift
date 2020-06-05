@@ -19,25 +19,61 @@ struct CardsView: View {
       VStack {
         VStack{
           HStack {
+            Spacer()
             Text("Total: \(cardNum) Cards")
             Spacer()
             Text("notClicked")
             Toggle("", isOn: $isClicked)
              .labelsHidden()
           }
-          .padding()
+          .frame(width: UIScreen.main.bounds.width * 0.85)
+          .padding(.vertical)
           HStack{
             Text("English")
               .padding(.horizontal)
+              .background(
+                Capsule()
+                .foregroundColor(Color("SubColor"))
+            )
+            Spacer()
             Image(systemName: "arrow.right")
+            Spacer()
             Text("Japanese")
               .padding(.horizontal)
+            .background(
+            Capsule()
+              .foregroundColor(Color("SecondSubColor")))
           }
+          .padding()
+          .frame(width: UIScreen.main.bounds.width * 0.75)
           HStack {
-            Text("Write")
-            Text("Flash")
+            VStack {
+              Spacer()
+              Text("Write")
+              .padding()
+            }
+            .frame(width: 130, height: 250)
+              .background(
+                RoundedRectangle(cornerRadius: 25)
+                .stroke()
+                  .foregroundColor(Color(UIColor.systemGray))
+              )
+            Spacer()
+            VStack {
+              Spacer()
+              Text("Flash")
+              .padding()
+            }
+              .frame(width: 130, height: 250)
+              .background(
+                RoundedRectangle(cornerRadius: 25)
+                .stroke()
+                  .foregroundColor(Color(UIColor.systemGray))
+              )
+            
           }
-        .padding()
+        .frame(width: UIScreen.main.bounds.width * 0.75)
+          .padding(.vertical)
         }
         .frame(width: UIScreen.main.bounds.width * 0.95)
         .background(Color(.systemGray6))
@@ -47,7 +83,7 @@ struct CardsView: View {
         VStack(alignment: .leading) {
           Text("Cards")
             .font(.title)
-            .fontWeight(.bold)
+            .fontWeight(.semibold)
         }
         .frame(width: UIScreen.main.bounds.width * 0.95)
         .background(Color(.systemGray6))
