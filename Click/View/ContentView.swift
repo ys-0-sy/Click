@@ -61,7 +61,7 @@ struct ContentView: View {
       }
     .tag(3)
     }
-    .accentColor(Color("SecondBaseColor"))
+    .accentColor(Color("BaseColor"))
     .addPartialSheet(style: PartialSheetStyle.defaultStyle())
   }
 }

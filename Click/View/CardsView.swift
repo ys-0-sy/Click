@@ -15,7 +15,7 @@ struct CardsView: View {
   @State private var cardNum = 0
   @State var isClicked = false
     var body: some View {
-      ScrollView {
+      ScrollView(showsIndicators: false ){
       VStack {
         VStack{
           HStack {
@@ -44,28 +44,31 @@ struct CardsView: View {
             Capsule()
               .foregroundColor(Color("SecondSubColor")))
           }
-          .padding()
+          .padding(.horizontal)
           .frame(width: UIScreen.main.bounds.width * 0.75)
           HStack {
-            VStack {
-              Image("Write")
-                .resizable()
-                .scaledToFit()
+            NavigationLink(destination: EmptyView()) {
+              VStack {
+                Image("Write")
+                  .resizable()
+                  .scaledToFit()
+                  .padding()
+                Text("Write")
                 .padding()
-              Text("Write")
-              .padding()
+              }
+              .frame(width: UIScreen.main.bounds.width * 0.75 / 2.2)
+                .background(
+                  RoundedRectangle(cornerRadius: 25)
+                    .foregroundColor(Color(UIColor.systemBackground))
+                  .cornerRadius(25)
+                  .shadow(radius: 4, x: 2, y: 2)
+                )
             }
-            .frame(width: UIScreen.main.bounds.width * 0.75 / 2.2)
-              .background(
-                RoundedRectangle(cornerRadius: 25)
-                .foregroundColor(Color.white)
-                .cornerRadius(25)
-                .shadow(radius: 4, x: 2, y: 2)
-              )
+            .accentColor(Color(.label))
             Spacer()
             NavigationLink(destination: FlashCardView()) {
               VStack {
-                Image("Frame 4")
+                Image("Flash")
                   .resizable()
                   .scaledToFit()
                   .padding()
@@ -75,7 +78,7 @@ struct CardsView: View {
               .frame(width: UIScreen.main.bounds.width * 0.75 / 2.2)
                 .background(
                   RoundedRectangle(cornerRadius: 25)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color(UIColor.systemBackground))
                     .cornerRadius(25)
                     .shadow(radius: 4, x: 2, y: 2)
                 )
@@ -95,7 +98,8 @@ struct CardsView: View {
           Text("Cards")
             .font(.title)
             .fontWeight(.semibold)
-            .padding()
+            .padding(.horizontal)
+            .padding(.top)
           ForEach(cards, id: \.self) { card in
               ListView(card: card, width: UIScreen.main.bounds.width * 0.87)
                 .background(Color(.systemBackground))

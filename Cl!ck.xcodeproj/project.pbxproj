@@ -293,6 +293,7 @@
 				5BB7A56E245BBDC40020B47B /* CardsView.swift */,
 				5BD327CC248A37E600A1E028 /* FlashCardView.swift */,
 				5BEB19B7245826CE000AC426 /* ListsView.swift */,
+				5B27DC362480E4C0001E2250 /* AddNewCardView.swift */,
 				5BF263952438A30D0047B426 /* Settings.swift */,
 			);
 			path = View;
@@ -329,7 +330,6 @@
 				5BF23E81245917A500724557 /* ListView.swift */,
 				5B1C5033245BFFCE00F47F45 /* ClickCard.swift */,
 				5B6CA769247D5E840027C92E /* ListEditDetail.swift */,
-				5B27DC362480E4C0001E2250 /* AddNewCardView.swift */,
 			);
 			path = ViewComponents;
 			sourceTree = "<group>";
@@ -716,7 +716,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1824;
+				CURRENT_PROJECT_VERSION = 1850;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -741,7 +741,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1824;
+				CURRENT_PROJECT_VERSION = 1850;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;

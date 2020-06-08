@@ -184,6 +184,7 @@ struct AddNewCardView: View {
         
         .background(Color(UIColor.systemBackground))
         .cornerRadius(6)
+        
         .overlay(
           ZStack(alignment: .topTrailing) {
             RoundedRectangle(cornerRadius: 6)
@@ -207,6 +208,7 @@ struct AddNewCardView: View {
             }
 
           }
+          .accentColor(Color("SecondBaseColor"))
         )
         Spacer()
         HStack {
