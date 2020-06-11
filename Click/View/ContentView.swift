@@ -18,7 +18,6 @@ struct ContentView: View {
         TranslateView()
       }
         .navigationViewStyle(StackNavigationViewStyle())
-
         .tabItem {
           VStack {
             Image("translation")

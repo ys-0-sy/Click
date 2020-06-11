@@ -9,8 +9,7 @@
 import SwiftUI
 
 struct FlashCardView: View {
-  @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Card.id,
-                                                   ascending: true)], animation: .default) var cards: FetchedResults<Card>
+  var cards: FetchedResults<Card>
   @Environment(\.managedObjectContext) var viewContext
     var body: some View {
       ZStack {
@@ -23,8 +22,9 @@ struct FlashCardView: View {
     }
 }
 
-struct FlashCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        FlashCardView()
-    }
-}
+//struct FlashCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//      @State var cards = [Card()]
+//        FlashCardView()
+//    }
+//}

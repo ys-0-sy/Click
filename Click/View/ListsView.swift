@@ -23,6 +23,16 @@ struct ListsView: View {
   
   private static var persistentContainer: NSPersistentCloudKitContainer! = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
   
+  func duplicateEraser(array: FetchedResults<Card>) -> [String] {
+    var set = Set<String>()
+    _ = array.reduce(into: []) { tmp, element in
+      guard !set.contains(element.sourceLanguage) else { return }
+      set.insert(element.sourceLanguage)
+      tmp.append(element.sourceLanguage)
+    }
+    return Array(set)
+  }
+  
   init() {
     self.model = ListViewModel()
     self.viewModel = TranslateViewModel()
@@ -78,12 +88,12 @@ struct ListsView: View {
                     }) {
                       Text("All Languages")
                     }
-                    ForEach(Array(Set(self.cards)), id: \.self) { language in
+                    ForEach(self.duplicateEraser(array: self.cards), id: \.self) { language in
                       Button(action: {
-                        self.sourceLanguageSelection = language.sourceLanguage
+                        self.sourceLanguageSelection = language
                         self.viewModel.showSourceLanguageSelectionView = false
                       }) {
-                        Text(language.sourceLanguage)
+                        Text(language)
                       }
                     }
                   }
@@ -134,12 +144,12 @@ struct ListsView: View {
                        }) {
                          Text("All Languages")
                        }
-                      ForEach(self.cards, id: \.self) { card in
+                      ForEach(self.duplicateEraser(array: self.cards), id: \.self) { card in
                          Button(action: {
-                          self.targetLanguageSelection = card.translateLanguage
+                          self.targetLanguageSelection = card
                            self.viewModel.showTargetLanguageSelectionView = false
                          }) {
-                          Text(card.translateLanguage)
+                          Text(card)
                          }
                        }
                      }

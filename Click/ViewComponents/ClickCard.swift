@@ -22,13 +22,12 @@ struct ClickCard: View {
             Rectangle()
               .foregroundColor(cardColor)
               .frame(width: UIScreen.main.bounds.width * 0.9, height: 500, alignment: .center)
-              
-              .cornerRadius(8)
-            .border(Color.black)
-            
-              
-            Text(self.onCard ? card.sourceText : card.translateText)
-              .transition(.opacity)
+              .cornerRadius(8)            
+            VStack {
+              Text(self.onCard ? card.sourceLanguage : card.translateLanguage)
+              Text(self.onCard ? card.sourceText : card.translateText)
+                .transition(.opacity)
+            }
           }
           .offset(x: self.dragOffset.width)
           .scaleEffect(abs(dragOffset.width) > 100 ? 0.8 : 1)

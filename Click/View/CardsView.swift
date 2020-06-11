@@ -66,7 +66,7 @@ struct CardsView: View {
             }
             .accentColor(Color(.label))
             Spacer()
-            NavigationLink(destination: FlashCardView()) {
+            NavigationLink(destination: FlashCardView(cards: cards)) {
               VStack {
                 Image("Flash")
                   .resizable()
