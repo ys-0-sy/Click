@@ -23,7 +23,7 @@ struct ListsView: View {
   
   private static var persistentContainer: NSPersistentCloudKitContainer! = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
   
-  func duplicateEraser(array: FetchedResults<Card>) -> [String] {
+  func sourceDuplicateEraser(array: FetchedResults<Card>) -> [String] {
     var set = Set<String>()
     _ = array.reduce(into: []) { tmp, element in
       guard !set.contains(element.sourceLanguage) else { return }
@@ -32,6 +32,16 @@ struct ListsView: View {
     }
     return Array(set)
   }
+  
+  func targetDuplicateEraser(array: FetchedResults<Card>) -> [String] {
+     var set = Set<String>()
+     _ = array.reduce(into: []) { tmp, element in
+       guard !set.contains(element.translateLanguage) else { return }
+       set.insert(element.translateLanguage)
+       tmp.append(element.translateLanguage)
+     }
+     return Array(set)
+   }
   
   init() {
     self.model = ListViewModel()
@@ -88,7 +98,7 @@ struct ListsView: View {
                     }) {
                       Text("All Languages")
                     }
-                    ForEach(self.duplicateEraser(array: self.cards), id: \.self) { language in
+                    ForEach(self.sourceDuplicateEraser(array: self.cards), id: \.self) { language in
                       Button(action: {
                         self.sourceLanguageSelection = language
                         self.viewModel.showSourceLanguageSelectionView = false
@@ -144,7 +154,7 @@ struct ListsView: View {
                        }) {
                          Text("All Languages")
                        }
-                      ForEach(self.duplicateEraser(array: self.cards), id: \.self) { card in
+                      ForEach(self.targetDuplicateEraser(array: self.cards), id: \.self) { card in
                          Button(action: {
                           self.targetLanguageSelection = card
                            self.viewModel.showTargetLanguageSelectionView = false

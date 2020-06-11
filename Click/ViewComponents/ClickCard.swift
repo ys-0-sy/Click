@@ -9,26 +9,34 @@
 import SwiftUI
 
 struct ClickCard: View {
-  @ObservedObject var card: Card
+  var card: Card
+  var onRemove: (_ card: Card) -> Void
   @State private var onCard = true
   @State private var dragOffset = CGSize.zero
   @State private var degreeOffset:Double = 0
   @State private var cardColor = Color("SubColor")
-  
+
   var Colors = [Color("SubColor"), Color("SecondSubColor")]
+  
+  init(card: Card, onRemove: @escaping (_ card: Card) -> Void ) {
+    self.card = card
+    self.onRemove = onRemove
+  }
 
     var body: some View {
           ZStack {
             Rectangle()
               .foregroundColor(cardColor)
               .frame(width: UIScreen.main.bounds.width * 0.9, height: 500, alignment: .center)
-              .cornerRadius(8)            
+              .cornerRadius(8)
+              .shadow(radius: 5)
             VStack {
               Text(self.onCard ? card.sourceLanguage : card.translateLanguage)
               Text(self.onCard ? card.sourceText : card.translateText)
                 .transition(.opacity)
             }
           }
+          
           .offset(x: self.dragOffset.width)
           .scaleEffect(abs(dragOffset.width) > 100 ? 0.8 : 1)
           .rotation3DEffect(.degrees(self.onCard ? 180 : 1), axis: (x: 0, y: self.onCard ? 0 : 1, z: 0))
@@ -63,8 +71,10 @@ struct ClickCard: View {
             .onEnded { value in
               self.degreeOffset = 0
               if self.dragOffset.width > UIScreen.main.bounds.width / 2.5 {
+                self.onRemove(self.card)
                 self.dragOffset.width = CGFloat(500)
               } else if self.dragOffset.width < -UIScreen.main.bounds.width / 2.5 {
+                self.onRemove(self.card)
                 self.dragOffset.width = -500
               } else {
                 self.dragOffset = .zero
@@ -78,6 +88,6 @@ struct ClickCard: View {
 
 struct ClickCard_Previews: PreviewProvider {
     static var previews: some View {
-      ClickCard(card: Card.init())
+      ClickCard(card: Card.init(), onRemove: {_ in })
     }
 }

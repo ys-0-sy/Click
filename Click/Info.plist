@@ -11,7 +11,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleVersion</key>
-	<string>1862</string>
+	<string>1867</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>processing</string>
