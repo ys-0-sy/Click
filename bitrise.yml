@@ -1,0 +1,106 @@
+---
+format_version: '8'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: ios
+trigger_map:
+- push_branch: "*"
+  workflow: primary
+- push_branch: master
+  workflow: deploy
+- pull_request_source_branch: "*"
+  workflow: primary
+workflows:
+  primary:
+    steps:
+    - activate-ssh-key:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone: {}
+    - cache-pull: {}
+    - certificate-and-profile-installer: {}
+    - recreate-user-schemes:
+        inputs:
+        - project_path: "$BITRISE_PROJECT_PATH"
+    - script:
+        title: Do anything with Script step
+        inputs:
+        - is_debug: 'yes'
+        - content: |-
+            #!/bin/bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            # write your script here
+            #!/bin/sh
+
+            secretPath=$BITRISE_SOURCE_DIR/Click/Secret
+
+            cp $secretPath/keys.template.plist $secretPath/keys.plist
+            plutil -replace GoogleAPIKey -string $GOOGLE_API_KEY $secretPath/keys.plist
+
+            for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts
+    - xcode-test:
+        inputs:
+        - project_path: "$BITRISE_PROJECT_PATH"
+        - scheme: "$BITRISE_SCHEME"
+    - deploy-to-bitrise-io: {}
+    - cache-push: {}
+  deploy:
+    steps:
+    - activate-ssh-key:
+        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+    - git-clone: {}
+    - cache-pull: {}
+    - certificate-and-profile-installer: {}
+    - recreate-user-schemes:
+        inputs:
+        - project_path: "$BITRISE_PROJECT_PATH"
+        is_always_run: true
+    - script:
+        title: Do anything with Script step
+        inputs:
+        - is_debug: 'yes'
+        - content: |-
+            #!/bin/bash
+            # fail if any commands fails
+            set -e
+            # debug log
+            set -x
+
+            # write your script here
+            #!/bin/sh
+
+            secretPath=$BITRISE_SOURCE_DIR/Click/Secret
+
+            cp $secretPath/keys.template.plist $secretPath/keys.plist
+            plutil -replace GoogleAPIKey -string $GOOGLE_API_KEY $secretPath/keys.plist
+
+            for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts
+        is_always_run: true
+    - xcode-test@2:
+        inputs:
+        - project_path: "$BITRISE_PROJECT_PATH"
+        - scheme: "$BITRISE_SCHEME"
+    - ios-auto-provision@1: {}
+    - xcode-archive@2: {}
+    - deploy-to-bitrise-io: {}
+    - deploy-to-itunesconnect-deliver@2:
+        inputs:
+        - password: "$Applepassword"
+        - itunescon_user: "$AppleID"
+    - cache-push: {}
+    - git-tag-project-version-and-build-number@1:
+        inputs:
+        - bitrise_tag_info_plist_path: "$BITRISE_SOURCE_DIR/Memolation/Info.plist"
+app:
+  envs:
+  - BITRISE_PROJECT_PATH: Cl!ck.xcodeproj
+    opts:
+      is_expand: false
+  - opts:
+      is_expand: false
+    BITRISE_SCHEME: Cl!ck
+  - opts:
+      is_expand: false
+    BITRISE_EXPORT_METHOD: app-store

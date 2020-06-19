@@ -14,7 +14,7 @@ struct FlashCardView: View {
     var body: some View {
       ZStack {
         ForEach(cards) { card in
-          ClickCard(card: card)
+          ClickCard(card: card, onRemove: {_ in })
           .animation(.easeInOut)
         }
       }
