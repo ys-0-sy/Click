@@ -41,6 +41,7 @@
 		5B9698F32468260800A68E71 /* Card+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9698F12468260800A68E71 /* Card+CoreDataClass.swift */; };
 		5B9698F42468260800A68E71 /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9698F22468260800A68E71 /* Card+CoreDataProperties.swift */; };
 		5B9698F7246A693200A68E71 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9698F6246A693200A68E71 /* Extensions.swift */; };
+		5B9CEAAE24B08FF8005CEB56 /* CardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9CEAAD24B08FF8005CEB56 /* CardsViewModel.swift */; };
 		5BAD993F2459D129006A47B6 /* InfoPlistKeysModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BAD993E2459D129006A47B6 /* InfoPlistKeysModel.swift */; };
 		5BB362622432DF890065FD5D /* keys.template.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BB362612432DF890065FD5D /* keys.template.plist */; };
 		5BB7A56F245BBDC40020B47B /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB7A56E245BBDC40020B47B /* CardsView.swift */; };
@@ -122,6 +123,7 @@
 		5B9698F22468260800A68E71 /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		5B9698F52468353300A68E71 /* Click 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Click 2.xcdatamodel"; sourceTree = "<group>"; };
 		5B9698F6246A693200A68E71 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5B9CEAAD24B08FF8005CEB56 /* CardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewModel.swift; sourceTree = "<group>"; };
 		5BAD993E2459D129006A47B6 /* InfoPlistKeysModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPlistKeysModel.swift; sourceTree = "<group>"; };
 		5BB362612432DF890065FD5D /* keys.template.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = keys.template.plist; sourceTree = "<group>"; };
 		5BB7A56E245BBDC40020B47B /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 			children = (
 				5B6417512443393B003DCAAF /* TranslateViewModel.swift */,
 				5BF23E832459318A00724557 /* ListsViewModel.swift */,
+				5B9CEAAD24B08FF8005CEB56 /* CardsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				5B312DAF24509B8700B36DF4 /* DetectionLanguage.swift in Sources */,
 				5B0C97392484FA7B00C6852A /* InAppPurchaseView.swift in Sources */,
 				5B93C5802487DA3E0084BB22 /* CardCount+CoreDataProperties.swift in Sources */,
+				5B9CEAAE24B08FF8005CEB56 /* CardsViewModel.swift in Sources */,
 				5BE2EE68242DC0AA007BC85F /* CardView.swift in Sources */,
 				5BEB19B424581950000AC426 /* NSPersistentCloudKitContainer+Extensionswift.swift in Sources */,
 				5B0C973B24850AB600C6852A /* PurchaseView.swift in Sources */,
@@ -716,7 +720,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1869;
+				CURRENT_PROJECT_VERSION = 1881;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;
@@ -741,7 +745,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Cl!ck.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1869;
+				CURRENT_PROJECT_VERSION = 1881;
 				DEVELOPMENT_ASSET_PATHS = "Click/Preview\\ Content/Preview\\ Assets.xcassets";
 				DEVELOPMENT_TEAM = 7V98V7R7BG;
 				ENABLE_PREVIEWS = YES;

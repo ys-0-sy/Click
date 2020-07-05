@@ -53,7 +53,6 @@ final class TranslateViewModel: ObservableObject {
     loadUserdata()
     bind()
     apply(inputs: .fetchLanguages)
-
   }
   
   func apply(inputs: Inputs) {

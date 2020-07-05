@@ -39,16 +39,30 @@ extension Card: Identifiable {
     }
   }
   
-  static func fetchCards() -> [Card] {
-      let context = persistentContainer.viewContext
-      let cardsFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Card")
-
-      do {
-          let fetchedCards = try context.fetch(cardsFetch) as! [Card]
-          return fetchedCards
-      } catch {
-        fatalError("Failed to fetch employees: \(error)")
-      }
+  static func fetchAllCards() -> [Card]{
+    let context = persistentContainer.viewContext
+    let cardsFetch = NSFetchRequest<Card>(entityName: "Card")
+    do {
+      return try context.fetch(cardsFetch)
+    } catch {
+      fatalError("Failed to fetch Cards: \(error)")
+    }
+  }
+  
+  static func fetchPersons(onlyAfter isClicked: Bool) -> [Card] {
+      let predicate = NSPredicate(format: "isClicked == %@", isClicked)
+      return fetchCards(with: predicate)
+  }
+  
+  static func fetchCards(with predicate: NSPredicate) -> [Card]{
+    let context = persistentContainer.viewContext
+    let cardsFetch = NSFetchRequest<Card>(entityName: "Card")
+    cardsFetch.predicate = predicate
+    do {
+      return try context.fetch(cardsFetch)
+    } catch {
+      fatalError("Failed to fetch Cards: \(error)")
+    }
   }
 }
 

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct FlashCardView: View {
-  var cards: FetchedResults<Card>
+  var cards: [Card]
   @Environment(\.managedObjectContext) var viewContext
     var body: some View {
       ZStack {

@@ -9,21 +9,20 @@
 import SwiftUI
 
 struct CardsView: View {
-  @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \Card.id,
-                                                   ascending: true)], animation: .default) var cards: FetchedResults<Card>
-  @Environment(\.managedObjectContext) var viewContext
-  @State private var cardNum = 0
-  @State var isClicked = false
+  @ObservedObject var viewModel: CardsViewModel
+  init() {
+    viewModel = CardsViewModel()
+  }
     var body: some View {
       ScrollView(showsIndicators: false ){
       VStack {
         VStack{
           HStack {
             Spacer()
-            Text("Total: \(cardNum) Cards")
+            Text("Total: \(viewModel.cardNum) Cards")
             Spacer()
             Text("notClicked")
-            Toggle("", isOn: $isClicked)
+            Toggle("", isOn: $viewModel.isClicked)
              .labelsHidden()
           }
           .frame(width: UIScreen.main.bounds.width * 0.85)
@@ -66,7 +65,7 @@ struct CardsView: View {
             }
             .accentColor(Color(.label))
             Spacer()
-            NavigationLink(destination: FlashCardView(cards: cards)) {
+            NavigationLink(destination: FlashCardView(cards: self.viewModel.cards)) {
               VStack {
                 Image("Flash")
                   .resizable()
@@ -100,7 +99,7 @@ struct CardsView: View {
             .fontWeight(.semibold)
             .padding(.horizontal)
             .padding(.top)
-          ForEach(cards, id: \.self) { card in
+          ForEach(self.viewModel.cards, id: \.self) { card in
               ListView(card: card, width: UIScreen.main.bounds.width * 0.87)
                 .background(Color(.systemBackground))
                 .listRowInsets(EdgeInsets())
