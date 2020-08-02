@@ -11,15 +11,15 @@ import SwiftUI
 struct FlashCardView: View {
   var cards: [Card]
   @Environment(\.managedObjectContext) var viewContext
-    var body: some View {
-      ZStack {
-        ForEach(cards) { card in
-          ClickCard(card: card, onRemove: {_ in })
-          .animation(.easeInOut)
-        }
+  var body: some View {
+    ZStack {
+      ForEach(cards) { card in
+        ClickCard(card: card, onRemove: {_ in })
+        .animation(.easeInOut)
       }
-      .padding()
     }
+    .padding()
+  }
 }
 
 //struct FlashCardView_Previews: PreviewProvider {

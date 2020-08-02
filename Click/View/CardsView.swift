@@ -46,7 +46,7 @@ struct CardsView: View {
           .padding(.horizontal)
           .frame(width: UIScreen.main.bounds.width * 0.75)
           HStack {
-            NavigationLink(destination: EmptyView()) {
+            NavigationLink(destination: WriteCardView(cards: self.viewModel.cards)) {
               VStack {
                 Image("Write")
                   .resizable()
